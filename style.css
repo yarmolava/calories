@@ -1,0 +1,80 @@
+:root{
+  --bg:#f6f8fb;
+  --card:#ffffff;
+  --text:#1b2430;
+  --muted:#6b7280;
+  --accent:#6c5ce7; /* primary brand color — поменяй */
+  --accent-2:#00b894;
+  --radius:12px;
+  --shadow: 0 6px 20px rgba(27,36,48,0.08);
+  --maxw:900px;
+  --gap:14px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,var(--bg),#eef3ff 60%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{
+  max-width:var(--maxw);
+  margin:28px auto;
+  padding:20px;
+}
+
+header h1{margin:0;font-size:1.4rem}
+.subtitle{margin:6px 0 18px;color:var(--muted)}
+
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:16px;
+  box-shadow:var(--shadow);
+  margin-bottom:var(--gap);
+}
+
+.input-card .row{display:flex;gap:12px;flex-wrap:wrap}
+label{display:flex;flex-direction:column;font-size:0.9rem;color:var(--muted);flex:1;min-width:140px}
+label input, label select{
+  margin-top:8px;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #e6e9ef;
+  background:#fff;
+  font-size:1rem;
+  color:var(--text);
+  outline:none;
+}
+label.small{font-size:0.8rem}
+
+.row.small{align-items:end}
+.actions{display:flex;gap:10px;align-items:center}
+.btn{padding:10px 14px;border-radius:10px;border:1px solid transparent;background:#f3f4f6;cursor:pointer}
+.btn.primary{background:linear-gradient(90deg,var(--accent),#7f7af6);color:#fff;border:none;box-shadow:0 6px 18px rgba(108,92,231,0.18)}
+.btn:active{transform:translateY(1px)}
+
+.results-card .tabs{display:flex;gap:8px;margin-bottom:12px}
+.tab{padding:8px 12px;border-radius:10px;border:1px solid transparent;background:#f8fafc;cursor:pointer}
+.tab.active{background:linear-gradient(90deg,var(--accent),#7f7af6);color:#fff}
+
+.tab-content{display:none}
+.tab-content.active{display:block}
+.hidden{display:none}
+
+.note{color:var(--muted);margin-top:8px}
+
+.macro-tips{margin-top:10px;padding:10px;background:#fbfbff;border-radius:8px;border:1px solid #eef0ff;color:var(--muted)}
+
+.footer-card{display:flex;justify-content:center;color:var(--muted);font-size:0.85rem}
+
+@media (max-width:720px){
+  .container{padding:12px;margin:12px}
+  .row{flex-direction:column}
+  .actions{width:100%;}
+  .btn{width:100%}
+}
