@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Калькулятор калорий — Mifflin-St Jeor</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>Калькулятор нормы калорий</h1>
+      <p class="subtitle">По формуле Миффлина—Сан Жеора. Быстро, просто, адаптивно.</p>
+    </header>
+
+    <section class="card input-card">
+      <div class="row">
+        <label>Пол
+          <select id="gender">
+            <option value="female">Женский</option>
+            <option value="male">Мужской</option>
+          </select>
+        </label>
+
+        <label>Вес (кг)
+          <input id="weight" type="number" min="30" max="300" step="0.1" placeholder="kg">
+        </label>
+
+        <label>Рост (см)
+          <input id="height" type="number" min="100" max="230" step="0.1" placeholder="cm">
+        </label>
+
+        <label>Возраст (лет)
+          <input id="age" type="number" min="14" max="100" step="1" placeholder="age">
+        </label>
+      </div>
+
+      <div class="row">
+        <label>Активность
+          <select id="activity">
+            <option value="1.2">Сидячий образ (1.2)</option>
+            <option value="1.375">Лёгкая (1–3 тренировки/нед) (1.375)</option>
+            <option value="1.55">Умеренная (3–4) (1.55)</option>
+            <option value="1.725">Интенсивная (5–6) (1.725)</option>
+            <option value="1.9">Очень активный (проф.спорт) (1.9)</option>
+          </select>
+        </label>
+
+        <label>Цель
+          <select id="goal">
+            <option value="loss">Снижение (−20%)</option>
+            <option value="maintain">Поддержание</option>
+            <option value="gain">Набор (+15%)</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="row small">
+        <label>Белок, г/кг (по умолчанию верхняя граница)
+          <input id="proteinFactor" type="number" min="1" max="3" step="0.1" value="2.2">
+        </label>
+
+        <label>Доля жиров (% от калорий)
+          <input id="fatPercent" type="number" min="10" max="35" step="1" value="25">
+        </label>
+
+        <div class="actions">
+          <button id="calcBtn" class="btn primary">Рассчитать</button>
+          <button id="resetBtn" class="btn">Сброс</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="card results-card hidden">
+      <nav class="tabs">
+        <button class="tab active" data-target="summary">Итог</button>
+        <button class="tab" data-target="macros">БЖУ</button>
+      </nav>
+
+      <div id="summary" class="tab-content active">
+        <h2>Итоги</h2>
+        <p><strong>BMR:</strong> <span id="bmrVal">—</span> ккал/сутки</p>
+        <p><strong>TDEE (учёт активности):</strong> <span id="tdeeVal">—</span> ккал/сутки</p>
+        <p><strong>Калорийность для цели:</strong> <span id="goalCalVal">—</span> ккал/сутки</p>
+        <p id="note" class="note">Нажми вкладку «БЖУ», чтобы увидеть граммы и проценты.</p>
+      </div>
+
+      <div id="macros" class="tab-content">
+        <h2>БЖУ (по выбранной цели)</h2>
+        <p><strong>Белок:</strong> <span id="proteinGr">—</span> г (<span id="proteinPerc">—</span> ккал)</p>
+        <p><strong>Жиры:</strong> <span id="fatGr">—</span> г (<span id="fatPerc">—</span> ккал)</p>
+        <p><strong>Углеводы:</strong> <span id="carbGr">—</span> г (<span id="carbPerc">—</span> ккал)</p>
+        <div class="macro-tips">
+          <p><strong>Примечание:</strong> белок рассчитан по верхней границе (по умолчанию <span id="proteinFactorShow">2.2</span> г/кг). Можно уменьшить при необходимости.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="card footer-card">
+      <small>Формула: Mifflin—St Jeor. BMR = 10×вес + 6.25×рост − 5×возраст + (5 для мужчин / −161 для женщин).</small>
+    </footer>
+  </main>
+</body>
+</html>
