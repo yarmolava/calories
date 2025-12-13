@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Активность</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+
+  <h1>Выберите уровень<br>ежедневной активности</h1>
+
+  <div class="list">
+    <div onclick="setActivity(1.2)">😴 1.200 — минимальная</div>
+    <div onclick="setActivity(1.375)">🏓 1.375 — лёгкая</div>
+    <div onclick="setActivity(1.55)">🏋️ 1.550 — средняя</div>
+    <div onclick="setActivity(1.725)">🏈 1.725 — высокая</div>
+    <div onclick="setActivity(1.9)">🔥 1.900 — экстремальная</div>
+  </div>
+
+  <label class="manual">
+    <input type="checkbox" onchange="toggleManual(this)">
+    Укажу коэффициент вручную
+  </label>
+
+  <input id="manualValue" type="number" step="0.01" placeholder="Например 1.45" disabled>
+
+  <button onclick="goData()">Продолжить</button>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
