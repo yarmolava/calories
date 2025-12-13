@@ -2,17 +2,18 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Расчёт</title>
+  <title>Расчёт калорий</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="container">
 
   <h1>Внесите свои данные</h1>
 
-  <input id="age" type="number" placeholder="Возраст (лет)">
-  <input id="height" type="number" placeholder="Рост (см)">
-  <input id="weight" type="number" placeholder="Вес (кг)">
+  <input id="age" type="number" min="10" max="100" placeholder="Возраст (лет)">
+  <input id="height" type="number" min="120" max="220" placeholder="Рост (см)">
+  <input id="weight" type="number" min="30" max="200" placeholder="Вес (кг)">
 
   <button id="calculateBtn" disabled>
     Рассчитать норму калорий
