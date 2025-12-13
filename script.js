@@ -1,75 +1,86 @@
-// ---------- экран 1 ----------
-function selectGender(g) {
-  localStorage.setItem("gender", g);
-  document.getElementById("nextBtn").disabled = false;
+document.addEventListener("DOMContentLoaded", () => {
 
-  document.querySelectorAll('.card').forEach(c => c.classList.remove('selected'));
-  const card = document.querySelector(`.card[onclick="selectGender('${g}')"]`);
-  card.classList.add('selected');
-}
+  /* ---------- экран 1 ---------- */
+  const genderCards = document.querySelectorAll(".card[data-gender]");
+  const nextBtn = document.getElementById("nextBtn");
 
-function goNext() {
-  location.href = "activity.html";
-}
+  genderCards.forEach(card => {
+    card.addEventListener("click", () => {
+      genderCards.forEach(c => c.classList.remove("selected"));
+      card.classList.add("selected");
+      localStorage.setItem("gender", card.dataset.gender);
+      nextBtn.disabled = false;
+    });
+  });
+
+  if (nextBtn) {
+    nextBtn.onclick = () => location.href = "activity.html";
+  }
+
+  /* ---------- экран 2 ---------- */
+  const activityItems = document.querySelectorAll(".list div[data-activity]");
+  const manualCheck = document.getElementById("manualCheck");
+  const manualValue = document.getElementById("manualValue");
+  const activityNext = document.getElementById("activityNext");
+
+  activityItems.forEach(item => {
+    item.addEventListener("click", () => {
+      activityItems.forEach(i => i.classList.remove("selected"));
+      item.classList.add("selected");
+      localStorage.setItem("activity", item.dataset.activity);
+    });
+  });
+
+  if (manualCheck) {
+    manualCheck.onchange = () => {
+      manualValue.disabled = !manualCheck.checked;
+    };
+  }
+
+  if (activityNext) {
+    activityNext.onclick = () => {
+      if (!manualValue.disabled && manualValue.value) {
+        localStorage.setItem("activity", manualValue.value);
+      }
+      location.href = "data.html";
+    };
+  }
+
+  /* ---------- экран 3 ---------- */
+  const age = document.getElementById("age");
+  const height = document.getElementById("height");
+  const weight = document.getElementById("weight");
+  const calcBtn = document.getElementById("calculateBtn");
+  const result = document.getElementById("result");
+
+  if (age && height && weight && calcBtn) {
+    [age, height, weight].forEach(i =>
+      i.addEventListener("input", () => {
+        calcBtn.disabled = !(age.value && height.value && weight.value);
+      })
+    );
+
+    calcBtn.onclick = () => {
+      const g = localStorage.getItem("gender");
+      const a = +localStorage.getItem("activity");
+
+      const bmr =
+        g === "male"
+          ? 9.99 * weight.value + 6.25 * height.value - 4.92 * age.value + 5
+          : 9.99 * weight.value + 6.25 * height.value - 4.92 * age.value - 161;
+
+      const calories = Math.round(bmr * a);
+      const bmi = (weight.value / ((height.value / 100) ** 2)).toFixed(1);
+
+      result.innerHTML = `
+        <b>Ваша норма калорий:</b> ${calories} ккал<br>
+        <b>ИМТ:</b> ${bmi}
+      `;
+      result.classList.remove("hidden");
+    };
+  }
+});
 
 function toggleMethod() {
   document.getElementById("method").classList.toggle("hidden");
-}
-
-// ---------- экран 2 ----------
-function setActivity(v, element) {
-  localStorage.setItem("activity", v);
-
-  document.querySelectorAll('.list div').forEach(d => d.classList.remove('selected'));
-  element.classList.add('selected');
-}
-
-function toggleManual(cb) {
-  document.getElementById("manualValue").disabled = !cb.checked;
-}
-
-function goData() {
-  const manual = document.getElementById("manualValue");
-  if (!manual.disabled && manual.value) {
-    localStorage.setItem("activity", manual.value);
-  }
-  location.href = "data.html";
-}
-
-// ---------- экран 3 ----------
-function calculate() {
-  const age = +document.getElementById("age").value;
-  const height = +document.getElementById("height").value;
-  const weight = +document.getElementById("weight").value;
-
-  const gender = localStorage.getItem("gender");
-  const activity = +localStorage.getItem("activity");
-
-  let bmr =
-    gender === "male"
-      ? 9.99 * weight + 6.25 * height - 4.92 * age + 5
-      : 9.99 * weight + 6.25 * height - 4.92 * age - 161;
-
-  const calories = bmr * activity;
-  const bmi = weight / ((height / 100) ** 2);
-
-  document.getElementById("result").innerHTML = `
-    <b>Ваша норма калорий:</b> ${Math.round(calories)} ккал<br>
-    <b>ИМТ:</b> ${bmi.toFixed(1)}
-  `;
-  document.getElementById("result").classList.remove("hidden");
-}
-
-// ---------- блокировка кнопки рассчета ----------
-const ageInput = document.getElementById('age');
-const heightInput = document.getElementById('height');
-const weightInput = document.getElementById('weight');
-const calcBtn = document.getElementById('calculateBtn');
-
-if(ageInput && heightInput && weightInput && calcBtn) {
-  [ageInput, heightInput, weightInput].forEach(input => {
-    input.addEventListener('input', () => {
-      calcBtn.disabled = !(ageInput.value && heightInput.value && weightInput.value);
-    });
-  });
 }
