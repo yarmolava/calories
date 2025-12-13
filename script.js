@@ -4,17 +4,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const genderCards = document.querySelectorAll(".card[data-gender]");
   const nextBtn = document.getElementById("nextBtn");
 
-  genderCards.forEach(card => {
-    card.addEventListener("click", () => {
-      genderCards.forEach(c => c.classList.remove("selected"));
-      card.classList.add("selected");
-      localStorage.setItem("gender", card.dataset.gender);
-      nextBtn.disabled = false;
+  if (genderCards.length && nextBtn) {
+    genderCards.forEach(card => {
+      card.addEventListener("click", () => {
+        genderCards.forEach(c => c.classList.remove("selected"));
+        card.classList.add("selected");
+        localStorage.setItem("gender", card.dataset.gender);
+        nextBtn.disabled = false;
+      });
     });
-  });
 
-  if (nextBtn) {
-    nextBtn.onclick = () => location.href = "activity.html";
+    nextBtn.addEventListener("click", () => {
+      location.href = "activity.html";
+    });
   }
 
   /* ---------- экран 2 ---------- */
@@ -23,15 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const manualValue = document.getElementById("manualValue");
   const activityNext = document.getElementById("activityNext");
 
-  activityItems.forEach(item => {
-    item.addEventListener("click", () => {
-      activityItems.forEach(i => i.classList.remove("selected"));
-      item.classList.add("selected");
-      localStorage.setItem("activity", item.dataset.activity);
+  if (activityItems.length) {
+    activityItems.forEach(item => {
+      item.addEventListener("click", () => {
+        activityItems.forEach(i => i.classList.remove("selected"));
+        item.classList.add("selected");
+        localStorage.setItem("activity", item.dataset.activity);
+      });
     });
-  });
+  }
 
-  if (manualCheck) {
+  if (manualCheck && manualValue) {
     manualCheck.addEventListener("change", () => {
       manualValue.disabled = !manualCheck.checked;
     });
@@ -39,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (activityNext) {
     activityNext.addEventListener("click", () => {
-      if (!manualValue.disabled && manualValue.value) {
+      if (manualValue && !manualValue.disabled && manualValue.value) {
         localStorage.setItem("activity", manualValue.value);
       }
       location.href = "data.html";
@@ -53,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const calcBtn = document.getElementById("calculateBtn");
   const result = document.getElementById("result");
 
-  if (age && height && weight && calcBtn) {
+  if (age && height && weight && calcBtn && result) {
     [age, height, weight].forEach(input => {
       input.addEventListener("input", () => {
         calcBtn.disabled = !(age.value && height.value && weight.value);
@@ -82,5 +86,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function toggleMethod() {
-  document.getElementById("method").classList.toggle("hidden");
+  const methodEl = document.getElementById("method");
+  if (methodEl) {
+    methodEl.classList.toggle("hidden");
+  }
 }
