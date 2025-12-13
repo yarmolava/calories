@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
         activityItems.forEach(i => i.classList.remove("selected"));
         item.classList.add("selected");
         localStorage.setItem("activity", item.dataset.activity);
+
+        if (activityNext) activityNext.disabled = false; // включаем кнопку
       });
     });
   }
@@ -38,6 +40,13 @@ document.addEventListener("DOMContentLoaded", () => {
   if (manualCheck && manualValue) {
     manualCheck.addEventListener("change", () => {
       manualValue.disabled = !manualCheck.checked;
+      if (!manualValue.disabled) {
+        activityNext.disabled = !manualValue.value;
+      }
+    });
+
+    manualValue.addEventListener("input", () => {
+      if (activityNext) activityNext.disabled = !manualValue.value;
     });
   }
 
