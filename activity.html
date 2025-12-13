@@ -38,6 +38,48 @@
 
 </div>
 
-<script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const activityItems = document.querySelectorAll(".list div[data-activity]");
+  const manualCheck = document.getElementById("manualCheck");
+  const manualValue = document.getElementById("manualValue");
+  const activityNext = document.getElementById("activityNext");
+
+  // выбор из списка
+  if (activityItems.length && activityNext) {
+    activityItems.forEach(item => {
+      item.addEventListener("click", () => {
+        activityItems.forEach(i => i.classList.remove("selected"));
+        item.classList.add("selected");
+        localStorage.setItem("activity", item.dataset.activity);
+        activityNext.disabled = false;
+      });
+    });
+  }
+
+  // ручной ввод
+  if (manualCheck && manualValue && activityNext) {
+    manualCheck.addEventListener("change", () => {
+      manualValue.disabled = !manualCheck.checked;
+      activityNext.disabled = manualValue.disabled || !manualValue.value;
+    });
+
+    manualValue.addEventListener("input", () => {
+      activityNext.disabled = !manualValue.value;
+    });
+  }
+
+  // переход на следующую страницу
+  if (activityNext) {
+    activityNext.addEventListener("click", () => {
+      if (manualValue && !manualValue.disabled && manualValue.value) {
+        localStorage.setItem("activity", manualValue.value);
+      }
+      location.href = "data.html";
+    });
+  }
+});
+</script>
+
 </body>
 </html>
