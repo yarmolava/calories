@@ -26,6 +26,11 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,.1);
 }
 
+.selected {
+  border: 2px solid #5ba9b3;
+  box-shadow: 0 0 15px rgba(91,169,179,0.5);
+}
+
 button {
   width: 100%;
   padding: 15px;
