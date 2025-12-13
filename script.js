@@ -32,18 +32,18 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   if (manualCheck) {
-    manualCheck.onchange = () => {
+    manualCheck.addEventListener("change", () => {
       manualValue.disabled = !manualCheck.checked;
-    };
+    });
   }
 
   if (activityNext) {
-    activityNext.onclick = () => {
+    activityNext.addEventListener("click", () => {
       if (!manualValue.disabled && manualValue.value) {
         localStorage.setItem("activity", manualValue.value);
       }
       location.href = "data.html";
-    };
+    });
   }
 
   /* ---------- экран 3 ---------- */
@@ -54,22 +54,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const result = document.getElementById("result");
 
   if (age && height && weight && calcBtn) {
-    [age, height, weight].forEach(i =>
-      i.addEventListener("input", () => {
+    [age, height, weight].forEach(input => {
+      input.addEventListener("input", () => {
         calcBtn.disabled = !(age.value && height.value && weight.value);
-      })
-    );
+      });
+    });
 
-    calcBtn.onclick = () => {
-      const g = localStorage.getItem("gender");
-      const a = +localStorage.getItem("activity");
+    calcBtn.addEventListener("click", () => {
+      const gender = localStorage.getItem("gender");
+      const activity = +localStorage.getItem("activity");
 
       const bmr =
-        g === "male"
+        gender === "male"
           ? 9.99 * weight.value + 6.25 * height.value - 4.92 * age.value + 5
           : 9.99 * weight.value + 6.25 * height.value - 4.92 * age.value - 161;
 
-      const calories = Math.round(bmr * a);
+      const calories = Math.round(bmr * activity);
       const bmi = (weight.value / ((height.value / 100) ** 2)).toFixed(1);
 
       result.innerHTML = `
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <b>ИМТ:</b> ${bmi}
       `;
       result.classList.remove("hidden");
-    };
+    });
   }
 });
 
