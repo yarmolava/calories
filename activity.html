@@ -2,30 +2,39 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Активность</title>
+  <title>Уровень активности</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <div class="container">
 
   <h1>Выберите уровень<br>ежедневной активности</h1>
 
-  <div class="list">
-    <div data-activity="1.2">😴 1.200 — минимальная</div>
-    <div data-activity="1.375">🏓 1.375 — лёгкая</div>
-    <div data-activity="1.55">🏋️ 1.550 — средняя</div>
-    <div data-activity="1.725">🏈 1.725 — высокая</div>
-    <div data-activity="1.9">🔥 1.900 — экстремальная</div>
+  <div class="list" id="activityList">
+    <div class="activity-item" data-activity="1.2">😴 1.2 — минимальная</div>
+    <div class="activity-item" data-activity="1.375">🏓 1.375 — лёгкая</div>
+    <div class="activity-item" data-activity="1.55">🏋️ 1.55 — средняя</div>
+    <div class="activity-item" data-activity="1.725">🏈 1.725 — высокая</div>
+    <div class="activity-item" data-activity="1.9">🔥 1.9 — экстремальная</div>
   </div>
 
   <label class="manual">
     <input type="checkbox" id="manualCheck">
-    Укажу коэффициент вручную
+    Указать коэффициент вручную
   </label>
 
-  <input id="manualValue" type="number" step="0.01" placeholder="Например 1.45" disabled>
+  <input
+    id="manualValue"
+    type="number"
+    step="0.01"
+    min="1"
+    max="2.5"
+    placeholder="Например 1.45"
+    disabled
+  >
 
-  <button id="activityNext">Продолжить</button>
+  <button id="activityNext" disabled>Продолжить</button>
 
 </div>
 
