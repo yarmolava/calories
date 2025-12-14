@@ -1,102 +1,100 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* ---------- экран 1 ---------- */
-  const genderCards = document.querySelectorAll(".card[data-gender]");
-  const nextBtn = document.getElementById("nextBtn");
-
-  if (genderCards.length && nextBtn) {
-    genderCards.forEach(card => {
-      card.addEventListener("click", () => {
-        genderCards.forEach(c => c.classList.remove("selected"));
-        card.classList.add("selected");
-        localStorage.setItem("gender", card.dataset.gender);
-        nextBtn.disabled = false;
-      });
-    });
-
-    nextBtn.addEventListener("click", () => {
-      location.href = "activity.html";
-    });
-  }
-
-  /* ---------- экран 2 ---------- */
-  const activityItems = document.querySelectorAll(".list div[data-activity]");
+  /* экран 2 — активность */
+  const activityItems = document.querySelectorAll(".activity-item");
   const manualCheck = document.getElementById("manualCheck");
   const manualValue = document.getElementById("manualValue");
   const activityNext = document.getElementById("activityNext");
 
-  if (activityItems.length) {
+  if (activityItems.length && activityNext) {
     activityItems.forEach(item => {
       item.addEventListener("click", () => {
         activityItems.forEach(i => i.classList.remove("selected"));
         item.classList.add("selected");
         localStorage.setItem("activity", item.dataset.activity);
-
-        if (activityNext) activityNext.disabled = false; // включаем кнопку
+        activityNext.disabled = false;
       });
     });
   }
 
-  if (manualCheck && manualValue) {
+  if (manualCheck && manualValue && activityNext) {
     manualCheck.addEventListener("change", () => {
       manualValue.disabled = !manualCheck.checked;
-      if (!manualValue.disabled) {
-        activityNext.disabled = !manualValue.value;
-      }
+      activityNext.disabled = !manualValue.value;
     });
 
     manualValue.addEventListener("input", () => {
-      if (activityNext) activityNext.disabled = !manualValue.value;
+      activityNext.disabled = !manualValue.value;
     });
   }
 
   if (activityNext) {
-    activityNext.addEventListener("click", () => {
-      if (manualValue && !manualValue.disabled && manualValue.value) {
+    activityNext.onclick = () => {
+      if (!manualValue.disabled && manualValue.value) {
         localStorage.setItem("activity", manualValue.value);
       }
       location.href = "data.html";
-    });
+    };
   }
 
-  /* ---------- экран 3 ---------- */
+  /* экран 3 — данные + цель */
   const age = document.getElementById("age");
   const height = document.getElementById("height");
   const weight = document.getElementById("weight");
-  const calcBtn = document.getElementById("calculateBtn");
+  const goals = document.querySelectorAll("input[name='goal']");
+  const dataNext = document.getElementById("dataNext");
+
+  if (age && height && weight && goals.length && dataNext) {
+    const check = () => {
+      const goalSelected = [...goals].some(g => preventDefault=false||g.checked);
+      dataNext.disabled = !(age.value && height.value && weight.value && goalSelected);
+    };
+
+    [age, height, weight].forEach(i => i.addEventListener("input", check));
+    goals.forEach(g => g.addEventListener("change", check));
+
+    dataNext.onclick = () => {
+      const goal = [...goals].find(g => g.checked).value;
+      localStorage.setItem("goal", goal);
+      localStorage.setItem("age", age.value);
+      localStorage.setItem("height", height.value);
+      localStorage.setItem("weight", weight.value);
+      location.href = "result.html";
+    };
+  }
+
+  /* экран 4 — результат */
   const result = document.getElementById("result");
+  if (result) {
+    const w = +localStorage.getItem("weight");
+    const h = +localStorage.getItem("height");
+    const a = +localStorage.getItem("age");
+    const act = +localStorage.getItem("activity");
+    const goal = localStorage.getItem("goal");
+    const gender = localStorage.getItem("gender");
 
-  if (age && height && weight && calcBtn && result) {
-    [age, height, weight].forEach(input => {
-      input.addEventListener("input", () => {
-        calcBtn.disabled = !(age.value && height.value && weight.value);
-      });
-    });
+    let bmr =
+      gender === "male"
+        ? 9.99 * w + 6.25 * h - 4.92 * a + 5
+        : 9.99 * w + 6.25 * h - 4.92 * a - 161;
 
-    calcBtn.addEventListener("click", () => {
-      const gender = localStorage.getItem("gender");
-      const activity = +localStorage.getItem("activity");
+    let calories = bmr * act;
+    if (goal === "lose") calories *= 0.85;
+    if (goal === "gain") calories *= 1.12;
 
-      const bmr =
-        gender === "male"
-          ? 9.99 * weight.value + 6.25 * height.value - 4.92 * age.value + 5
-          : 9.99 * weight.value + 6.25 * height.value - 4.92 * age.value - 161;
+    calories = Math.round(calories);
 
-      const calories = Math.round(bmr * activity);
-      const bmi = (weight.value / ((height.value / 100) ** 2)).toFixed(1);
+    result.innerHTML = `
+      <h2>Ваша норма калорий: ${calories} в день</h2>
 
-      result.innerHTML = `
-        <b>Ваша норма калорий:</b> ${calories} ккал<br>
-        <b>ИМТ:</b> ${bmi}
-      `;
-      result.classList.remove("hidden");
-    });
+      <h3>Белки</h3>
+      ${Math.round(w * 1.6)}–${Math.round(w * 2.2)} г
+
+      <h3>Углеводы</h3>
+      ${Math.round(calories * 0.5 / 4)}–${Math.round(calories * 0.6 / 4)} г
+
+      <h3>Жиры</h3>
+      ${Math.round(calories * 0.2 / 9)}–${Math.round(calories * 0.35 / 9)} г
+    `;
   }
 });
-
-function toggleMethod() {
-  const methodEl = document.getElementById("method");
-  if (methodEl) {
-    methodEl.classList.toggle("hidden");
-  }
-}
