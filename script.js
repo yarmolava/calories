@@ -137,9 +137,14 @@ document.addEventListener("DOMContentLoaded", () => {
       <p>** Предпочтение отдавайте разнообразным источникам жиров: авокадо, оливковое масло, орехи и др.</p>
     `;
   }
-});
 
-function toggleMethod() {
-  const methodEl = document.getElementById("method");
-  if (methodEl) methodEl.classList.toggle("hidden");
-}
+  /* ---------- раскрытие методики ---------- */
+  const toggleBtn = document.getElementById("toggleMethod");
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      const methodEl = document.getElementById("method");
+      if (methodEl) methodEl.classList.toggle("hidden");
+    });
+  }
+
+});
