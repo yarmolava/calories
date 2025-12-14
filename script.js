@@ -32,19 +32,44 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ====== ACTIVITY ====== */
   const activityItems = document.querySelectorAll(".activity-item");
   const activityNext = document.getElementById("activityNext");
+  const manualBtn = document.getElementById("manualActivityBtn");
+  const manualInput = document.getElementById("manualActivityInput");
 
   if (activityItems.length && activityNext) {
     let activity = null;
 
+    const selectActivity = (value, element) => {
+      activityItems.forEach(i => i.classList.remove("selected"));
+      if (element) element.classList.add("selected");
+      activity = value;
+      localStorage.setItem("activity", activity);
+      activityNext.disabled = !activity;
+    };
+
     activityItems.forEach(item => {
       item.addEventListener("click", () => {
-        activityItems.forEach(i => i.classList.remove("selected"));
-        item.classList.add("selected");
-        activity = item.dataset.activity;
-        localStorage.setItem("activity", activity);
-        activityNext.disabled = false;
+        selectActivity(item.dataset.activity, item);
+        if (manualInput) manualInput.value = "";
       });
     });
+
+    if (manualBtn && manualInput) {
+      manualBtn.addEventListener("click", () => {
+        manualInput.classList.toggle("hidden");
+        manualInput.focus();
+      });
+
+      manualInput.addEventListener("input", () => {
+        const val = parseFloat(manualInput.value.replace(",", "."));
+        if (!isNaN(val) && val > 0) {
+          selectActivity(val, null);
+          activityNext.disabled = false;
+          activityItems.forEach(i => i.classList.remove("selected"));
+        } else {
+          activityNext.disabled = true;
+        }
+      });
+    }
 
     activityNext.addEventListener("click", () => {
       if (activity) window.location.href = "data.html";
@@ -59,14 +84,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const dataNext = document.getElementById("dataNext");
 
   if (age && height && weight && dataNext) {
-
     const validate = () => {
       const valid =
         age.value > 0 &&
         height.value > 0 &&
         weight.value > 0 &&
         [...goals].some(g => g.checked);
-
       dataNext.disabled = !valid;
     };
 
