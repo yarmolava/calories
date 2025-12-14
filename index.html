@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Calculator by Yarmolava</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    .first-page h1 {
-      font-weight: 700;
-      text-align: center;
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    .first-page p {
-      font-weight: 400;
-      font-size: 20px;
-      text-align: justify;
-      margin-bottom: 20px;
-    }
-
-    .first-page .contacts p {
-      text-align: left;
-      font-size: 18px;
-      margin: 5px 0;
-    }
-
-    .first-page button {
-      width: 100%;
-      padding: 15px;
-      background: #5ba9b3;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Calculator by Yarmolava</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  .first-page h1 {
+    font-weight: 700;
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  .first-page p {
+    font-weight: 400;
+    font-size: 20px;
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+  .first-page .contacts p {
+    text-align: left;
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  .first-page .contacts a {
+    color: #5ba9b3;
+    text-decoration: none;
+  }
+  .first-page .contacts a:hover {
+    text-decoration: underline;
+  }
+  .first-page button {
+    width: 100%;
+    padding: 15px;
+    background: #5ba9b3;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
-
 <div class="container first-page">
   <h1>Calculator by Yarmolava</h1>
 
@@ -46,12 +49,11 @@
 
   <div class="contacts">
     <p>Оставайся на связи:</p>
-    <p>Instagram: @yarmolava</p>
-    <p>Telegram: t.me/yarmolava</p>
+    <p>Instagram: <a href="https://www.instagram.com/yarmolava" target="_blank">@yarmolava</a></p>
+    <p>Telegram: <a href="https://t.me/yarmolava" target="_blank">t.me/yarmolava</a></p>
   </div>
 
   <button onclick="window.location.href='gender.html'">Старт</button>
 </div>
-
 </body>
 </html>
