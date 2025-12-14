@@ -1,6 +1,25 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* экран активности */
+  /* ---------- экран 1: выбор пола ---------- */
+  const genderCards = document.querySelectorAll(".card[data-gender]");
+  const nextBtn = document.getElementById("nextBtn");
+
+  if (genderCards.length && nextBtn) {
+    genderCards.forEach(card => {
+      card.addEventListener("click", () => {
+        genderCards.forEach(c => c.classList.remove("selected"));
+        card.classList.add("selected");
+        localStorage.setItem("gender", card.dataset.gender);
+        nextBtn.disabled = false;
+      });
+    });
+
+    nextBtn.addEventListener("click", () => {
+      location.href = "activity.html";
+    });
+  }
+
+  /* ---------- экран 2: выбор активности ---------- */
   const activityItems = document.querySelectorAll(".activity-item");
   const manualCheck = document.getElementById("manualCheck");
   const manualValue = document.getElementById("manualValue");
@@ -15,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (manualCheck) manualCheck.checked = false;
         if (manualValue) manualValue.disabled = true;
-
         activityNext.disabled = false;
       });
     });
@@ -42,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* экран данных */
+  /* ---------- экран 3: ввод данных ---------- */
   const age = document.getElementById("age");
   const height = document.getElementById("height");
   const weight = document.getElementById("weight");
@@ -50,13 +68,13 @@ document.addEventListener("DOMContentLoaded", () => {
   const dataNext = document.getElementById("dataNext");
 
   if (age && height && weight && goals.length && dataNext) {
-    const check = () => {
+    const validate = () => {
       const goalSelected = [...goals].some(g => g.checked);
       dataNext.disabled = !(age.value && height.value && weight.value && goalSelected);
     };
 
-    [age, height, weight].forEach(i => i.addEventListener("input", check));
-    goals.forEach(g => g.addEventListener("change", check));
+    [age, height, weight].forEach(i => i.addEventListener("input", validate));
+    goals.forEach(g => g.addEventListener("change", validate));
 
     dataNext.onclick = () => {
       const goal = [...goals].find(g => g.checked).value;
@@ -68,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  /* экран результата */
+  /* ---------- экран 4: результат ---------- */
   const result = document.getElementById("result");
   if (result) {
     const w = +localStorage.getItem("weight");
@@ -77,12 +95,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const act = +localStorage.getItem("activity");
     const goal = localStorage.getItem("goal");
 
-    let bmr = 10 * w + 6.25 * h - 5 * a - 161;
-    let calories = bmr * act;
+    if (!w || !h || !a || !act || !goal) return;
 
+    let bmr = 10 * w + 6.25 * h - 5 * a - 161;
+    if (localStorage.getItem("gender") === "male") bmr += 166;
+
+    let calories = bmr * act;
     if (goal === "lose") calories *= 0.85;
     if (goal === "gain") calories *= 1.12;
-
     calories = Math.round(calories);
 
     const proteinMin = Math.round(w * 1.6);
