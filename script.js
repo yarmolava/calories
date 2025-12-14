@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
         activityItems.forEach(i => i.classList.remove("selected"));
         item.classList.add("selected");
         localStorage.setItem("activity", item.dataset.activity);
-
         if (manualCheck) manualCheck.checked = false;
         if (manualValue) manualValue.disabled = true;
         activityNext.disabled = false;
@@ -42,7 +41,11 @@ document.addEventListener("DOMContentLoaded", () => {
   if (manualCheck && manualValue && activityNext) {
     manualCheck.addEventListener("change", () => {
       manualValue.disabled = !manualCheck.checked;
-      activityNext.disabled = manualCheck.checked && !manualValue.value;
+      if (manualCheck.checked) {
+        activityNext.disabled = !manualValue.value;
+      } else {
+        activityNext.disabled = !localStorage.getItem("activity");
+      }
     });
 
     manualValue.addEventListener("input", () => {
@@ -76,14 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
     [age, height, weight].forEach(i => i.addEventListener("input", validate));
     goals.forEach(g => g.addEventListener("change", validate));
 
-    dataNext.onclick = () => {
+    dataNext.addEventListener("click", () => {
       const goal = [...goals].find(g => g.checked).value;
       localStorage.setItem("age", age.value);
       localStorage.setItem("height", height.value);
       localStorage.setItem("weight", weight.value);
       localStorage.setItem("goal", goal);
       location.href = "result.html";
-    };
+    });
   }
 
   /* ---------- экран 4: результат ---------- */
@@ -94,11 +97,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const a = +localStorage.getItem("age");
     const act = +localStorage.getItem("activity");
     const goal = localStorage.getItem("goal");
+    const gender = localStorage.getItem("gender");
 
-    if (!w || !h || !a || !act || !goal) return;
+    if (!w || !h || !a || !act || !goal || !gender) return;
 
-    let bmr = 10 * w + 6.25 * h - 5 * a - 161;
-    if (localStorage.getItem("gender") === "male") bmr += 166;
+    let bmr = gender === "male"
+      ? 10 * w + 6.25 * h - 5 * a + 5
+      : 10 * w + 6.25 * h - 5 * a - 161;
 
     let calories = bmr * act;
     if (goal === "lose") calories *= 0.85;
@@ -132,5 +137,9 @@ document.addEventListener("DOMContentLoaded", () => {
       <p>** Предпочтение отдавайте разнообразным источникам жиров: авокадо, оливковое масло, орехи и др.</p>
     `;
   }
-
 });
+
+function toggleMethod() {
+  const methodEl = document.getElementById("method");
+  if (methodEl) methodEl.classList.toggle("hidden");
+}
