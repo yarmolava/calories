@@ -1,40 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Уровень активности</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body { font-family: 'Manrope', sans-serif; }
-    .container { max-width: 500px; margin: auto; padding: 30px; text-align: center; }
-    .activity-item { background: white; margin: 10px 0; padding: 15px; border-radius: 10px; cursor: pointer; font-weight: 400; }
-    .activity-item b { font-weight: 700; font-size: 20px; display: block; margin-bottom: 5px; }
-    .selected { border: 2px solid #5ba9b3; }
-    #activityNext, #manualActivityBtn { width: 100%; padding: 15px; margin-top: 15px; background: #5ba9b3; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; }
-    #manualActivityInput { width: 100%; padding: 12px; margin-top: 10px; display: none; }
-    .info { font-size: 14px; margin-top: 15px; color: #333; }
-  </style>
+<meta charset="UTF-8">
+<title>Уровень активности</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body { font-family: 'Manrope', sans-serif; }
+.container { max-width:500px; margin:auto; padding:30px; }
+h1 { font-size:25px; text-align:center; margin-bottom:20px; font-weight:700; }
+.list .activity-item { background:white; margin:10px 0; padding:15px; border-radius:10px; cursor:pointer; font-weight:400; line-height:1.5; }
+.list .activity-item b { font-weight:700; font-size:20px; display:block; margin-bottom:5px; }
+.selected { border:2px solid #5ba9b3; }
+#activityNext { width:100%; padding:15px; margin-top:15px; background:#5ba9b3; color:white; border:none; border-radius:8px; font-size:16px; cursor:pointer; font-weight:700; }
+#manualActivityInput { width:100%; padding:12px; margin-top:10px; display:none; }
+.info { font-size:14px; margin-bottom:10px; text-align:left; color:#333; }
+</style>
 </head>
 <body>
-
 <div class="container">
   <h1>Выберите уровень<br>ежедневной активности</h1>
-
+  <p class="info">💡 Считаются только тренировки в зале/дома. Обычная ходьба и бытовая активность не учитываются.</p>
   <div class="list">
     <div class="activity-item" data-activity="1.2"><b>1.200</b>Без тренировок, сидячая работа</div>
     <div class="activity-item" data-activity="1.375"><b>1.375</b>1-3 тренировки в неделю</div>
     <div class="activity-item" data-activity="1.55"><b>1.550</b>4-5 тренировок в неделю</div>
     <div class="activity-item" data-activity="1.725"><b>1.725</b>6-7 тренировок в неделю + активная работа</div>
   </div>
-
-  <button id="manualActivityBtn">Указать коэффициент вручную</button>
+  <label><input type="checkbox" id="manualActivityCheckbox"> Указать коэффициент вручную</label>
   <input type="number" step="0.01" min="0" id="manualActivityInput" placeholder="Введите коэффициент">
-
   <button id="activityNext" disabled>Продолжить</button>
-
-  <div class="info">💡 Считаются только тренировки в зале/дома. Обычная ходьба и бытовая активность не учитываются.</div>
 </div>
-
 <script src="script.js"></script>
 </body>
 </html>
