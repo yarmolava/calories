@@ -2,6 +2,7 @@ body {
   font-family: sans-serif;
   background: #f6f8f9;
   margin: 0;
+  line-height: 1.6;
 }
 
 .container {
@@ -40,6 +41,7 @@ button {
   border: none;
   border-radius: 8px;
   font-size: 16px;
+  cursor: pointer;
 }
 
 input {
@@ -54,6 +56,7 @@ input {
   padding: 15px;
   border-radius: 10px;
   cursor: pointer;
+  text-align: left;
 }
 
 .link {
@@ -66,19 +69,31 @@ input {
   display: none;
 }
 
-/* Выравнивание текста методики */
-#method {
-  text-align: left;
+/* --- Специально для страницы результатов --- */
+#result {
+  text-align: justify;
+}
+
+#result h2, #result h3 {
+  text-align: center;
   margin-top: 20px;
-  line-height: 1.5;
 }
 
-#method ul {
-  padding-left: 20px;
-  margin: 10px 0;
+#result p {
+  text-align: justify;
+  margin: 6px 0;
 }
 
-#method li {
-  text-align: left;
-  margin-bottom: 5px;
+#result p strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+#result p::before {
+  /* убираем лишние отступы у подпунктов */
+  content: '';
+}
+
+#result p:first-child {
+  margin-top: 0;
 }
