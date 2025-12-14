@@ -1,8 +1,11 @@
+/* ---------- Подключение шрифтов ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap');
+
 body {
-  font-family: sans-serif;
+  font-family: 'Manrope', sans-serif;
   background: #f6f8f9;
   margin: 0;
-  line-height: 1.6;
+  color: #111;
 }
 
 .container {
@@ -44,10 +47,11 @@ button {
   cursor: pointer;
 }
 
-input {
+input[type="number"] {
   width: 100%;
   padding: 12px;
   margin-top: 12px;
+  box-sizing: border-box;
 }
 
 .list div {
@@ -69,31 +73,40 @@ input {
   display: none;
 }
 
-/* --- Специально для страницы результатов --- */
-#result {
-  text-align: justify;
+/* ---------- Последняя страница ---------- */
+#result h2 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
-#result h2, #result h3 {
-  text-align: center;
+#result h3 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
   margin-top: 20px;
+  margin-bottom: 8px;
+  text-align: left;
 }
 
 #result p {
-  text-align: justify;
-  margin: 6px 0;
+  text-align: left;
+  margin: 4px 0;
+  line-height: 1.5;
 }
 
-#result p strong {
-  display: block;
-  margin-bottom: 4px;
+.bold-center {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
-#result p::before {
-  /* убираем лишние отступы у подпунктов */
-  content: '';
-}
-
-#result p:first-child {
-  margin-top: 0;
+.alert {
+  margin-top: 20px;
+  text-align: left;
+  line-height: 1.5;
 }
