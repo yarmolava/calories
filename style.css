@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Roboto+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
 
 body {
   font-family: 'Manrope', sans-serif;
@@ -7,13 +7,12 @@ body {
 }
 
 .container {
-  max-width: 500px;
+  max-width: 520px;
   margin: auto;
-  padding: 30px;
+  padding: 32px;
 }
 
-h1, h2, h3, .bold {
-  font-family: 'Roboto Condensed', sans-serif;
+h1, h2, h3 {
   font-weight: 700;
 }
 
@@ -41,6 +40,20 @@ h1, h2, h3, .bold {
   border: 2px solid #5ba9b3;
 }
 
+.list .activity-item {
+  background: white;
+  margin: 12px 0;
+  padding: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.list .activity-item strong {
+  font-weight: 700;
+  font-size: 16px;
+}
+
 button {
   width: 100%;
   padding: 15px;
@@ -52,53 +65,34 @@ button {
   font-size: 16px;
 }
 
+button:disabled {
+  opacity: 0.5;
+}
+
+.secondary {
+  background: transparent;
+  color: #5ba9b3;
+  border: 1px solid #5ba9b3;
+}
+
 input[type="number"] {
   width: 100%;
   padding: 12px;
   margin-top: 12px;
 }
 
-.list div {
-  background: white;
-  margin: 10px 0;
-  padding: 15px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.goal-group {
-  text-align: left;
-  margin-top: 15px;
-}
-
 .goal-group label {
   display: block;
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
-.result-main {
-  text-align: center;
-  font-family: 'Roboto Condensed', sans-serif;
-  font-size: 20px;
-  margin-bottom: 30px;
+.hint {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #444;
 }
 
-.bju-block {
-  text-align: left;
-  margin-bottom: 35px;
-}
-
-.bju-block p {
-  margin: 6px 0;
-}
-
-.bju-title {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
-  margin-bottom: 8px;
-}
-
-.alert {
-  margin-top: 30px;
-  line-height: 1.6;
+.hidden {
+  display: none;
 }
