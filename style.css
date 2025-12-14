@@ -1,15 +1,13 @@
-/* ---------- Подключение шрифтов ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&family=Roboto+Condensed:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Roboto+Condensed:wght@700&display=swap');
 
 body {
   font-family: 'Manrope', sans-serif;
   background: #f6f8f9;
   margin: 0;
-  color: #111;
 }
 
 .container {
-  max-width: 420px;
+  max-width: 500px;
   margin: auto;
   padding: 30px;
   text-align: center;
@@ -28,6 +26,8 @@ body {
   cursor: pointer;
   width: 120px;
   box-shadow: 0 4px 10px rgba(0,0,0,.1);
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
 }
 
 .selected {
@@ -44,23 +44,25 @@ button {
   border: none;
   border-radius: 8px;
   font-size: 16px;
-  cursor: pointer;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
 }
 
-input[type="number"] {
+input {
   width: 100%;
   padding: 12px;
   margin-top: 12px;
-  box-sizing: border-box;
+  font-family: 'Manrope', sans-serif;
 }
 
-.list div {
+.list div, .activity-item {
   background: white;
   margin: 10px 0;
   padding: 15px;
   border-radius: 10px;
   cursor: pointer;
   text-align: left;
+  font-family: 'Manrope', sans-serif;
 }
 
 .link {
@@ -73,40 +75,20 @@ input[type="number"] {
   display: none;
 }
 
-/* ---------- Последняя страница ---------- */
 #result h2 {
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 700;
-  font-size: 20px;
-  margin-bottom: 20px;
   text-align: center;
 }
 
-#result h3 {
-  font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 700;
-  font-size: 18px;
-  margin-top: 20px;
-  margin-bottom: 8px;
-  text-align: left;
+#result p, #result div {
+  font-family: 'Manrope', sans-serif;
+  text-align: justify;
+  margin: 5px 0;
 }
 
-#result p {
-  text-align: left;
-  margin: 4px 0;
-  line-height: 1.5;
-}
-
-.bold-center {
-  font-family: 'Roboto Condensed', sans-serif;
+#result .bzu {
   font-weight: 700;
   text-align: center;
-  font-size: 18px;
   margin-bottom: 20px;
-}
-
-.alert {
-  margin-top: 20px;
-  text-align: left;
-  line-height: 1.5;
 }
