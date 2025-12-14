@@ -4,11 +4,120 @@
   <meta charset="UTF-8">
   <title>Результаты</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Manrope', sans-serif;
+      background: #f6f8f9;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .bold-center {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 20px;
+      line-height: 1.8;
+      font-size: 18px;
+    }
+
+    .bju-section {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .bju-section p {
+      margin: 5px 0;
+    }
+
+    .bju-section p span {
+      font-weight: 700;
+      font-family: 'Roboto Condensed', sans-serif;
+    }
+
+    .bju-section .item {
+      margin-left: 0;
+    }
+
+    .bju-section .item p {
+      margin-left: 20px;
+    }
+
+    .alert {
+      font-family: 'Manrope', sans-serif;
+      text-align: center;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+  </style>
 </head>
 <body>
 
 <div class="container" id="result"></div>
 
-<script src="script.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const result = document.getElementById("result");
+  if (result) {
+    const w = +localStorage.getItem("weight");
+    const h = +localStorage.getItem("height");
+    const a = +localStorage.getItem("age");
+    const act = +localStorage.getItem("activity");
+    const goal = localStorage.getItem("goal");
+    const gender = localStorage.getItem("gender");
+
+    if (!w || !h || !a || !act || !goal || !gender) return;
+
+    let bmr = gender === "male"
+      ? 10 * w + 6.25 * h - 5 * a + 5
+      : 10 * w + 6.25 * h - 5 * a - 161;
+
+    let calories = Math.round(bmr * act);
+    if (goal === "lose") calories = Math.round(calories * 0.85);
+    if (goal === "gain") calories = Math.round(calories * 1.12);
+
+    const protein = Math.round(w * 2.0); // верхняя граница
+    const fat = Math.round(calories * 0.25 / 9); // 25% калорий на жир
+    const carbs = Math.round((calories - (protein*4 + fat*9))/4); // остаток на углеводы
+
+    result.innerHTML = `
+      <div class="bold-center">
+        Твоя норма калорий: ${calories} ккал в день<br>
+        Белки: ${protein} г в сутки<br>
+        Углеводы: ${carbs} г в сутки<br>
+        Жиры: ${fat} г в сутки
+      </div>
+
+      <div class="bju-section">
+        <p><span>Белки:</span> ${protein} г в сутки</p>
+        <p>(01) Это количество оптимально для защиты мышц при похудении и эффективного роста при наборе массы.</p>
+        <p>(02) Предпочтительно получать белок из разнообразных источников: рыба, морепродукты, птица, яйца, молочные продукты (творог, греческий йогурт), бобовые.</p>
+        <p>(03) Рекомендуется ограничить переработанные мясопродукты (колбасы, сосиски) и красное мясо до 1-2 раз в неделю.</p>
+
+        <p><span>Углеводы:</span> ${carbs} г в сутки</p>
+        <p>(01) Основной источник энергии для тренировок и работы мозга.</p>
+        <p>(02) Минимум половину углеводов получай из цельнозерновых продуктов: гречка, овсянка, бурый рис, цельнозерновой хлеб, макароны из твердых сортов пшеницы.</p>
+        <p>(03) Добавленные сахара (сладости, выпечка, сладкие напитки) ограничь до 10% от общих калорий — это примерно ${Math.round(calories*0.1/4)} г в день.</p>
+
+        <p><span>Жиры:</span> ${fat} г в сутки</p>
+        <p>(01) Жиры критически важны для производства гормонов, усвоения витаминов A, D, E, K и здоровья кожи, волос, нервной системы.</p>
+        <p>(02) Насыщенные жиры (из мяса, масла, сыра) рекомендуется ограничить до 10% от общих калорий — это примерно ${Math.round(calories*0.1/9)} г в день.</p>
+        <p>(03) Отдавай предпочтение ненасыщенным жирам: жирная рыба (лосось, скумбрия), авокадо, орехи, семена, оливковое масло, льняное масло.</p>
+      </div>
+
+      <div class="alert">
+        ⚠️ Важно: Это стартовая точка. Формула дает точность ±10%. Отслеживай изменения и при необходимости корректируй норму.
+      </div>
+    `;
+  }
+});
+</script>
+
 </body>
-</html>
