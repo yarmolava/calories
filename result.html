@@ -3,17 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <title>Результаты</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
-body { margin:0; background:#f6f8f9; font-family:'Manrope', sans-serif; }
-.container { max-width:520px; margin:auto; padding:32px 24px 60px; }
-.calories { font-weight:700; font-size:22px; text-align:center; margin-bottom:32px; }
-.macro-block { margin-bottom:32px; }
-.macro-name { font-weight:700; margin-bottom:8px; }
-.macro-text p { margin:6px 0; line-height:1.6; }
-.warning { margin-top:40px; line-height:1.6; }
-.warning b { font-weight:700; }
+body {
+  margin: 0;
+  background: #f6f8f9;
+  font-family: 'Manrope', sans-serif;
+}
+
+.container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 32px 24px 60px;
+}
+
+.calories {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.macro-block {
+  margin-bottom: 32px;
+}
+
+.macro-name {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
+
+.macro-text p {
+  margin: 6px 0;
+  line-height: 1.6;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+}
+
+.warning {
+  margin-top: 40px;
+  line-height: 1.6;
+  font-family: 'Manrope', sans-serif;
+}
+
+.warning b {
+  font-weight: 700;
+}
 </style>
 </head>
 <body>
@@ -27,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const activity= +localStorage.getItem("activity");
   const goal    = localStorage.getItem("goal");
   const gender  = localStorage.getItem("gender");
+
   if (!weight || !height || !age || !activity || !goal || !gender) return;
 
   let bmr = gender==="male"
@@ -46,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   result.innerHTML=`
     <div class="calories">Твоя норма калорий: ${calories} ккал в день</div>
+
     <div class="macro-block">
       <div class="macro-name">Белки: ${protein} г в сутки</div>
       <div class="macro-text">
@@ -54,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <p>(03) Рекомендуется ограничить переработанные мясопродукты и красное мясо до 1–2 раз в неделю.</p>
       </div>
     </div>
+
     <div class="macro-block">
       <div class="macro-name">Углеводы: ${carbs} г в сутки</div>
       <div class="macro-text">
@@ -62,6 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
         <p>(03) Добавленные сахара — до 10% от калорий, примерно ${sugarLimit} г.</p>
       </div>
     </div>
+
     <div class="macro-block">
       <div class="macro-name">Жиры: ${fat} г в сутки</div>
       <div class="macro-text">
@@ -70,9 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
         <p>(03) Отдавай предпочтение ненасыщенным жирам: рыба, авокадо, орехи, семена, масла.</p>
       </div>
     </div>
+
     <div class="warning"><b>⚠️ Важно:</b><br>
-    Это стартовая точка. Формула дает точность ±10%. Отслеживай изменения и при необходимости корректируй норму.<br>
-    Подробнее о том, как отслеживать прогресс, когда пересчитывать норму и как применять эти цифры на практике — читай в основном гайде.
+      Это стартовая точка. Формула дает точность ±10%. Отслеживай изменения и при необходимости корректируй норму.<br>
+      Подробнее о том, как отслеживать прогресс, когда пересчитывать норму и как применять эти цифры на практике — читай в основном гайде.
     </div>
   `;
 });
