@@ -15,9 +15,11 @@
   <input id="weight" type="number" placeholder="Вес (кг)">
 
   <h3>Ваша цель</h3>
-  <label><input type="radio" name="goal" value="lose"> Снижение веса</label><br>
-  <label><input type="radio" name="goal" value="maintain"> Поддержание веса</label><br>
-  <label><input type="radio" name="goal" value="gain"> Набор массы</label>
+  <div style="display: flex; justify-content: space-between; text-align: center;">
+    <label><input type="radio" name="goal" value="lose"> Снижение веса</label>
+    <label><input type="radio" name="goal" value="maintain"> Поддержание веса</label>
+    <label><input type="radio" name="goal" value="gain"> Набор массы</label>
+  </div>
 
   <button id="dataNext" disabled>Продолжить</button>
 </div>
