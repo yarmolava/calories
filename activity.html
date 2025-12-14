@@ -11,12 +11,31 @@
 
   <h1>Выберите уровень<br>ежедневной активности</h1>
 
-  <div class="list" id="activityList">
-    <div class="activity-item" data-activity="1.2">😴 1.2 — минимальная</div>
-    <div class="activity-item" data-activity="1.375">🏓 1.375 — лёгкая</div>
-    <div class="activity-item" data-activity="1.55">🏋️ 1.55 — средняя</div>
-    <div class="activity-item" data-activity="1.725">🏈 1.725 — высокая</div>
-    <div class="activity-item" data-activity="1.9">🔥 1.9 — экстремальная</div>
+  <div class="list">
+    <div class="activity-item" data-activity="1.2">
+      <b>1.200</b><br>
+      Для людей с минимальной активностью, редкими тренировками или их полным отсутствием
+    </div>
+
+    <div class="activity-item" data-activity="1.375">
+      <b>1.375</b><br>
+      Для людей с умеренной активностью, легкими занятиями спортом 1–3 раза в неделю или аналогичной физической нагрузкой
+    </div>
+
+    <div class="activity-item" data-activity="1.55">
+      <b>1.550</b><br>
+      Для активных людей с регулярными занятиями средней интенсивности или тренировками 3–5 раз в неделю
+    </div>
+
+    <div class="activity-item" data-activity="1.725">
+      <b>1.725</b><br>
+      Для очень активных людей с ежедневной физической активностью или интенсивными занятиями 6–7 раз в неделю
+    </div>
+
+    <div class="activity-item" data-activity="1.9">
+      <b>1.900</b><br>
+      Для максимально активных людей с тяжёлыми физическими нагрузками и интенсивным спортом/тренировками
+    </div>
   </div>
 
   <label class="manual">
@@ -38,48 +57,6 @@
 
 </div>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const activityItems = document.querySelectorAll(".list div[data-activity]");
-  const manualCheck = document.getElementById("manualCheck");
-  const manualValue = document.getElementById("manualValue");
-  const activityNext = document.getElementById("activityNext");
-
-  // выбор из списка
-  if (activityItems.length && activityNext) {
-    activityItems.forEach(item => {
-      item.addEventListener("click", () => {
-        activityItems.forEach(i => i.classList.remove("selected"));
-        item.classList.add("selected");
-        localStorage.setItem("activity", item.dataset.activity);
-        activityNext.disabled = false;
-      });
-    });
-  }
-
-  // ручной ввод
-  if (manualCheck && manualValue && activityNext) {
-    manualCheck.addEventListener("change", () => {
-      manualValue.disabled = !manualCheck.checked;
-      activityNext.disabled = manualValue.disabled || !manualValue.value;
-    });
-
-    manualValue.addEventListener("input", () => {
-      activityNext.disabled = !manualValue.value;
-    });
-  }
-
-  // переход на следующую страницу
-  if (activityNext) {
-    activityNext.addEventListener("click", () => {
-      if (manualValue && !manualValue.disabled && manualValue.value) {
-        localStorage.setItem("activity", manualValue.value);
-      }
-      location.href = "data.html";
-    });
-  }
-});
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>
