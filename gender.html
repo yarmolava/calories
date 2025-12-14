@@ -19,6 +19,13 @@
       text-align: center;
     }
 
+    h1 {
+      font-family: 'Roboto Condensed', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
     .cards {
       display: flex;
       gap: 20px;
@@ -51,19 +58,18 @@
       border-radius: 8px;
       font-size: 16px;
       font-family: 'Roboto Condensed', sans-serif;
+      cursor: pointer;
     }
 
     .link {
       color: #5ba9b3;
       margin-top: 20px;
       cursor: pointer;
-    }
-
-    .hidden {
-      display: none;
+      display: block;
     }
 
     #method {
+      display: none;
       text-align: justify;
       margin-top: 20px;
     }
@@ -71,30 +77,18 @@
     #method h2, #method h3 {
       text-align: center;
       font-family: 'Roboto Condensed', sans-serif;
+      color: #5ba9b3; /* новый цвет для выделения методики */
     }
 
     #method p, #method li {
       text-align: justify;
       margin: 8px 0;
+      font-size: 16px;
     }
 
     #method ul {
       padding-left: 20px;
       text-align: left;
-    }
-
-    .bold-center {
-      font-family: 'Roboto Condensed', sans-serif;
-      font-weight: 700;
-      text-align: center;
-      margin-bottom: 20px;
-      line-height: 1.6;
-    }
-
-    .alert {
-      font-family: 'Manrope', sans-serif;
-      text-align: center;
-      margin: 20px 0;
     }
   </style>
 </head>
@@ -102,8 +96,7 @@
 
 <div class="container">
 
-  <h1>Калькулятор нормы калорий</h1>
-  <p>Выберите ваш пол:</p>
+  <h1>Выбери свой пол</h1>
 
   <div class="cards">
     <div class="card" data-gender="male">👨<br>Мужской</div>
@@ -114,7 +107,7 @@
 
   <p class="link" onclick="toggleMethod()">Методика расчета</p>
 
-  <div id="method" class="hidden">
+  <div id="method">
     <h2>Расчет нормы калорий по формуле Миффлина – Сан Жеора</h2>
 
     <p>Формула Миффлина - Сан Жеора (1990 год) — наиболее точный метод расчета суточной потребности в калориях. Точность составляет ±10% от реальных измерений для здоровых людей.</p>
@@ -161,5 +154,11 @@
 </div>
 
 <script src="script.js"></script>
+<script>
+function toggleMethod() {
+  const method = document.getElementById("method");
+  method.style.display = method.style.display === "block" ? "none" : "block";
+}
+</script>
 </body>
 </html>
