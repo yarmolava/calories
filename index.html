@@ -9,26 +9,14 @@
 
 <link rel="stylesheet" href="style.css">
 <style>
-  /* ==== ЗАГОЛОВОК ==== */
-  .glass-title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-    margin-top: 40px; /* отступ сверху */
-    margin-bottom: 24px;
-  }
+  /* ====== ПЕРВАЯ СТРАНИЦА ====== */
 
-  .title-word {
-    font-family: 'Manrope', sans-serif;
+  .first-page h1 {
     font-weight: 700;
-    font-size: 28px;
     text-align: center;
-    color: #111;
-  }
-
-  .title-word.by {
-    font-size: 14px;
+    font-size: 28px; /* одинаковый размер для всех слов */
+    margin-top: 40px; /* отступ от верха страницы */
+    margin-bottom: 24px;
   }
 
   .first-page p {
@@ -67,22 +55,14 @@
   .first-page button:active {
     transform: scale(0.98);
   }
-
-  .container {
-    max-width: 520px;
-    margin: 20px auto 0;
-    padding: 32px;
-  }
 </style>
 </head>
 <body class="page page-first">
 
-<div class="glass-title">
-  <span class="title-word">Calculator</span>
-  <span class="title-word">by</span>
-  <span class="title-word">Yarmolava</span>
-</div>
+<div class="container first-page">
 
+  <!-- Заголовок в одну строку -->
+  <h1>Calculator by Yarmolava</h1>
 
   <p>Меня зовут Hanna Yarmolava, я персональный тренер. Этот калькулятор поможет тебе самостоятельно следить за калориями и БЖУ, чтобы удобно контролировать питание и достигать целей.</p>
 
@@ -93,7 +73,6 @@
   </div>
 
   <button onclick="window.location.href='gender.html'">Старт</button>
-
 </div>
 </body>
 </html>
