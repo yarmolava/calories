@@ -3,51 +3,88 @@
 <head>
 <meta charset="UTF-8">
 <title>Calculator by Yarmolava</title>
-  
+
 <link rel="icon" href="/favicon-y.png">
 <link rel="shortcut icon" href="/favicon-y.png">
 
 <link rel="stylesheet" href="style.css">
 <style>
-  .first-page h1 {
-    font-weight: 700;
-    text-align: center;
-    font-size: 28px;
-    margin-bottom: 20px;
+  /* ==== ЗАГОЛОВОК ВЕРТИКАЛЬНЫЙ СТЕКЛЯННЫЙ ==== */
+  .glass-title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-top: 40px; /* небольшой отступ сверху */
+    margin-bottom: 24px;
+    padding: 16px 24px;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.25);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.2);
   }
+
+  .title-word {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    text-align: center;
+    color: #111;
+  }
+
+  .title-word.by {
+    font-size: 14px;
+  }
+
   .first-page p {
     font-weight: 400;
     font-size: 20px;
     text-align: justify;
     margin-bottom: 20px;
   }
+
   .first-page .contacts p {
     text-align: left;
     font-size: 18px;
     margin: 5px 0;
   }
+
   .first-page .contacts a {
     color: #5ba9b3;
     text-decoration: none;
   }
+
   .first-page .contacts a:hover {
     text-decoration: underline;
   }
+
   .first-page button {
     width: 100%;
     padding: 15px;
-    background: #5ba9b3;
+    background: rgba(91,169,179,0.75);
     color: #fff;
     border: none;
-    border-radius: 8px;
+    border-radius: 16px;
     font-size: 16px;
     cursor: pointer;
   }
+
+  .first-page button:active {
+    transform: scale(0.98);
+  }
+
 </style>
 </head>
 <body class="page page-first">
 <div class="container first-page">
-  <h1>Calculator by Yarmolava</h1>
+
+  <!-- Стеклянный заголовок -->
+  <div class="glass-title">
+    <span class="title-word">Calculator</span>
+    <span class="title-word by">by</span>
+    <span class="title-word">Yarmolava</span>
+  </div>
 
   <p>Меня зовут Hanna Yarmolava, я персональный тренер. Этот калькулятор поможет тебе самостоятельно следить за калориями и БЖУ, чтобы удобно контролировать питание и достигать целей.</p>
 
@@ -61,6 +98,3 @@
 </div>
 </body>
 </html>
-
-
-
