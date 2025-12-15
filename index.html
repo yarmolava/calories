@@ -8,6 +8,53 @@
 <link rel="shortcut icon" href="/favicon-y.png">
 
 <link rel="stylesheet" href="style.css">
+<style>
+  /* ====== ПЕРВАЯ СТРАНИЦА ====== */
+  .first-page h1 {
+    font-weight: 700;
+    text-align: center;
+    font-size: 28px; /* одинаковый размер для всех слов */
+    margin-top: 40px; /* отступ от верха страницы */
+    margin-bottom: 24px;
+  }
+
+  .first-page p {
+    font-weight: 400;
+    font-size: 20px;
+    text-align: justify;
+    margin-bottom: 20px;
+  }
+
+  .first-page .contacts p {
+    text-align: left;
+    font-size: 18px;
+    margin: 5px 0;
+  }
+
+  .first-page .contacts a {
+    color: #5ba9b3;
+    text-decoration: none;
+  }
+
+  .first-page .contacts a:hover {
+    text-decoration: underline;
+  }
+
+  .first-page button {
+    width: 100%;
+    padding: 15px;
+    background: rgba(91,169,179,0.75); /* цвет можно менять через style.css */
+    color: #fff;
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .first-page button:active {
+    transform: scale(0.98);
+  }
+</style>
 </head>
 <body class="page page-first">
 
@@ -16,14 +63,17 @@
   <!-- Заголовок в одну строку -->
   <h1>Calculator by Yarmolava</h1>
 
+  <!-- Основной текст -->
   <p>Меня зовут Hanna Yarmolava, я персональный тренер. Этот калькулятор поможет тебе самостоятельно следить за калориями и БЖУ, чтобы удобно контролировать питание и достигать целей.</p>
 
+  <!-- Контакты -->
   <div class="contacts">
     <p>Оставайся на связи:</p>
     <p>Instagram: <a href="https://www.instagram.com/yarmolava" target="_blank">@yarmolava</a></p>
     <p>Telegram: <a href="https://t.me/yarmolava" target="_blank">t.me/yarmolava</a></p>
   </div>
 
+  <!-- Кнопка перехода -->
   <button onclick="window.location.href='gender.html'">Старт</button>
 
 </div>
