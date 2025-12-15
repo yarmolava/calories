@@ -8,6 +8,10 @@ body {
   color: #111;
 }
 
+html {
+  overflow-y: scroll; /* чтобы страница не дергалась */
+}
+
 .page {
   min-height: 100vh;
   background-size: cover;
@@ -20,8 +24,15 @@ body {
   background: radial-gradient(circle at top left, #c2e9fb, #fbc2eb, #a1c4fd);
 }
 
+/* 🔥 ОБНОВЛЕННЫЙ ГЕНДЕР — яркий оранжево-розово-голубой */
 .page-gender {
-  background: radial-gradient(circle at top right, #fdfbfb, #ebedee, #d7e1ec);
+  background: radial-gradient(
+    circle at top right,
+    #ffecd2,
+    #fcb69f,
+    #ff9a9e,
+    #a1c4fd
+  );
 }
 
 .page-activity {
@@ -48,6 +59,12 @@ body {
 
 h1, h2, h3 {
   font-weight: 700;
+}
+
+/* центрируем нужное ТОЛЬКО на странице гендера */
+.page-gender h1,
+.page-gender .link {
+  text-align: center;
 }
 
 .center {
@@ -154,6 +171,27 @@ input[type="number"] {
   font-size: 14px;
   line-height: 1.5;
   color: #444;
+}
+
+/* ====== METHOD BLOCK ====== */
+
+#method {
+  display: none; /* по умолчанию закрыт */
+  margin-top: 24px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 16px;
+}
+
+#method h2,
+#method h3 {
+  text-align: center;
+  color: #ff7a7a; /* мягкий акцент */
+}
+
+#method p,
+#method li {
+  line-height: 1.6;
 }
 
 .hidden {
