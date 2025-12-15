@@ -25,13 +25,7 @@ html {
 }
 
 .page-gender {
-  background: radial-gradient(
-    circle at top right,
-    #ffecd2,
-    #fcb69f,
-    #ff9a9e,
-    #a1c4fd
-  );
+  background: radial-gradient(circle at top right, #ffecd2, #fcb69f, #ff9a9e, #a1c4fd);
 }
 
 .page-activity {
@@ -54,7 +48,6 @@ html {
   padding: 32px;
 }
 
-/* Для страницы гендера, чтобы заголовок и кнопка методики были по центру */
 .page-gender .container {
   margin-top: 60px;
   display: flex;
@@ -79,12 +72,12 @@ h1, h2, h3 {
 .activity-item,
 button,
 input {
-  background: rgba(255, 255, 255, 0.4); /* более прозрачное стекло */
+  background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 20px; /* закругленные края для всех элементов */
-  box-shadow: inset 0 0 5px rgba(255,255,255,0.15); /* эффект запотевшего стекла */
+  border-radius: 20px;
+  box-shadow: inset 0 0 5px rgba(255,255,255,0.15);
 }
 
 /* ====== CARDS ====== */
@@ -133,7 +126,7 @@ button {
   background: rgba(91, 169, 179, 0.6);
   color: white;
   border: none;
-  border-radius: 20px; /* закругленные кнопки */
+  border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
 }
@@ -161,7 +154,6 @@ input[type="number"] {
   display: block;
 }
 
-/* Для страницы данных: расположение полей одно под другим */
 .page-data .input-group {
   display: flex;
   flex-direction: column;
@@ -187,7 +179,7 @@ input[type="number"] {
 /* ====== METHOD BLOCK ====== */
 
 #method {
-  display: none; /* по умолчанию закрыт */
+  display: none;
   margin-top: 24px;
   padding: 24px;
   background: rgba(255, 255, 255, 0.35);
@@ -223,7 +215,6 @@ input[type="number"] {
   font-size: 50%;
   margin: 0 4px;
 }
-
 
 /* ====== HIDDEN ELEMENTS ====== */
 
