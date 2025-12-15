@@ -9,20 +9,14 @@
 
 <link rel="stylesheet" href="style.css">
 <style>
-  /* ==== ЗАГОЛОВОК ВЕРТИКАЛЬНЫЙ СТЕКЛЯННЫЙ ==== */
+  /* ==== ЗАГОЛОВОК ==== */
   .glass-title {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 4px;
-    margin-top: 40px; /* небольшой отступ сверху */
+    margin-top: 40px; /* отступ сверху */
     margin-bottom: 24px;
-    padding: 16px 24px;
-    border-radius: 16px;
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255,255,255,0.2);
   }
 
   .title-word {
@@ -74,12 +68,18 @@
     transform: scale(0.98);
   }
 
+  .container {
+    max-width: 520px;
+    margin: 20px auto 0;
+    padding: 32px;
+  }
 </style>
 </head>
 <body class="page page-first">
+
 <div class="container first-page">
 
-  <!-- Стеклянный заголовок -->
+  <!-- Заголовок без рамки -->
   <div class="glass-title">
     <span class="title-word">Calculator</span>
     <span class="title-word by">by</span>
@@ -95,6 +95,7 @@
   </div>
 
   <button onclick="window.location.href='gender.html'">Старт</button>
+
 </div>
 </body>
 </html>
