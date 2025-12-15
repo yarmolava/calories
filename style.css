@@ -1,7 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap');
 
-/* ====== BASE ====== */
+/* ====== VARIABLES ====== */
+:root {
+  --button-color: rgba(91, 169, 179, 0.75); /* Цвет кнопок */
+}
 
+/* ====== BASE ====== */
 body {
   font-family: 'Manrope', sans-serif;
   margin: 0;
@@ -19,7 +23,6 @@ html {
 }
 
 /* ====== PAGE BACKGROUNDS ====== */
-
 .page-first {
   background: radial-gradient(circle at top left, #c2e9fb, #fbc2eb, #a1c4fd);
 }
@@ -41,24 +44,25 @@ html {
 }
 
 /* ====== LAYOUT ====== */
-
 .container {
   max-width: 520px;
-  margin: 20px auto 0; /* отступ сверху 20px, центрирование по горизонтали */
-  padding: 32px;
+  margin: 40px auto 0; /* одинаковый отступ сверху для всех страниц */
+  padding: 24px; /* одинаковый внутренний отступ сверху и снизу */
 }
 
+/* Для страницы гендера */
 .page-gender .container {
-  margin-top: 60px;
+  margin-top: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 /* ====== TYPOGRAPHY ====== */
-
 h1, h2, h3 {
   font-weight: 700;
+  margin-top: 0; /* рамка начинается сразу с верхнего текста */
+  margin-bottom: 24px;
 }
 
 .center {
@@ -66,7 +70,6 @@ h1, h2, h3 {
 }
 
 /* ====== GLASS UI BASE ====== */
-
 .container,
 .card,
 .activity-item,
@@ -81,7 +84,6 @@ input {
 }
 
 /* ====== CARDS ====== */
-
 .cards {
   display: flex;
   gap: 20px;
@@ -103,7 +105,6 @@ input {
 }
 
 /* ====== ACTIVITY LIST ====== */
-
 .list .activity-item {
   margin: 12px 0;
   padding: 16px;
@@ -118,17 +119,20 @@ input {
 }
 
 /* ====== BUTTONS ====== */
-
 button {
   width: 100%;
   padding: 15px;
   margin-top: 20px;
-  background: rgba(91, 169, 179, 0.6);
+  background: var(--button-color);
   color: white;
   border: none;
   border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.98);
 }
 
 button:disabled {
@@ -143,7 +147,6 @@ button:disabled {
 }
 
 /* ====== INPUTS ====== */
-
 input[type="number"] {
   width: 100%;
   padding: 12px;
@@ -154,6 +157,7 @@ input[type="number"] {
   display: block;
 }
 
+/* Для страницы данных: расположение полей одно под другим */
 .page-data .input-group {
   display: flex;
   flex-direction: column;
@@ -161,14 +165,12 @@ input[type="number"] {
 }
 
 /* ====== GOALS ====== */
-
 .goal-group label {
   display: block;
   margin: 10px 0;
 }
 
 /* ====== TEXT BLOCKS ====== */
-
 .hint {
   margin-top: 16px;
   font-size: 14px;
@@ -177,7 +179,6 @@ input[type="number"] {
 }
 
 /* ====== METHOD BLOCK ====== */
-
 #method {
   display: none;
   margin-top: 24px;
@@ -200,7 +201,6 @@ input[type="number"] {
 }
 
 /* ====== MAIN PAGE “Calculator by Yarmolava” ====== */
-
 .main-title {
   text-align: center;
   margin-top: 40px;
@@ -211,13 +211,7 @@ input[type="number"] {
   line-height: 1.1;
 }
 
-.main-title .by {
-  font-size: 50%;
-  margin: 0 4px;
-}
-
 /* ====== HIDDEN ELEMENTS ====== */
-
 .hidden {
   display: none;
 }
