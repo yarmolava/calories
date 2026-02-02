@@ -215,3 +215,52 @@ input[type="number"] {
 .hidden {
   display: none;
 }
+/* ====== MOBILE SCALE ====== */
+@media (max-width: 480px) {
+
+  html {
+    font-size: 18px; /* общий базовый масштаб */
+  }
+
+  body {
+    zoom: 1.15; /* увеличивает весь интерфейс целиком */
+  }
+
+  .container {
+    max-width: 100%;
+    margin-top: 24px;
+  }
+
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  p,
+  label,
+  input,
+  button {
+    font-size: 18px;
+  }
+
+  .card {
+    width: 140px;
+    padding: 24px;
+  }
+
+  button {
+    padding: 18px;
+    font-size: 18px;
+  }
+
+  input[type="number"] {
+    padding: 16px;
+  }
+}
