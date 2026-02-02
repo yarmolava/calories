@@ -3,55 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Calculator by Yarmolava</title>
-<link rel="icon" href="/favicon-y.png">
-<link rel="shortcut icon" href="/favicon-y.png">
+<title>Уровень активности</title>
 <link rel="stylesheet" href="style.css">
-<style>
-.first-page h1 {
-font-weight: 700;
-text-align: center;
-font-size: 28px;
-margin-top: 40px;
-margin-bottom: 24px;
-}
-.first-page p {
-font-weight: 400;
-font-size: 20px;
-text-align: justify;
-margin-bottom: 20px;
-}
-.first-page .contacts p {
-text-align: left;
-font-size: 18px;
-margin: 5px 0;
-}
-.first-page .contacts a {
-color: #5ba9b3;
-text-decoration: none;
-}
-.first-page button {
-width: 100%;
-padding: 15px;
-background: rgba(91,169,179,0.75);
-color: #fff;
-border: none;
-border-radius: 16px;
-font-size: 16px;
-cursor: pointer;
-}
-</style>
 </head>
-<body class="page page-first">
-<div class="container first-page">
-<h1>Calculator by Yarmolava</h1>
-<p>Меня зовут Hanna Yarmolava, я персональный тренер. Этот калькулятор поможет тебе самостоятельно следить за калориями и БЖУ, чтобы удобно контролировать питание и достигать целей.</p>
-<div class="contacts">
-<p>Оставайся на связи:</p>
-<p>Instagram: <a href="https://www.instagram.com/yarmolava" target="_blank">@yarmolava</a></p>
-<p>Telegram: <a href="https://t.me/yarmolava" target="_blank">t.me/yarmolava</a></p>
+<body class="page page-activity">
+<div class="container">
+<h1>Выбери уровень<br>ежедневной активности</h1>
+<div class="info">💡 Считаются только тренировки в зале/дома.</div>
+<div class="list">
+<div class="activity-item" data-activity="1.2"><b>1.200</b>Без тренировок</div>
+<div class="activity-item" data-activity="1.375"><b>1.375</b>1–3 тренировки</div>
+<div class="activity-item" data-activity="1.55"><b>1.550</b>4–5 тренировок</div>
+<div class="activity-item" data-activity="1.725"><b>1.725</b>6–7 тренировок</div>
 </div>
-<button onclick="window.location.href='gender.html'">Старт</button>
+<label>
+<input type="checkbox" id="manualCheckbox"> Указать вручную
+</label>
+<input type="number" id="manualActivityInput" step="0.01">
+<button id="activityNext" disabled>Продолжить</button>
 </div>
+<script src="script.js"></script>
 </body>
 </html>
