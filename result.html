@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Результаты</title>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600&family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
+/* ====== UNIFIED RESULT STYLES ====== */
 body {
   margin: 0;
-  background: #f6f8f9;
   font-family: 'Manrope', sans-serif;
+  background: radial-gradient(circle at center, #f6f8f9, #e6edf0);
 }
 
 .container {
   max-width: 520px;
-  margin: 0 auto;
-  padding: 32px 24px 60px;
+  margin: 40px auto;
+  padding: 24px;
+  background: rgba(255,255,255,0.4);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 20px;
+  box-shadow: inset 0 0 5px rgba(255,255,255,0.15);
 }
 
 .calories {
@@ -28,9 +33,7 @@ body {
   margin-bottom: 32px;
 }
 
-.macro-block {
-  margin-bottom: 32px;
-}
+.macro-block { margin-bottom: 32px; }
 
 .macro-name {
   font-family: 'Roboto Condensed', sans-serif;
@@ -42,23 +45,28 @@ body {
 .macro-text p {
   margin: 6px 0;
   line-height: 1.6;
-  font-family: 'Manrope', sans-serif;
-  font-weight: 400;
 }
 
 .warning {
   margin-top: 40px;
   line-height: 1.6;
-  font-family: 'Manrope', sans-serif;
 }
 
-.warning b {
-  font-weight: 700;
+.warning b { font-weight: 700; }
+
+/* ====== MOBILE SCALE ====== */
+@media (max-width: 480px) {
+  .container { max-width: 100%; margin-top: 24px; padding: 16px; }
+  h1 { font-size: 28px; }
+  .calories { font-size: 20px; }
+  .macro-name { font-size: 18px; }
+  .macro-text p, .warning { font-size: 16px; }
 }
 </style>
 </head>
 <body class="page page-result">
 <div class="container" id="result"></div>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const result = document.getElementById("result");
@@ -86,8 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const sugarLimit=Math.round((calories*0.10)/4);
   const satFatLimit=Math.round((calories*0.10)/9);
 
-  result.innerHTML=`
-    <div class="calories">Твоя норма калорий: ${calories} ккал в день</div>
+  result.innerHTML=` 
+    <h1>Твоя норма калорий: ${calories} ккал в день</h1>
 
     <div class="macro-block">
       <div class="macro-name">Белки: ${protein} г в сутки</div>
