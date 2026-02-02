@@ -1,29 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Калькулятор нормы калорий</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body class="page page-gender">
 
 <div class="container">
 
-  <!-- Заголовок -->
   <h1>Выбери свой пол</h1>
 
-  <!-- Карточки выбора пола -->
   <div class="cards">
     <div class="card" data-gender="male">👨<br>Мужской</div>
     <div class="card" data-gender="female">👩<br>Женский</div>
   </div>
 
-  <!-- Кнопка -->
   <button id="nextBtn" disabled style="background:#5ba9b3;">Продолжить</button>
 
-  <!-- Методика -->
   <p class="link" onclick="toggleMethod()">Методика расчета</p>
 
   <div id="method">
