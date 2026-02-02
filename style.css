@@ -58,10 +58,15 @@ html {
   align-items: center;
 }
 
+/* Для страницы активности — теперь явно */
+.page-activity .container {
+  margin-top: 40px;
+}
+
 /* ====== TYPOGRAPHY ====== */
 h1, h2, h3 {
   font-weight: 700;
-  margin-top: 0; /* рамка начинается сразу с верхнего текста */
+  margin-top: 0;
   margin-bottom: 24px;
 }
 
@@ -215,9 +220,9 @@ input[type="number"] {
 .hidden {
   display: none;
 }
+
 /* ====== MOBILE SCALE ====== */
 @media (max-width: 480px) {
-
   html {
     font-size: 18px; /* общий базовый масштаб */
   }
@@ -263,39 +268,4 @@ input[type="number"] {
   input[type="number"] {
     padding: 16px;
   }
-}
-/* ====== MOBILE SCALE ONLY ====== */
-@media (max-width: 480px) {
-  html {
-    font-size: 18px; /* чуть крупнее шрифты */
-  }
-
-  .container {
-    max-width: 100%; /* контейнер занимает почти весь экран */
-    margin: 20px auto 0; /* немного меньше отступ сверху для телефона */
-  }
-
-  h1 { font-size: 28px; }
-  h2 { font-size: 24px; }
-  h3 { font-size: 20px; }
-
-  p, label, input, button {
-    font-size: 16px; /* немного крупнее текста */
-  }
-
-  .card {
-    width: 130px; /* чуть больше, чтобы кнопки и карточки не были крошечными */
-  }
-
-  button {
-    padding: 16px; /* чуть больше кнопка */
-  }
-
-  input[type="number"] {
-    padding: 14px; /* чуть больше поля */
-  }
-}
-/* ====== ACTIVITY PAGE CONTAINER TOP MARGIN ====== */
-.page-activity .container {
-  margin-top: 40px; /* такой же отступ, как на остальных страницах */
 }
