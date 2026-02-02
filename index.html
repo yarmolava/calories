@@ -2,67 +2,35 @@
 <html lang="ru">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta charset="UTF-8">
-<title>Calculator by Yarmolava</title>
-
-<link rel="icon" href="/favicon-y.png">
-<link rel="shortcut icon" href="/favicon-y.png">
-
-<link rel="stylesheet" href="style.css">
-<style>
-  /* ====== ПЕРВАЯ СТРАНИЦА ====== */
-  .first-page h1 {
-    font-weight: 700;
-    text-align: center;
-    font-size: 28px; /* одинаковый размер для всех слов */
-    margin-top: 40px; /* отступ от верха страницы */
-    margin-bottom: 24px;
-  }
-
-  .first-page p {
-    font-weight: 400;
-    font-size: 20px;
-    text-align: justify;
-    margin-bottom: 20px;
-  }
-
-  .first-page .contacts p {
-    text-align: left;
-    font-size: 18px;
-    margin: 5px 0;
-  }
-
-  .first-page .contacts a {
-    color: #5ba9b3;
-    text-decoration: none;
-  }
-
-  .first-page .contacts a:hover {
-    text-decoration: underline;
-  }
-
-  .first-page button {
-    width: 100%;
-    padding: 15px;
-    background: rgba(91,169,179,0.75); /* цвет можно менять через style.css */
-    color: #fff;
-    border: none;
-    border-radius: 16px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-  .first-page button:active {
-    transform: scale(0.98);
-  }
-</style>
+  <meta charset="UTF-8">
+  <title>Calculator by Yarmolava</title>
+  <link rel="icon" href="/favicon-y.png">
+  <link rel="shortcut icon" href="/favicon-y.png">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ====== СТИЛИ ДЛЯ ПЕРВОЙ СТРАНИЦЫ ====== */
+    /* Заголовок и текст будут управляться style.css */
+    .first-page .contacts a {
+      color: #5ba9b3;
+      text-decoration: none;
+    }
+    .first-page .contacts a:hover {
+      text-decoration: underline;
+    }
+    /* Цвет кнопки оставляем inline */
+    .first-page button {
+      background: rgba(91,169,179,0.75);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body class="page page-first">
 
 <div class="container first-page">
 
-  <!-- Заголовок в одну строку -->
+  <!-- Заголовок -->
   <h1>Calculator by Yarmolava</h1>
 
   <!-- Основной текст -->
