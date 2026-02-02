@@ -2,26 +2,28 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Данные</title>
 <link rel="stylesheet" href="style.css">
 <style>
 /* ====== DATA PAGE SPECIFIC ====== */
 h1 {
-  font-size: 28px; /* одинаковый размер заголовка со всеми страницами */
+  font-size: 28px;
+  font-weight: 700;
   text-align: center;
-  margin-top: 40px; /* одинаковый отступ сверху со всеми страницами */
+  margin-top: 40px;
   margin-bottom: 24px;
 }
 
-input, label, p {
+input, label, p, h3 {
   font-family: 'Manrope', sans-serif;
-  font-size: 18px; /* одинаковый размер текста на всех страницах */
+  font-size: 18px;
   line-height: 1.5;
 }
 
 input[type="number"] {
   width: 100%;
-  padding: 14px; /* одинаковая подкладка для всех страниц */
+  padding: 14px;
   border-radius: 20px;
   border: none;
   outline: none;
@@ -32,13 +34,12 @@ input[type="number"] {
 
 .goal-group {
   margin-top: 15px;
-  text-align: left; /* выравнивание радиокнопок */
+  text-align: left;
 }
 
 .goal-group label {
   display: block;
   margin: 8px 0;
-  font-size: 18px; /* такой же размер текста */
 }
 
 button {
@@ -47,11 +48,12 @@ button {
   margin-top: 20px;
   font-size: 18px;
   border-radius: 20px;
+  cursor: pointer;
 }
 
 /* ====== CONTAINER ALIGNMENT ====== */
 .container {
-  max-width: 520px; /* одинаковая ширина подкладки со всеми страницами */
+  max-width: 520px;
   margin: 40px auto 0;
   padding: 24px;
   background: rgba(255,255,255,0.4);
