@@ -295,3 +295,7 @@ input[type="number"] {
     padding: 14px; /* чуть больше поля */
   }
 }
+/* ====== ACTIVITY PAGE CONTAINER TOP MARGIN ====== */
+.page-activity .container {
+  margin-top: 40px; /* такой же отступ, как на остальных страницах */
+}
