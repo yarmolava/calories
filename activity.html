@@ -5,14 +5,110 @@
   <title>Уровень активности</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    body { font-family: 'Manrope', sans-serif; }
-    .container { max-width: 500px; margin: auto; padding: 30px; text-align: center; }
-    .list .activity-item { background: white; margin: 10px 0; padding: 15px; border-radius: 10px; cursor: pointer; font-weight: 400; line-height: 1.5; text-align: left; }
-    .list .activity-item b { font-weight: 700; font-size: 20px; display: block; margin-bottom: 5px; }
-    .selected { border: 2px solid #5ba9b3; }
-    #activityNext { width: 100%; padding: 15px; margin-top: 15px; background: #5ba9b3; color: white; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; }
-    #manualActivityInput { width: 100%; padding: 12px; margin-top: 10px; display: none; }
-    .info { font-size: 14px; margin-bottom: 10px; color: #333; text-align: left; }
+    /* === Унифицированные стили с другими страницами === */
+    body { font-family: 'Manrope', sans-serif; margin:0; padding:0; background: #f5f5f5; }
+    .container {
+      max-width: 520px;
+      margin: 40px auto 0;
+      padding: 24px;
+      text-align: center;
+      background: rgba(255,255,255,0.4);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      box-shadow: inset 0 0 5px rgba(255,255,255,0.15);
+    }
+
+    /* Заголовок как на других страницах */
+    h1 {
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 1.4;
+      margin-top: 40px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .info {
+      font-size: 14px;
+      margin-bottom: 16px;
+      color: #333;
+      text-align: left;
+    }
+
+    /* === Элементы активности === */
+    .list .activity-item {
+      background: rgba(255,255,255,0.4);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 20px;
+      padding: 16px;
+      margin: 12px 0;
+      cursor: pointer;
+      line-height: 1.5;
+      text-align: left;
+      font-weight: 400;
+      width: 100%;
+      box-sizing: border-box;
+      box-shadow: inset 0 0 5px rgba(255,255,255,0.15);
+      transition: all 0.2s ease;
+    }
+
+    .list .activity-item b {
+      font-weight: 700;
+      font-size: 16px;
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* Подсветка при выборе */
+    .selected {
+      border: 2px solid rgba(91,169,179,0.9);
+      box-shadow: 0 0 25px rgba(91,169,179,0.45);
+    }
+
+    /* === Ручной ввод === */
+    #manualActivityInput {
+      width: 100%;
+      padding: 16px;
+      margin-top: 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      outline: none;
+      display: none;
+      box-sizing: border-box;
+      background: rgba(255,255,255,0.4);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: inset 0 0 5px rgba(255,255,255,0.15);
+      font-size: 16px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-size: 16px;
+      text-align: left;
+    }
+
+    /* Кнопка "Продолжить" */
+    #activityNext {
+      width: 100%;
+      padding: 16px;
+      margin-top: 20px;
+      background: rgba(91,169,179,0.75);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    #activityNext:active { transform: scale(0.98); }
+    #activityNext:disabled { opacity: 0.5; cursor: default; }
   </style>
 </head>
 <body class="page page-activity">
@@ -29,7 +125,7 @@
     <div class="activity-item" data-activity="1.725"><b>1.725</b>6-7 тренировок в неделю + активная работа</div>
   </div>
 
-  <label style="display:block; margin-top:15px;">
+  <label>
     <input type="checkbox" id="manualCheckbox"> Указать коэффициент вручную
   </label>
   <input type="number" step="0.01" min="0" id="manualActivityInput" placeholder="Введите коэффициент">
@@ -48,5 +144,3 @@ manualCheckbox?.addEventListener("change", () => {
 </script>
 </body>
 </html>
-
-
