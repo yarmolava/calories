@@ -11,14 +11,20 @@
   <style>
     /* ====== MINIMAL ADJUSTMENTS ====== */
 
-    /* 1. Основной текст — выравнивание по ширине */
+    /* 1. Основной текст — по ширине */
     .container.first-page p:first-of-type {
       text-align: justify;
     }
 
-    /* 2. Блок контактов — ВЕСЬ по левому краю */
+    /* 2. Блок контактов — строго по левому краю */
     .container.first-page .contacts {
-      text-align: left;
+      width: 100%;
+      text-align: left !important;
+    }
+
+    .container.first-page .contacts p {
+      text-align: left !important;
+      margin: 4px 0;
     }
 
     /* 3. "Оставайся на связи:" — жирным */
@@ -28,13 +34,9 @@
     }
 
     /* 4. Ссылки — цвет кнопки, без подчеркивания */
-    .container.first-page .contacts p a {
+    .container.first-page .contacts a {
       color: #5ba9b3;
       text-decoration: none;
-    }
-
-    .container.first-page .contacts p {
-      margin: 4px 0;
     }
 
     /* 5. Кнопка Старт */
@@ -44,10 +46,10 @@
       margin-top: 20px;
       font-size: 16px;
       border-radius: 20px;
-      cursor: pointer;
       border: none;
       background: #5ba9b3;
-      color: white;
+      color: #fff;
+      cursor: pointer;
       transition: opacity 0.3s;
     }
 
