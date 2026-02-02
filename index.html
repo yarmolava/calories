@@ -7,6 +7,52 @@
   <link rel="icon" href="/favicon-y.png">
   <link rel="shortcut icon" href="/favicon-y.png">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* ====== MINIMAL ADJUSTMENTS ====== */
+
+    /* 1. Основной текст выравниваем по ширине */
+    .container.first-page p:first-of-type {
+      text-align: justify;
+    }
+
+    /* 2. "Оставайся на связи:" жирным */
+    .container.first-page .contacts p:first-of-type {
+      font-weight: 700;
+      margin-bottom: 8px;
+      text-align: left;
+    }
+
+    /* 3. Ссылки Instagram и Telegram выравниваем по левому краю, цвет как кнопка, без подчеркивания */
+    .container.first-page .contacts p a {
+      color: #5ba9b3;        /* такой же цвет как кнопки активные */
+      text-decoration: none;  /* без подчеркивания */
+    }
+
+    .container.first-page .contacts p {
+      text-align: left;
+      margin: 4px 0;
+    }
+
+    /* 4. Кнопка Старт, активная и заблокированная */
+    .container.first-page button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 20px;
+      font-size: 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      border: none;
+      background: #5ba9b3;  /* активная кнопка */
+      color: white;
+      transition: opacity 0.3s;
+    }
+
+    .container.first-page button:disabled {
+      opacity: 0.5;          /* тусклая кнопка когда disabled */
+      cursor: default;
+    }
+
+  </style>
 </head>
 <body class="page page-first">
 
