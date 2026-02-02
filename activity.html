@@ -7,7 +7,6 @@
   <style>
     /* ====== СТИЛИ ДЛЯ ACTIVITY ====== */
 
-    /* Контейнер и заголовок наследуют единый стиль */
     .container {
       max-width: 520px;
       margin: 40px auto 0;
@@ -21,11 +20,14 @@
       box-shadow: inset 0 0 5px rgba(255,255,255,0.15);
     }
 
+    /* Заголовок унифицирован */
     h1 {
       font-weight: 700;
       font-size: 28px;
+      line-height: 1.4;
       margin-top: 40px;
       margin-bottom: 24px;
+      text-align: center;
     }
 
     .info {
@@ -35,6 +37,7 @@
       text-align: left;
     }
 
+    /* Элементы активности */
     .list .activity-item {
       background: rgba(255,255,255,0.4);
       backdrop-filter: blur(18px);
@@ -48,11 +51,13 @@
       text-align: left;
       font-weight: 400;
       box-shadow: inset 0 0 5px rgba(255,255,255,0.15);
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .list .activity-item b {
       font-weight: 700;
-      font-size: 16px; /* размер как на других страницах */
+      font-size: 16px;
       display: block;
       margin-bottom: 6px;
     }
@@ -62,16 +67,21 @@
       box-shadow: 0 0 25px rgba(91,169,179,0.45);
     }
 
-    /* Ввод вручную */
+    /* Ввод вручную: совпадает по ширине и паддингам с элементами списка */
     #manualActivityInput {
       width: 100%;
-      padding: 14px;
+      padding: 16px;
       margin-top: 12px;
       border-radius: 20px;
-      border: none;
+      border: 1px solid rgba(255,255,255,0.2);
       outline: none;
       display: none;
       box-sizing: border-box;
+      background: rgba(255,255,255,0.4);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: inset 0 0 5px rgba(255,255,255,0.15);
+      font-size: 16px;
     }
 
     label {
@@ -94,14 +104,8 @@
       cursor: pointer;
     }
 
-    #activityNext:active {
-      transform: scale(0.98);
-    }
-
-    #activityNext:disabled {
-      opacity: 0.5;
-      cursor: default;
-    }
+    #activityNext:active { transform: scale(0.98); }
+    #activityNext:disabled { opacity: 0.5; cursor: default; }
 
     @media (max-width: 480px) {
       html { font-size: 18px; }
@@ -109,7 +113,7 @@
       .container { max-width: 100%; margin-top: 24px; padding: 16px; }
       h1 { font-size: 32px; margin-top: 24px; margin-bottom: 20px; }
       .list .activity-item { padding: 20px; }
-      #manualActivityInput { padding: 16px; }
+      #manualActivityInput { padding: 20px; }
       #activityNext { padding: 18px; font-size: 18px; }
     }
 
