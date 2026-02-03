@@ -46,20 +46,20 @@ html {
 /* ====== LAYOUT ====== */
 .container {
   max-width: 520px;
-  margin: 40px auto 0; /* одинаковый отступ сверху для всех страниц */
-  padding: 24px; /* одинаковый внутренний отступ сверху и снизу */
+  margin: 40px auto 0;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-sizing: border-box; /* чтобы паддинги не увеличивали ширину */
+  box-sizing: border-box;
 }
 
 /* ====== TYPOGRAPHY ====== */
 h1, h2, h3 {
   font-weight: 700;
-  margin-top: 0; /* рамка начинается сразу с верхнего текста */
+  margin-top: 0;
   margin-bottom: 24px;
-  text-align: center; /* единое центрирование заголовков */
+  text-align: center;
 }
 
 p, label {
@@ -121,8 +121,8 @@ input {
   font-size: 16px;
 }
 
-/* ====== BUTTONS ====== */
-button {
+/* ====== UNIFIED NEXT BUTTON STYLE ====== */
+.btn-next {
   width: 100%;
   padding: 15px;
   margin-top: 20px;
@@ -132,17 +132,19 @@ button {
   border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
+  transition: transform 0.1s, opacity 0.2s;
 }
 
-button:active {
+.btn-next:active {
   transform: scale(0.98);
 }
 
-button:disabled {
+.btn-next:disabled {
   opacity: 0.5;
   cursor: default;
 }
 
+/* ====== SECONDARY BUTTON ====== */
 .secondary {
   background: rgba(255,255,255,0.35);
   color: #5ba9b3;
@@ -161,7 +163,6 @@ input[type="number"] {
   box-sizing: border-box;
 }
 
-/* Для страницы данных: расположение полей одно под другим */
 .page-data .input-group {
   display: flex;
   flex-direction: column;
@@ -224,11 +225,11 @@ input[type="number"] {
 /* ====== MOBILE SCALE ====== */
 @media (max-width: 480px) {
   html {
-    font-size: 18px; /* общий базовый масштаб */
+    font-size: 18px;
   }
 
   body {
-    zoom: 1.15; /* увеличивает весь интерфейс целиком */
+    zoom: 1.15;
   }
 
   .container {
@@ -241,31 +242,4 @@ input[type="number"] {
   }
 
   h2 {
-    font-size: 26px;
-  }
-
-  h3 {
-    font-size: 22px;
-  }
-
-  p,
-  label,
-  input,
-  button {
-    font-size: 18px;
-  }
-
-  .card {
-    width: 140px;
-    padding: 24px;
-  }
-
-  button {
-    padding: 18px;
-    font-size: 18px;
-  }
-
-  input[type="number"] {
-    padding: 16px;
-  }
-}
+    fo
