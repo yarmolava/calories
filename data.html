@@ -7,30 +7,24 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* === выравнивание размеров заголовков === */
-    .data-title {
-      font-size: inherit; /* берёт размер как у h1 из style.css */
-      font-weight: inherit;
-      margin-top: 32px; /* увеличенный отступ сверху */
+    /* уменьшение расстояния между инпутами */
+    .data-input {
+      margin-bottom: 8px;
+    }
+
+    /* отступ перед блоком цели */
+    .goal-title {
+      margin-top: 28px;
       margin-bottom: 12px;
     }
 
-    /* === уменьшение расстояния между инпутами === */
-    .data-input {
-      margin-bottom: 10px;
-    }
-
-    /* === цели без подложки / рамок === */
-    .goal-group {
-      margin-top: 0;
-    }
-
+    /* цели — без фона и рамок */
     .goal-group label {
-      display: block;
-      margin-bottom: 8px;
-      background: none;
+      background: transparent;
       border: none;
       padding: 0;
+      margin-bottom: 8px;
+      display: block;
     }
   </style>
 </head>
@@ -45,7 +39,7 @@
   <input class="data-input" id="height" type="number" min="50" placeholder="Рост (см)">
   <input class="data-input" id="weight" type="number" min="20" placeholder="Вес (кг)">
 
-  <h1 class="data-title">Твоя цель</h1>
+  <h1 class="goal-title">Твоя цель</h1>
 
   <div class="goal-group">
     <label>
