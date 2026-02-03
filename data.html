@@ -1,93 +1,45 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Данные</title>
-<link rel="stylesheet" href="style.css">
-<style>
-/* ====== DATA PAGE SPECIFIC ====== */
-h1 {
-  font-size: 28px;
-  font-weight: 700;
-  text-align: center;
-  margin-top: 40px;
-  margin-bottom: 24px;
-}
-
-input, label, p, h3 {
-  font-family: 'Manrope', sans-serif;
-  font-size: 18px;
-  line-height: 1.5;
-}
-
-input[type="number"] {
-  width: 100%;
-  padding: 14px;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-  display: block;
-  margin-top: 12px;
-  box-sizing: border-box;
-}
-
-.goal-group {
-  margin-top: 15px;
-  text-align: left;
-}
-
-.goal-group label {
-  display: block;
-  margin: 8px 0;
-}
-
-button {
-  width: 100%;
-  padding: 16px;
-  margin-top: 20px;
-  font-size: 18px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-/* ====== CONTAINER ALIGNMENT ====== */
-.container {
-  max-width: 520px;
-  margin: 40px auto 0;
-  padding: 24px;
-  background: rgba(255,255,255,0.4);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 20px;
-  box-shadow: inset 0 0 5px rgba(255,255,255,0.15);
-}
-
-/* ====== MOBILE SCALE ====== */
-@media (max-width: 480px) {
-  h1 { font-size: 28px; }
-  input, label, button { font-size: 16px; }
-  input[type="number"] { padding: 14px; }
-  button { padding: 16px; }
-  .container { max-width: 100%; margin-top: 24px; }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Данные</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="page page-data">
+
 <div class="container">
-<h1>Внеси свои данные</h1>
-<input id="age" type="number" min="1" placeholder="Возраст (лет)">
-<input id="height" type="number" min="50" placeholder="Рост (см)">
-<input id="weight" type="number" min="20" placeholder="Вес (кг)">
-<h3>Твоя цель</h3>
-<div class="goal-group">
-<label><input type="radio" name="goal" value="lose"> Снижение веса</label>
-<label><input type="radio" name="goal" value="maintain"> Поддержание веса</label>
-<label><input type="radio" name="goal" value="gain"> Набор массы</label>
+
+  <h1>Внеси свои данные</h1>
+
+  <input id="age" type="number" min="1" placeholder="Возраст (лет)">
+  <input id="height" type="number" min="50" placeholder="Рост (см)">
+  <input id="weight" type="number" min="20" placeholder="Вес (кг)">
+
+  <h3>Твоя цель</h3>
+
+  <div class="goal-group">
+    <label>
+      <input type="radio" name="goal" value="lose">
+      Снижение веса
+    </label>
+
+    <label>
+      <input type="radio" name="goal" value="maintain">
+      Поддержание веса
+    </label>
+
+    <label>
+      <input type="radio" name="goal" value="gain">
+      Набор массы
+    </label>
+  </div>
+
+  <button id="dataNext" class="btn-next" disabled>Продолжить</button>
+
 </div>
-<button id="dataNext" disabled>Продолжить</button>
-</div>
+
 <script src="script.js"></script>
 </body>
 </html>
