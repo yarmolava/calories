@@ -2,7 +2,7 @@
 
 /* ====== VARIABLES ====== */
 :root {
-  --button-color: rgba(91, 169, 179, 0.75); /* Цвет кнопок */
+  --button-color: rgba(91, 169, 179, 1); /* Цвет кнопок — более яркий */
 }
 
 /* ====== BASE ====== */
@@ -121,8 +121,8 @@ input {
   font-size: 16px;
 }
 
-/* ====== UNIFIED NEXT BUTTON STYLE ====== */
-.btn-next {
+/* ====== BUTTONS ====== */
+button {
   width: 100%;
   padding: 15px;
   margin-top: 20px;
@@ -132,19 +132,17 @@ input {
   border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
-  transition: transform 0.1s, opacity 0.2s;
 }
 
-.btn-next:active {
+button:active {
   transform: scale(0.98);
 }
 
-.btn-next:disabled {
+button:disabled {
   opacity: 0.5;
   cursor: default;
 }
 
-/* ====== SECONDARY BUTTON ====== */
 .secondary {
   background: rgba(255,255,255,0.35);
   color: #5ba9b3;
@@ -163,6 +161,7 @@ input[type="number"] {
   box-sizing: border-box;
 }
 
+/* Для страницы данных: расположение полей одно под другим */
 .page-data .input-group {
   display: flex;
   flex-direction: column;
@@ -242,4 +241,31 @@ input[type="number"] {
   }
 
   h2 {
-    fo
+    font-size: 26px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  p,
+  label,
+  input,
+  button {
+    font-size: 18px;
+  }
+
+  .card {
+    width: 140px;
+    padding: 24px;
+  }
+
+  button {
+    padding: 18px;
+    font-size: 18px;
+  }
+
+  input[type="number"] {
+    padding: 16px;
+  }
+}
