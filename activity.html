@@ -13,24 +13,27 @@
       margin-bottom: 4px;
     }
 
-    /* кнопка — как на первых страницах, без изменения цвета при нажатии */
+    /* кнопка — как на предыдущих страницах, фиксированный фон, шрифт, форма, размер */
     #activityNext {
-      background: #5ba9b3;
+      background-color: #5ba9b3; /* цвет такой же, как у кнопок перехода */
       color: #fff;
       border: none;
-      opacity: 0.5;
-      padding: 10px 20px;
       border-radius: 10px;
-      font-size: 16px; /* соответствует гендер */
+      padding: 10px 20px;
+      font-size: 16px; /* соответствует предыдущим кнопкам */
+      font-family: inherit;
+      opacity: 0.5; /* отключена */
+      cursor: default;
       transition: opacity 0.2s;
     }
 
+    /* активная кнопка (выбор варианта) */
     #activityNext:not(:disabled) {
       opacity: 1;
       cursor: pointer;
     }
 
-    /* варианты активности — рамка без фонового цвета */
+    /* варианты активности — рамка без фона */
     .activity-item {
       border: 2px solid transparent;
       border-radius: 10px;
@@ -38,11 +41,13 @@
       margin-bottom: 10px;
       transition: border 0.2s;
       cursor: pointer;
+      background-color: transparent; /* фон всегда прозрачный */
     }
 
+    /* выбранная карточка — только рамка */
     .activity-item.selected {
-      border-color: #5ba9b3; /* только рамка подсветки */
-      background-color: transparent; /* фон полностью прозрачный */
+      border-color: #5ba9b3; /* рамка подсветки */
+      background-color: transparent; /* фон не меняется */
     }
 
     /* текст инфо */
@@ -103,7 +108,6 @@
   <button id="activityNext" disabled>Продолжить</button>
 </div>
 
-<script src="script.js"></script>
 <script>
 const manualCheckbox = document.getElementById("manualCheckbox");
 const manualInput = document.getElementById("manualActivityInput");
