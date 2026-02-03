@@ -7,47 +7,56 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ===== ПОЛЯ ВВОДА — ВЫРАВНИВАНИЕ ПОД ACTIVITY.HTML ===== */
+    /* ===== ИНПУТЫ — БЕЗ ИЗМЕНЕНИЙ ===== */
     .page-data input[type="number"] {
       width: 60%;
       max-width: 100%;
       padding: 20px;
-      margin-bottom: 6px;          /* расстояние между полями уменьшено */
-      border-radius: 20px;         /* скругление как в activity */
+      margin-bottom: 6px;
+      border-radius: 20px;
       border: 2px solid rgba(91, 169, 179, 0.2);
       background-color: transparent;
       box-sizing: border-box;
       font-size: 16px;
     }
 
-    /* заголовок цели — такой же, как основной */
+    /* ===== ЗАГОЛОВОК ЦЕЛИ ===== */
     .goal-title {
-      margin-top: 32px;            /* расстояние от полей */
+      margin-top: 32px;
       margin-bottom: 12px;
-      font-size: 28px;
-      font-weight: 700;
-      text-align: center;
     }
 
-    /* ===== КАРТОЧКИ ЦЕЛЕЙ — ТОЧНО КАК В ACTIVITY ===== */
+    /* ===== КАРТОЧКИ ЦЕЛЕЙ — точная копия activity ===== */
+    .goal-group {
+      width: 100%;
+    }
+
     .goal-item {
       border: 2px solid transparent;
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 10px;
-      transition: border 0.2s;
+      border-radius: 20px;
+      padding: 16px;
+      margin-bottom: 12px;
+      transition: border 0.2s, box-shadow 0.2s;
       cursor: pointer;
       background-color: transparent;
+      line-height: 1.5;
       font-size: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
     }
 
     .goal-item b {
       display: block;
       margin-bottom: 4px;
+      font-weight: 700;
     }
 
     .goal-item.selected {
       border-color: #5ba9b3;
+      box-shadow: 0 0 25px rgba(91,169,179,0.45);
       background-color: transparent;
     }
   </style>
@@ -84,22 +93,23 @@ const nextBtn = document.getElementById('dataNext');
 
 let selectedGoal = null;
 
-/* Снимаем выделение с карточек */
+/* очистка выбора целей */
 function clearGoals() {
   goalItems.forEach(item => item.classList.remove('selected'));
   selectedGoal = null;
 }
 
-/* Проверка готовности формы */
+/* проверка активации кнопки */
 function checkFormReady() {
   const ageOk = ageInput.value > 0;
   const heightOk = heightInput.value > 0;
   const weightOk = weightInput.value > 0;
   const goalOk = selectedGoal !== null;
+
   nextBtn.disabled = !(ageOk && heightOk && weightOk && goalOk);
 }
 
-/* Выбор цели */
+/* выбор цели */
 goalItems.forEach(item => {
   item.addEventListener('click', () => {
     clearGoals();
@@ -109,12 +119,12 @@ goalItems.forEach(item => {
   });
 });
 
-/* Проверка полей ввода */
+/* проверка при вводе данных */
 [ageInput, heightInput, weightInput].forEach(input => {
   input.addEventListener('input', checkFormReady);
 });
 
-/* Переход на следующую страницу */
+/* переход */
 nextBtn.addEventListener('click', () => {
   localStorage.setItem('age', ageInput.value);
   localStorage.setItem('height', heightInput.value);
