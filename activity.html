@@ -13,26 +13,6 @@
       margin-bottom: 4px;
     }
 
-    /* кнопка — фиксированный фон, шрифт, форма, размер */
-    #activityNext {
-      background-color: #5ba9b3;
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      padding: 10px 20px;
-      font-size: 16px;
-      font-family: inherit;
-      opacity: 0.5;
-      cursor: default;
-      transition: opacity 0.2s;
-    }
-
-    /* активная кнопка */
-    #activityNext:not(:disabled) {
-      opacity: 1;
-      cursor: pointer;
-    }
-
     /* варианты активности — рамка без фона */
     .activity-item {
       border: 2px solid transparent;
@@ -82,7 +62,8 @@
 
   <input type="number" step="0.01" min="0" id="manualActivityInput" placeholder="Введите коэффициент" style="display:none;">
 
-  <button id="activityNext" disabled>Продолжить</button>
+  <!-- Унифицированная кнопка с классом btn-next -->
+  <button id="activityNext" class="btn-next" disabled>Продолжить</button>
 </div>
 
 <script>
