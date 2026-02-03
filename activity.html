@@ -26,11 +26,10 @@
       cursor: pointer;
     }
 
-    /* выбранная карточка */
+    /* выбранная карточка — только подсветка без изменения размеров */
     .activity-item.selected {
-      border: 2px solid #5ba9b3;
+      outline: 2px solid #5ba9b3; /* outline не влияет на размер */
       border-radius: 10px;
-      padding: 8px;
     }
   </style>
 </head>
@@ -92,28 +91,27 @@ const manualInput = document.getElementById("manualActivityInput");
 const nextBtn = document.getElementById("activityNext");
 const items = document.querySelectorAll('.activity-item');
 
-// снять выбор со всех карточек
+// Снимаем подсветку со всех карточек
 function clearActivityItems() {
   items.forEach(i => i.classList.remove('selected'));
 }
 
-// выбор карточки активности
+// Выбор карточки активности
 items.forEach(item => {
   item.addEventListener('click', () => {
     clearActivityItems();
     item.classList.add('selected');
 
-    // снять выбор ручного ввода
+    // Снимаем выбор ручного ввода
     manualCheckbox.checked = false;
     manualInput.style.display = "none";
     manualInput.value = "";
 
-    // активируем кнопку
-    nextBtn.disabled = false;
+    nextBtn.disabled = false; // активируем кнопку
   });
 });
 
-// ручной коэффициент — отдельный вариант
+// Ручной коэффициент — отдельный вариант
 manualCheckbox.addEventListener("change", () => {
   if (manualCheckbox.checked) {
     clearActivityItems();           // снимаем подсветку с карточек
@@ -126,7 +124,7 @@ manualCheckbox.addEventListener("change", () => {
   }
 });
 
-// активация кнопки при вводе числа
+// Активация кнопки при вводе числа
 manualInput.addEventListener("input", () => {
   const value = parseFloat(manualInput.value);
   nextBtn.disabled = !(value > 0);
