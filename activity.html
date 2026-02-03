@@ -27,20 +27,21 @@
       cursor: pointer;
     }
 
-    /* выбранная карточка — как на странице гендер */
+    /* выбранная карточка — подсветка как на гендер */
     .activity-item {
       padding: 12px;
       border-radius: 12px;
       transition: all 0.2s ease;
       cursor: pointer;
       user-select: none;
-      background: #f5f5f5;
+      background: #f5f5f5; /* обычное состояние */
+      border: 2px solid transparent; /* чтобы размер не менялся */
     }
 
     .activity-item.selected {
-      background: linear-gradient(90deg, #5ba9b3 0%, #3a8e95 100%);
+      background: #5ba9b3; /* совпадает с цветом выбранной карточки на гендер */
       color: #fff;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border: 2px solid #5ba9b3;
     }
 
     .info {
