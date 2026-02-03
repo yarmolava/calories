@@ -36,15 +36,16 @@
       font-size: 16px;
     }
 
-    /* ====== МИНИМАЛЬНОЕ ИЗМЕНЕНИЕ ДЛЯ ПОЛЯ РУЧНОГО ВВОДА ====== */
+    /* ====== МИНИМАЛЬНОЕ ИЗМЕНЕНИЕ ====== */
+    /* БОЛЕЕ СИЛЬНОЕ СКРУГЛЕНИЕ ПОЛЯ РУЧНОГО ВВОДА */
     #manualActivityInput {
-      display: none; /* скрыто по умолчанию */
-      width: 80%; /* растягиваем по ширине контейнера */
-      max-width: 100%; /* ограничение по ширине */
-      padding: 20px; /* увеличиваем вертикальный padding, чтобы визуально совпадало с карточкой */
-      border-radius: 10px; /* как у карточек */
-      border: 2px solid rgba(91, 169, 179, 0.2); /* тонкая рамка как у карточек */
-      background-color: transparent; /* чтобы совпадало с дизайном карточек */
+      display: none;
+      width: 80%;
+      max-width: 100%;
+      padding: 20px;
+      border-radius: 20px; /* ← усилено скругление */
+      border: 2px solid rgba(91, 169, 179, 0.2);
+      background-color: transparent;
       box-sizing: border-box;
       font-size: 16px;
     }
@@ -73,9 +74,14 @@
     <input type="checkbox" id="manualCheckbox"> Указать точный коэффициент вручную
   </label>
 
-  <input type="number" step="0.01" min="0" id="manualActivityInput" placeholder="Введите коэффициент">
+  <input
+    type="number"
+    step="0.01"
+    min="0"
+    id="manualActivityInput"
+    placeholder="Введите коэффициент"
+  >
 
-  <!-- Унифицированная кнопка с классом btn-next -->
   <button id="activityNext" class="btn-next" disabled>Продолжить</button>
 </div>
 
@@ -85,12 +91,10 @@ const manualInput = document.getElementById("manualActivityInput");
 const nextBtn = document.getElementById("activityNext");
 const items = document.querySelectorAll('.activity-item');
 
-// Снимаем подсветку со всех карточек
 function clearActivityItems() {
   items.forEach(i => i.classList.remove('selected'));
 }
 
-// Выбор карточки активности
 items.forEach(item => {
   item.addEventListener('click', () => {
     clearActivityItems();
@@ -104,7 +108,6 @@ items.forEach(item => {
   });
 });
 
-// Ручной коэффициент — отдельный вариант
 manualCheckbox.addEventListener("change", () => {
   if (manualCheckbox.checked) {
     clearActivityItems();
@@ -117,13 +120,11 @@ manualCheckbox.addEventListener("change", () => {
   }
 });
 
-// Активация кнопки при вводе числа вручную
 manualInput.addEventListener("input", () => {
   const value = parseFloat(manualInput.value);
   nextBtn.disabled = !(value > 0);
 });
 
-// Кнопка Продолжить — переход на data.html
 nextBtn.addEventListener("click", () => {
   let selectedValue = null;
 
@@ -136,7 +137,7 @@ nextBtn.addEventListener("click", () => {
 
   if (selectedValue) {
     localStorage.setItem('activityCoefficient', selectedValue);
-    window.location.href = "data.html"; // переход на следующую страницу
+    window.location.href = "data.html";
   }
 });
 </script>
