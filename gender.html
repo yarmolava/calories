@@ -27,6 +27,14 @@
     #method li {
       text-align: left;
     }
+
+    /* Ссылка "Методика расчета" — цвет кнопки */
+    .link {
+      cursor: pointer;
+      color: #5ba9b3;
+      margin-top: 16px;
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -41,9 +49,10 @@
     <div class="card" data-gender="female">👩<br>Женский</div>
   </div>
 
-  <button id="nextBtn" disabled style="background:#5ba9b3;">Продолжить</button>
+  <!-- Кнопка под стиль style.css -->
+  <button id="nextBtn" class="btn-next" disabled>Продолжить</button>
 
-  <p class="link" onclick="toggleMethod()" style="color:#5ba9b3;">Методика расчета</p>
+  <p class="link" onclick="toggleMethod()">Методика расчета</p>
 
   <div id="method">
 
