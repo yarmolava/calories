@@ -1,105 +1,46 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Уровень активности</title>
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    /* коэффициент сверху, текст снизу */
-    .activity-item b {
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    /* кнопка — как на первых страницах */
-    #activityNext {
-      background: #5ba9b3;
-      color: #fff;
-      border: none;
-      opacity: 0.5;
-    }
-
-    #activityNext:not(:disabled) {
-      opacity: 1;
-      cursor: pointer;
-    }
-  </style>
-</head>
-
-<body class="page page-activity">
-
-<div class="container">
-
-  <h1>Выбери уровень<br>ежедневной активности</h1>
-
-  <div class="info">
-    💡 Считаются только тренировки в зале/дома. Обычная<br>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ходьба и бытовая активность не учитываются.
-  </div>
-
-  <div class="list">
-    <div class="activity-item" data-activity="1.2">
-      <b>1.200</b>
-      Без тренировок, сидячая работа
-    </div>
-
-    <div class="activity-item" data-activity="1.375">
-      <b>1.375</b>
-      1–3 тренировки в неделю
-    </div>
-
-    <div class="activity-item" data-activity="1.55">
-      <b>1.550</b>
-      4–5 тренировок в неделю
-    </div>
-
-    <div class="activity-item" data-activity="1.725">
-      <b>1.725</b>
-      6–7 тренировок в неделю + активная работа
-    </div>
-  </div>
-
-  <label>
-    <input type="checkbox" id="manualCheckbox">
-    Указать коэффициент вручную
-  </label>
-
-  <input
-    type="number"
-    step="0.01"
-    min="0"
-    id="manualActivityInput"
-    placeholder="Введите коэффициент"
-    style="display:none;"
-  >
-
-  <button id="activityNext" disabled>Продолжить</button>
-</div>
-
-<script src="script.js"></script>
 <script>
 const manualCheckbox = document.getElementById("manualCheckbox");
 const manualInput = document.getElementById("manualActivityInput");
 const nextBtn = document.getElementById("activityNext");
+const items = document.querySelectorAll('.activity-item');
 
-manualCheckbox.addEventListener("change", () => {
-  manualInput.style.display = manualCheckbox.checked ? "block" : "none";
-  if (!manualCheckbox.checked) manualInput.value = "";
-});
+/* утилита: снять выбор со всех карточек */
+function clearActivityItems() {
+  items.forEach(i => i.classList.remove('selected'));
+}
 
-// выбор активности
-document.querySelectorAll('.activity-item').forEach(item => {
+/* выбор карточки активности */
+items.forEach(item => {
   item.addEventListener('click', () => {
-    document.querySelectorAll('.activity-item')
-      .forEach(i => i.classList.remove('selected'));
+    clearActivityItems();
 
     item.classList.add('selected');
+
+    // сбрасываем ручной ввод
+    manualCheckbox.checked = false;
+    manualInput.style.display = "none";
+    manualInput.value = "";
+
     nextBtn.disabled = false;
   });
 });
-</script>
 
-</body>
-</html>
+/* ручной коэффициент — как отдельный вариант */
+manualCheckbox.addEventListener("change", () => {
+  if (manualCheckbox.checked) {
+    clearActivityItems();
+    manualInput.style.display = "block";
+    nextBtn.disabled = true; // пока не введено число
+  } else {
+    manualInput.style.display = "none";
+    manualInput.value = "";
+    nextBtn.disabled = true;
+  }
+});
+
+/* активация кнопки только при валидном числе */
+manualInput.addEventListener("input", () => {
+  const value = parseFloat(manualInput.value);
+  nextBtn.disabled = !(value > 0);
+});
+</script>
