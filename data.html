@@ -7,24 +7,40 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* уменьшение расстояния между инпутами */
-    .data-input {
-      margin-bottom: 8px;
+    /* ===== ВЫРАВНИВАНИЕ ПОД ACTIVITY.HTML ===== */
+
+    .page-data input[type="number"] {
+      width: 60%;
+      max-width: 100%;
+      padding: 20px;
+      margin-bottom: 6px;          /* ↓ уменьшено расстояние между полями */
+      border-radius: 20px;
+      border: 2px solid rgba(91, 169, 179, 0.2);
+      background-color: transparent;
+      box-sizing: border-box;
+      font-size: 16px;
     }
 
-    /* отступ перед блоком цели */
+    /* заголовок цели — такой же, как основной */
     .goal-title {
-      margin-top: 28px;
+      margin-top: 32px;            /* ↑ больше расстояние от полей */
       margin-bottom: 12px;
     }
 
-    /* цели — без фона и рамок */
+    .goal-group {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
     .goal-group label {
-      background: transparent;
-      border: none;
-      padding: 0;
-      margin-bottom: 8px;
       display: block;
+      font-size: 16px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .goal-group input[type="radio"] {
+      margin-right: 8px;
     }
   </style>
 </head>
@@ -35,9 +51,9 @@
 
   <h1>Внеси свои данные</h1>
 
-  <input class="data-input" id="age" type="number" min="1" placeholder="Возраст (лет)">
-  <input class="data-input" id="height" type="number" min="50" placeholder="Рост (см)">
-  <input class="data-input" id="weight" type="number" min="20" placeholder="Вес (кг)">
+  <input id="age" type="number" min="1" placeholder="Возраст (лет)">
+  <input id="height" type="number" min="50" placeholder="Рост (см)">
+  <input id="weight" type="number" min="20" placeholder="Вес (кг)">
 
   <h1 class="goal-title">Твоя цель</h1>
 
