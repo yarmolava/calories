@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ===== ИНПУТЫ (БЕЗ ИЗМЕНЕНИЙ) ===== */
+    /* ===== ИНПУТЫ — БЕЗ ИЗМЕНЕНИЙ ===== */
     .page-data input[type="number"] {
       width: 60%;
       max-width: 100%;
@@ -18,6 +18,12 @@
       background-color: transparent;
       box-sizing: border-box;
       font-size: 16px;
+    }
+
+    /* ===== ЗАГОЛОВОК ЦЕЛИ ===== */
+    .goal-title {
+      margin-top: 32px;
+      margin-bottom: 12px;
     }
 
     /* ===== КАРТОЧКИ ЦЕЛЕЙ — КОПИЯ ACTIVITY ===== */
@@ -36,12 +42,6 @@
       border-color: #5ba9b3;
       background-color: transparent;
     }
-
-    /* заголовок цели */
-    .goal-title {
-      margin-top: 32px;
-      margin-bottom: 16px;
-    }
   </style>
 </head>
 
@@ -57,7 +57,7 @@
 
   <h1 class="goal-title">Твоя цель</h1>
 
-  <div class="goal-list">
+  <div class="goal-group">
     <div class="goal-item" data-goal="lose">Снижение веса</div>
     <div class="goal-item" data-goal="maintain">Поддержание веса</div>
     <div class="goal-item" data-goal="gain">Набор массы</div>
@@ -68,27 +68,53 @@
 </div>
 
 <script>
+const ageInput = document.getElementById('age');
+const heightInput = document.getElementById('height');
+const weightInput = document.getElementById('weight');
 const goalItems = document.querySelectorAll('.goal-item');
 const nextBtn = document.getElementById('dataNext');
 
+let selectedGoal = null;
+
+/* очистка выбора целей */
 function clearGoals() {
   goalItems.forEach(item => item.classList.remove('selected'));
+  selectedGoal = null;
 }
 
+/* проверка активации кнопки */
+function checkFormReady() {
+  const ageOk = ageInput.value > 0;
+  const heightOk = heightInput.value > 0;
+  const weightOk = weightInput.value > 0;
+  const goalOk = selectedGoal !== null;
+
+  nextBtn.disabled = !(ageOk && heightOk && weightOk && goalOk);
+}
+
+/* выбор цели */
 goalItems.forEach(item => {
   item.addEventListener('click', () => {
     clearGoals();
     item.classList.add('selected');
-    nextBtn.disabled = false;
+    selectedGoal = item.dataset.goal;
+    checkFormReady();
   });
 });
 
-nextBtn.addEventListener('click', () => {
-  const selectedGoal = document.querySelector('.goal-item.selected');
-  if (!selectedGoal) return;
+/* проверка при вводе данных */
+[ageInput, heightInput, weightInput].forEach(input => {
+  input.addEventListener('input', checkFormReady);
+});
 
-  localStorage.setItem('goal', selectedGoal.dataset.goal);
-  // переход на следующую страницу при необходимости
+/* переход */
+nextBtn.addEventListener('click', () => {
+  localStorage.setItem('age', ageInput.value);
+  localStorage.setItem('height', heightInput.value);
+  localStorage.setItem('weight', weightInput.value);
+  localStorage.setItem('goal', selectedGoal);
+
+  // window.location.href = 'next.html';
 });
 </script>
 
