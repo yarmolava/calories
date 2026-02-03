@@ -7,34 +7,30 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ===== ВЫРАВНИВАНИЕ ПОД ACTIVITY.HTML ===== */
-
-    .page-data input[type="number"] {
-      width: 60%;                /* как у "Введите коэффициент" */
-      max-width: 100%;
-      padding: 20px;             /* идентично */
+    /* === выравнивание размеров заголовков === */
+    .data-title {
+      font-size: inherit; /* берёт размер как у h1 из style.css */
+      font-weight: inherit;
+      margin-top: 32px; /* увеличенный отступ сверху */
       margin-bottom: 12px;
-      border-radius: 20px;       /* одинаковые скругления */
-      border: 2px solid rgba(91, 169, 179, 0.2);
-      background-color: transparent;
-      box-sizing: border-box;
-      font-size: 16px;           /* совпадает */
     }
 
+    /* === уменьшение расстояния между инпутами === */
+    .data-input {
+      margin-bottom: 10px;
+    }
+
+    /* === цели без подложки / рамок === */
     .goal-group {
-      margin-top: 10px;
-      margin-bottom: 20px;
+      margin-top: 0;
     }
 
     .goal-group label {
       display: block;
-      font-size: 16px;           /* тот же размер текста */
-      margin-bottom: 10px;
-      cursor: pointer;
-    }
-
-    .goal-group input[type="radio"] {
-      margin-right: 8px;
+      margin-bottom: 8px;
+      background: none;
+      border: none;
+      padding: 0;
     }
   </style>
 </head>
@@ -45,11 +41,11 @@
 
   <h1>Внеси свои данные</h1>
 
-  <input id="age" type="number" min="1" placeholder="Возраст (лет)">
-  <input id="height" type="number" min="50" placeholder="Рост (см)">
-  <input id="weight" type="number" min="20" placeholder="Вес (кг)">
+  <input class="data-input" id="age" type="number" min="1" placeholder="Возраст (лет)">
+  <input class="data-input" id="height" type="number" min="50" placeholder="Рост (см)">
+  <input class="data-input" id="weight" type="number" min="20" placeholder="Вес (кг)">
 
-  <h3>Твоя цель</h3>
+  <h1 class="data-title">Твоя цель</h1>
 
   <div class="goal-group">
     <label>
