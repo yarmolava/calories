@@ -22,7 +22,7 @@
       padding: 10px 20px;
       border-radius: 10px;
       font-size: 16px; /* соответствует гендер */
-      transition: opacity 0.2s; /* плавное появление доступности */
+      transition: opacity 0.2s;
     }
 
     #activityNext:not(:disabled) {
@@ -30,7 +30,7 @@
       cursor: pointer;
     }
 
-    /* подсветка выбранного варианта — только рамка и лёгкий фон */
+    /* варианты активности — рамка без фонового цвета */
     .activity-item {
       border: 2px solid transparent;
       border-radius: 10px;
@@ -41,8 +41,8 @@
     }
 
     .activity-item.selected {
-      border-color: #5ba9b3;
-      background-color: rgba(91, 169, 179, 0.1); /* лёгкий эффект подсветки */
+      border-color: #5ba9b3; /* только рамка подсветки */
+      background-color: transparent; /* фон полностью прозрачный */
     }
 
     /* текст инфо */
