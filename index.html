@@ -38,25 +38,6 @@
       color: #5ba9b3;
       text-decoration: none;
     }
-
-    /* 5. Кнопка Старт */
-    .container.first-page button {
-      width: 100%;
-      padding: 15px;
-      margin-top: 20px;
-      font-size: 16px;
-      border-radius: 20px;
-      border: none;
-      background: #5ba9b3;
-      color: #fff;
-      cursor: pointer;
-      transition: opacity 0.3s;
-    }
-
-    .container.first-page button:disabled {
-      opacity: 0.5;
-      cursor: default;
-    }
   </style>
 </head>
 
@@ -78,7 +59,8 @@
     <p>Telegram: <a href="https://t.me/yarmolava" target="_blank">t.me/yarmolava</a></p>
   </div>
 
-  <button onclick="window.location.href='gender.html'">Старт</button>
+  <!-- Кнопка под стиль style.css -->
+  <button class="btn-next" onclick="window.location.href='gender.html'">Старт</button>
 
 </div>
 
