@@ -7,26 +7,29 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ===== ИНПУТЫ — БЕЗ ИЗМЕНЕНИЙ ===== */
+    /* ===== ПОЛЯ ВВОДА — ВЫРАВНИВАНИЕ ПОД ACTIVITY.HTML ===== */
     .page-data input[type="number"] {
       width: 60%;
       max-width: 100%;
       padding: 20px;
-      margin-bottom: 6px;
-      border-radius: 20px;
+      margin-bottom: 6px;          /* расстояние между полями уменьшено */
+      border-radius: 20px;         /* скругление как в activity */
       border: 2px solid rgba(91, 169, 179, 0.2);
       background-color: transparent;
       box-sizing: border-box;
       font-size: 16px;
     }
 
-    /* ===== ЗАГОЛОВОК ЦЕЛИ ===== */
+    /* заголовок цели — такой же, как основной */
     .goal-title {
-      margin-top: 32px;
+      margin-top: 32px;            /* расстояние от полей */
       margin-bottom: 12px;
+      font-size: 28px;
+      font-weight: 700;
+      text-align: center;
     }
 
-    /* ===== КАРТОЧКИ ЦЕЛЕЙ — КОПИЯ ACTIVITY ===== */
+    /* ===== КАРТОЧКИ ЦЕЛЕЙ — ТОЧНО КАК В ACTIVITY ===== */
     .goal-item {
       border: 2px solid transparent;
       border-radius: 10px;
@@ -36,6 +39,11 @@
       cursor: pointer;
       background-color: transparent;
       font-size: 16px;
+    }
+
+    .goal-item b {
+      display: block;
+      margin-bottom: 4px;
     }
 
     .goal-item.selected {
@@ -58,9 +66,9 @@
   <h1 class="goal-title">Твоя цель</h1>
 
   <div class="goal-group">
-    <div class="goal-item" data-goal="lose">Снижение веса</div>
-    <div class="goal-item" data-goal="maintain">Поддержание веса</div>
-    <div class="goal-item" data-goal="gain">Набор массы</div>
+    <div class="goal-item" data-goal="lose"><b>Снижение веса</b></div>
+    <div class="goal-item" data-goal="maintain"><b>Поддержание веса</b></div>
+    <div class="goal-item" data-goal="gain"><b>Набор массы</b></div>
   </div>
 
   <button id="dataNext" class="btn-next" disabled>Продолжить</button>
@@ -76,23 +84,22 @@ const nextBtn = document.getElementById('dataNext');
 
 let selectedGoal = null;
 
-/* очистка выбора целей */
+/* Снимаем выделение с карточек */
 function clearGoals() {
   goalItems.forEach(item => item.classList.remove('selected'));
   selectedGoal = null;
 }
 
-/* проверка активации кнопки */
+/* Проверка готовности формы */
 function checkFormReady() {
   const ageOk = ageInput.value > 0;
   const heightOk = heightInput.value > 0;
   const weightOk = weightInput.value > 0;
   const goalOk = selectedGoal !== null;
-
   nextBtn.disabled = !(ageOk && heightOk && weightOk && goalOk);
 }
 
-/* выбор цели */
+/* Выбор цели */
 goalItems.forEach(item => {
   item.addEventListener('click', () => {
     clearGoals();
@@ -102,12 +109,12 @@ goalItems.forEach(item => {
   });
 });
 
-/* проверка при вводе данных */
+/* Проверка полей ввода */
 [ageInput, heightInput, weightInput].forEach(input => {
   input.addEventListener('input', checkFormReady);
 });
 
-/* переход */
+/* Переход на следующую страницу */
 nextBtn.addEventListener('click', () => {
   localStorage.setItem('age', ageInput.value);
   localStorage.setItem('height', heightInput.value);
