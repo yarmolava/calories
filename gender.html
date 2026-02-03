@@ -10,6 +10,12 @@
     .justify {
       text-align: justify;
     }
+
+    /* ВАЖНО: выравнивание всех списков в методике по левому краю */
+    #method ul,
+    #method li {
+      text-align: left;
+    }
   </style>
 </head>
 <body class="page page-gender">
@@ -25,7 +31,6 @@
 
   <button id="nextBtn" disabled style="background:#5ba9b3;">Продолжить</button>
 
-  <!-- цвет как у ссылок на соцсети -->
   <p class="link" onclick="toggleMethod()" style="color:#5ba9b3;">Методика расчета</p>
 
   <div id="method">
