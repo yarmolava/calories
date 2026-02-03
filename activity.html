@@ -13,7 +13,7 @@
       margin-bottom: 4px;
     }
 
-    /* кнопка — как на первых страницах */
+    /* кнопка — как на первых страницах, без изменения цвета при нажатии */
     #activityNext {
       background: #5ba9b3;
       color: #fff;
@@ -22,6 +22,7 @@
       padding: 10px 20px;
       border-radius: 10px;
       font-size: 16px; /* соответствует гендер */
+      transition: opacity 0.2s; /* плавное появление доступности */
     }
 
     #activityNext:not(:disabled) {
@@ -29,7 +30,7 @@
       cursor: pointer;
     }
 
-    /* подсветка выбранного варианта — такой же стиль, как на странице гендер */
+    /* подсветка выбранного варианта — только рамка и лёгкий фон */
     .activity-item {
       border: 2px solid transparent;
       border-radius: 10px;
@@ -41,7 +42,7 @@
 
     .activity-item.selected {
       border-color: #5ba9b3;
-      background-color: rgba(91, 169, 179, 0.1); /* легкий эффект подсветки */
+      background-color: rgba(91, 169, 179, 0.1); /* лёгкий эффект подсветки */
     }
 
     /* текст инфо */
