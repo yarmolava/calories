@@ -7,33 +7,29 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* коэффициент сверху, текст снизу */
     .activity-item b {
       display: block;
       margin-bottom: 4px;
     }
 
-    /* кнопка — как на предыдущих страницах, фиксированный фон, шрифт, форма, размер */
     #activityNext {
-      background-color: #5ba9b3; /* цвет такой же, как у кнопок перехода */
+      background-color: #5ba9b3;
       color: #fff;
       border: none;
       border-radius: 10px;
       padding: 10px 20px;
-      font-size: 16px; /* соответствует предыдущим кнопкам */
+      font-size: 16px;
       font-family: inherit;
-      opacity: 0.5; /* отключена */
+      opacity: 0.5;
       cursor: default;
       transition: opacity 0.2s;
     }
 
-    /* активная кнопка (выбор варианта) */
     #activityNext:not(:disabled) {
       opacity: 1;
       cursor: pointer;
     }
 
-    /* варианты активности — рамка без фона */
     .activity-item {
       border: 2px solid transparent;
       border-radius: 10px;
@@ -41,19 +37,17 @@
       margin-bottom: 10px;
       transition: border 0.2s;
       cursor: pointer;
-      background-color: transparent; /* фон всегда прозрачный */
+      background-color: transparent;
     }
 
-    /* выбранная карточка — только рамка */
     .activity-item.selected {
-      border-color: #5ba9b3; /* рамка подсветки */
-      background-color: transparent; /* фон не меняется */
+      border-color: #5ba9b3;
+      background-color: transparent;
     }
 
-    /* текст инфо */
     .info {
       margin-bottom: 20px;
-      font-size: 16px; /* совпадает с заголовками и текстом на гендер */
+      font-size: 16px;
     }
   </style>
 </head>
@@ -125,21 +119,20 @@ items.forEach(item => {
     clearActivityItems();
     item.classList.add('selected');
 
-    // снимаем выбор ручного ввода
     manualCheckbox.checked = false;
     manualInput.style.display = "none";
     manualInput.value = "";
 
-    nextBtn.disabled = false; // активируем кнопку
+    nextBtn.disabled = false;
   });
 });
 
-// ручной коэффициент — отдельный вариант
+// ручной коэффициент
 manualCheckbox.addEventListener("change", () => {
   if (manualCheckbox.checked) {
-    clearActivityItems();           // снимаем подсветку с карточек
+    clearActivityItems();
     manualInput.style.display = "block";
-    nextBtn.disabled = true;        // пока не введено число
+    nextBtn.disabled = true;
   } else {
     manualInput.style.display = "none";
     manualInput.value = "";
@@ -151,6 +144,28 @@ manualCheckbox.addEventListener("change", () => {
 manualInput.addEventListener("input", () => {
   const value = parseFloat(manualInput.value);
   nextBtn.disabled = !(value > 0);
+});
+
+// обработка кнопки Продолжить
+nextBtn.addEventListener("click", () => {
+  let selectedValue = null;
+
+  if (manualCheckbox.checked) {
+    selectedValue = parseFloat(manualInput.value);
+  } else {
+    const selectedItem = document.querySelector('.activity-item.selected');
+    if (selectedItem) {
+      selectedValue = parseFloat(selectedItem.dataset.activity);
+    }
+  }
+
+  if (selectedValue) {
+    // сохраняем в localStorage
+    localStorage.setItem('activityCoefficient', selectedValue);
+
+    // переход на следующую страницу
+    window.location.href = "nextPage.html"; // поменяй на актуальную страницу
+  }
 });
 </script>
 
