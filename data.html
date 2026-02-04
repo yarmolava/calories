@@ -20,11 +20,10 @@
       font-size: 16px;
     }
 
-    /* ===== ЗАГОЛОВОК ЦЕЛИ ===== */
+    /* ===== ЗАГОЛОВОК ЦЕЛИ — КАК ОСНОВНОЙ ===== */
     .goal-title {
       margin-top: 32px;
       margin-bottom: 12px;
-      font-size: inherit; /* тот же размер, что и h1 выше */
     }
 
     /* ===== ГРУППА ЦЕЛЕЙ ===== */
@@ -35,24 +34,32 @@
       align-items: center;
     }
 
-    /* ===== КНОПКИ ЦЕЛИ — ТОЧНАЯ КОПИЯ activity-item ===== */
+    /* ===== КНОПКИ ЦЕЛИ — ВИЗУАЛ КАК ACTIVITY ===== */
     .goal-item {
-      width: 60%;                 /* как инпуты */
+      width: 60%;
       border: 2px solid transparent;
-      border-radius: 10px;        /* как в activity */
-      padding: 12px;              /* как в activity */
+      border-radius: 10px;
+      padding: 12px;
       margin-bottom: 10px;
       cursor: pointer;
-      background-color: transparent;
+
+      /* ключевое отличие от фона */
+      background-color: rgba(255, 255, 255, 0.35);
+
       font-size: 16px;
-      transition: border 0.2s;
+      transition: border 0.2s, background-color 0.2s;
       box-sizing: border-box;
-      text-align: left;
+
+      /* центрирование текста */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
     .goal-item.selected {
-      border-color: #5ba9b3;      /* тот же цвет */
-      background-color: transparent;
+      border-color: #5ba9b3;
+      background-color: rgba(255, 255, 255, 0.45);
     }
   </style>
 </head>
