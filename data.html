@@ -20,34 +20,39 @@
       font-size: 16px;
     }
 
-    /* ===== ЗАГОЛОВОК ===== */
+    /* ===== ЗАГОЛОВОК ЦЕЛИ ===== */
     .goal-title {
       margin-top: 32px;
       margin-bottom: 12px;
+      font-size: inherit; /* тот же размер, что и h1 выше */
     }
 
-    /* ===== КАРТОЧКИ ЦЕЛИ ===== */
+    /* ===== ГРУППА ЦЕЛЕЙ ===== */
     .goal-group {
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
+    /* ===== КНОПКИ ЦЕЛИ — ТОЧНАЯ КОПИЯ activity-item ===== */
     .goal-item {
+      width: 60%;                 /* как инпуты */
       border: 2px solid transparent;
-      border-radius: 20px;
-      padding: 16px;
-      margin-bottom: 12px;
+      border-radius: 10px;        /* как в activity */
+      padding: 12px;              /* как в activity */
+      margin-bottom: 10px;
       cursor: pointer;
       background-color: transparent;
       font-size: 16px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: border 0.2s, box-shadow 0.2s;
+      transition: border 0.2s;
+      box-sizing: border-box;
+      text-align: left;
     }
 
     .goal-item.selected {
-      border-color: #5ba9b3;
-      box-shadow: 0 0 25px rgba(91,169,179,0.45);
+      border-color: #5ba9b3;      /* тот же цвет */
+      background-color: transparent;
     }
   </style>
 </head>
