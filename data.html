@@ -1,59 +1,130 @@
-<style>
-/* ===== ИНПУТЫ ===== */
-.page-data input[type="number"] {
-  width: 60%;
-  max-width: 100%;
-  padding: 20px;
-  margin-bottom: 6px;
-  border-radius: 20px;
-  border: 2px solid rgba(91, 169, 179, 0.2);
-  background-color: transparent;
-  box-sizing: border-box;
-  font-size: 16px;
-}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Данные</title>
+  <link rel="stylesheet" href="style.css">
 
-/* ===== ЗАГОЛОВОК ===== */
-.goal-title {
-  margin-top: 32px;
-  margin-bottom: 12px;
-}
+  <style>
+    /* ===== ИНПУТЫ ===== */
+    .page-data input[type="number"] {
+      width: 60%;
+      max-width: 100%;
+      padding: 20px;
+      margin-bottom: 6px;
+      border-radius: 20px;
+      border: 2px solid rgba(91, 169, 179, 0.2);
+      background-color: transparent;
+      box-sizing: border-box;
+      font-size: 16px;
+    }
 
-/* ===== ГРУППА ЦЕЛЕЙ ===== */
-.goal-group {
-  width: 100%;
-  margin-top: 12px;
+    /* ===== ЗАГОЛОВОК ===== */
+    .goal-title {
+      margin-top: 32px;
+      margin-bottom: 12px;
+      text-align: center;
+    }
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    /* ===== ГРУППА ЦЕЛЕЙ ===== */
+    .goal-group {
+      width: 100%;
+      margin-top: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* центрируем кнопки */
+      gap: 6px; /* промежуток между кнопками, как у инпутов */
+    }
 
-/* ===== КНОПКИ ЦЕЛИ ===== */
-.goal-item {
-  width: 60%;
-  height: 60px; /* ← выравниваем по высоте с инпутами */
-  padding: 0; /* padding по вертикали убираем, высота уже задана */
-  margin-bottom: 6px;
+    /* ===== КНОПКИ ЦЕЛИ ===== */
+    .goal-item {
+      width: 60%;              /* совпадает с шириной инпутов */
+      height: 60px;            /* фиксированная высота как у инпутов */
+      border-radius: 20px;     /* как у инпутов */
+      border: 2px solid transparent;
+      background-color: rgba(255, 255, 255, 0.35); /* чуть белее фона */
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 16px;
+      transition: border 0.2s, box-shadow 0.2s, background-color 0.2s;
+      box-sizing: border-box;
+    }
 
-  border-radius: 20px;
-  border: 2px solid transparent;
-  cursor: pointer;
+    .goal-item.selected {
+      border-color: #5ba9b3;
+      box-shadow: 0 0 25px rgba(91,169,179,0.45);
+      background-color: rgba(255, 255, 255, 0.45);
+    }
+  </style>
+</head>
 
-  background-color: rgba(255, 255, 255, 0.35);
+<body class="page page-data">
 
-  font-size: 16px;
-  transition: border 0.2s, background-color 0.2s;
-  box-sizing: border-box;
+<div class="container">
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  line-height: normal;
-}
+  <h1>Внеси свои данные</h1>
 
-.goal-item.selected {
-  border-color: #5ba9b3;
-  background-color: rgba(255, 255, 255, 0.45);
-}
-</style>
+  <input id="age" type="number" min="1" placeholder="Возраст (лет)">
+  <input id="height" type="number" min="50" placeholder="Рост (см)">
+  <input id="weight" type="number" min="20" placeholder="Вес (кг)">
+
+  <h1 class="goal-title">Твоя цель</h1>
+
+  <div class="goal-group">
+    <div class="goal-item" data-goal="lose">Снижение веса</div>
+    <div class="goal-item" data-goal="maintain">Поддержание веса</div>
+    <div class="goal-item" data-goal="gain">Набор массы</div>
+  </div>
+
+  <button id="dataNext" class="btn-next" disabled>Продолжить</button>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const age = document.getElementById("age");
+  const height = document.getElementById("height");
+  const weight = document.getElementById("weight");
+  const goalItems = document.querySelectorAll(".goal-item");
+  const dataNext = document.getElementById("dataNext");
+
+  let selectedGoal = null;
+
+  function validate() {
+    dataNext.disabled = !(
+      age.value > 0 &&
+      height.value > 0 &&
+      weight.value > 0 &&
+      selectedGoal
+    );
+  }
+
+  goalItems.forEach(item => {
+    item.addEventListener("click", () => {
+      goalItems.forEach(i => i.classList.remove("selected"));
+      item.classList.add("selected");
+      selectedGoal = item.dataset.goal;
+      validate();
+    });
+  });
+
+  [age, height, weight].forEach(i =>
+    i.addEventListener("input", validate)
+  );
+
+  dataNext.addEventListener("click", () => {
+    localStorage.setItem("age", age.value);
+    localStorage.setItem("height", height.value);
+    localStorage.setItem("weight", weight.value);
+    localStorage.setItem("goal", selectedGoal);
+    window.location.href = "result.html";
+  });
+});
+</script>
+
+</body>
+</html>
