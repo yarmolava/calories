@@ -20,7 +20,7 @@
       font-size: 16px;
     }
 
-    /* ===== ЗАГОЛОВОК ЦЕЛИ — КАК ОСНОВНОЙ ===== */
+    /* ===== ЗАГОЛОВОК ===== */
     .goal-title {
       margin-top: 32px;
       margin-bottom: 12px;
@@ -29,28 +29,24 @@
     /* ===== ГРУППА ЦЕЛЕЙ ===== */
     .goal-group {
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
 
-    /* ===== КНОПКИ ЦЕЛИ — ВИЗУАЛ КАК ACTIVITY ===== */
+    /* ===== КНОПКИ ЦЕЛИ ===== */
     .goal-item {
       width: 60%;
+      padding: 20px;
+      margin-bottom: 6px;
+
+      border-radius: 20px; /* ← как у инпутов */
       border: 2px solid transparent;
-      border-radius: 10px;
-      padding: 12px;
-      margin-bottom: 10px;
       cursor: pointer;
 
-      /* ключевое отличие от фона */
       background-color: rgba(255, 255, 255, 0.35);
 
       font-size: 16px;
       transition: border 0.2s, background-color 0.2s;
       box-sizing: border-box;
 
-      /* центрирование текста */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -97,13 +93,12 @@ document.addEventListener("DOMContentLoaded", () => {
   let selectedGoal = null;
 
   function validate() {
-    const valid =
+    dataNext.disabled = !(
       age.value > 0 &&
       height.value > 0 &&
       weight.value > 0 &&
-      selectedGoal !== null;
-
-    dataNext.disabled = !valid;
+      selectedGoal
+    );
   }
 
   goalItems.forEach(item => {
@@ -115,18 +110,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  [age, height, weight].forEach(input =>
-    input.addEventListener("input", validate)
+  [age, height, weight].forEach(i =>
+    i.addEventListener("input", validate)
   );
 
   dataNext.addEventListener("click", () => {
-    if (dataNext.disabled) return;
-
     localStorage.setItem("age", age.value);
     localStorage.setItem("height", height.value);
     localStorage.setItem("weight", weight.value);
     localStorage.setItem("goal", selectedGoal);
-
     window.location.href = "result.html";
   });
 });
