@@ -13,7 +13,6 @@
 
     .page-data input[type="number"] {
       width: 60%;
-      max-width: 100%;
       padding: 20px;
       margin-bottom: 4px;
       border-radius: 20px;
@@ -42,22 +41,19 @@
       width: 60%;
       height: 60px;
       border-radius: 20px;
-      border: 2px solid transparent;
-      background-color: rgba(255, 255, 255, 0.35);
-      cursor: pointer;
+      background-color: rgba(255,255,255,0.35);
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
+      cursor: pointer;
       font-size: 16px;
-      transition: border 0.2s, box-shadow 0.2s, background-color 0.2s;
-      box-sizing: border-box;
+      border: 2px solid transparent;
     }
 
     .goal-item.selected {
       border-color: #5ba9b3;
       box-shadow: 0 0 25px rgba(91,169,179,0.45);
-      background-color: rgba(255, 255, 255, 0.45);
+      background-color: rgba(255,255,255,0.45);
     }
 
     #dataNext {
@@ -72,7 +68,7 @@
 
   <h1>Внеси свои данные</h1>
 
-  <!-- ЖЁСТКИЕ ДИАПАЗОНЫ -->
+  <!-- диапазоны -->
   <input id="age" type="number" min="16" max="70" step="1" placeholder="Возраст (лет)">
   <input id="height" type="number" min="130" max="230" step="1" placeholder="Рост (см)">
   <input id="weight" type="number" min="40" max="130" step="1" placeholder="Вес (кг)">
@@ -99,7 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let selectedGoal = null;
 
-  function clamp(input) {
+  function clampOnBlur(input) {
+    if (input.value === "") return;
+
     const min = Number(input.min);
     const max = Number(input.max);
     let value = Number(input.value);
@@ -113,17 +111,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const heightValid = height.value >= 130 && height.value <= 230;
     const weightValid = weight.value >= 40 && weight.value <= 130;
 
-    dataNext.disabled = !(
-      ageValid &&
-      heightValid &&
-      weightValid &&
-      selectedGoal
-    );
+    dataNext.disabled = !(ageValid && heightValid && weightValid && selectedGoal);
   }
 
   [age, height, weight].forEach(input => {
-    input.addEventListener("input", () => {
-      clamp(input);   // ← КЛЮЧЕВОЕ: стрелки не выйдут за диапазон
+    input.addEventListener("input", validate);     // свободный ввод
+    input.addEventListener("blur", () => {         // ограничение ПОСЛЕ ввода
+      clampOnBlur(input);
       validate();
     });
   });
