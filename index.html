@@ -11,6 +11,24 @@
   <style>
     /* ====== MINIMAL ADJUSTMENTS ====== */
 
+    html, body {
+      min-height: 100%; /* фон всегда до конца страницы */
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      background-color: #f5f5f5; /* например, фон сайта */
+    }
+
+    .container.first-page {
+      flex: 1; /* контейнер растягивается по вертикали */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-bottom: 50px; /* отступ после рамки методики */
+    }
+
     /* 1. Основной текст — по ширине */
     .container.first-page p:first-of-type {
       text-align: justify;
@@ -66,12 +84,7 @@
 
     /* ====== КНОПКА СТАРТ ====== */
     .btn-next {
-      margin-top: 35px; /* как на других страницах с показателями */
-    }
-
-    /* ====== ОТСТУП СНИЗУ, чтобы страница не обрезалась ====== */
-    .container.first-page {
-      padding-bottom: 100px;
+      margin-top: 35px;
     }
   </style>
 </head>
