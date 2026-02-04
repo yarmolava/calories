@@ -12,7 +12,7 @@
       width: 60%;
       max-width: 100%;
       padding: 20px;
-      margin-bottom: 12px; /* <- расстояние между инпутами */
+      margin-bottom: 6px; /* <- уменьшено вдвое */
       border-radius: 20px;
       border: 2px solid rgba(91, 169, 179, 0.2);
       background-color: transparent;
@@ -34,13 +34,13 @@
       display: flex;
       flex-direction: column;
       align-items: center; /* центрируем кнопки */
-      gap: 12px; /* <- вертикальный промежуток теперь точно такой же, как у инпутов */
+      gap: 12px; /* промежуток между кнопками остаётся прежним */
     }
 
     /* ===== КНОПКИ ЦЕЛИ ===== */
     .goal-item {
       width: 60%;              /* совпадает с шириной инпутов */
-      height: 60px;            /* фиксированная высота как у инпутов */
+      height: 60px;            /* фиксированная высота */
       border-radius: 20px;     /* как у инпутов */
       border: 2px solid transparent;
       background-color: rgba(255, 255, 255, 0.35); /* чуть белее фона */
@@ -52,7 +52,7 @@
       font-size: 16px;
       transition: border 0.2s, box-shadow 0.2s, background-color 0.2s;
       box-sizing: border-box;
-      margin-bottom: 0; /* старый отступ отключаем */
+      margin-bottom: 0;
     }
 
     .goal-item.selected {
