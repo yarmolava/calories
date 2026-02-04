@@ -44,7 +44,6 @@
       display: none;
       text-align: left;
       margin-top: 16px;
-      margin-bottom: 0px; /* <- уменьшено пространство снизу */
     }
 
     #method ul {
@@ -63,6 +62,11 @@
       margin-top: 16px;
       text-align: center;
       display: block;
+    }
+
+    /* ====== СМЕЩЕНИЕ КНОПКИ ====== */
+    .btn-next {
+      margin-top: 35px; /* кнопка чуть ниже, как на других страницах */
     }
   </style>
 </head>
@@ -88,9 +92,10 @@
   <!-- Кнопка под стиль style.css -->
   <button class="btn-next" onclick="window.location.href='gender.html'">Старт</button>
 
-  <!-- Вкладка Методика расчета -->
+  <!-- Ссылка на методику -->
   <p class="link" onclick="toggleMethod()">Методика расчета</p>
 
+  <!-- Методика расчета -->
   <div id="method">
     <h2>Расчет нормы калорий по формуле Миффлина – Сан Жеора</h2>
 
@@ -145,7 +150,6 @@
       <li>Жиры: 0.8–1.2 г/кг веса (используется 1.0)</li>
       <li>Углеводы: остаток калорий</li>
     </ul>
-
   </div>
 
 </div>
