@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ===== ИНПУТЫ — БЕЗ ИЗМЕНЕНИЙ ===== */
+    /* ===== ИНПУТЫ ===== */
     .page-data input[type="number"] {
       width: 60%;
       max-width: 100%;
@@ -20,13 +20,13 @@
       font-size: 16px;
     }
 
-    /* ===== ЗАГОЛОВОК ЦЕЛИ ===== */
+    /* ===== ЗАГОЛОВОК ===== */
     .goal-title {
       margin-top: 32px;
       margin-bottom: 12px;
     }
 
-    /* ===== КАРТОЧКИ ЦЕЛЕЙ — точная копия activity ===== */
+    /* ===== КАРТОЧКИ ЦЕЛИ ===== */
     .goal-group {
       width: 100%;
     }
@@ -36,28 +36,18 @@
       border-radius: 20px;
       padding: 16px;
       margin-bottom: 12px;
-      transition: border 0.2s, box-shadow 0.2s;
       cursor: pointer;
       background-color: transparent;
-      line-height: 1.5;
       font-size: 16px;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      box-sizing: border-box;
-    }
-
-    .goal-item b {
-      display: block;
-      margin-bottom: 4px;
-      font-weight: 700;
+      transition: border 0.2s, box-shadow 0.2s;
     }
 
     .goal-item.selected {
       border-color: #5ba9b3;
       box-shadow: 0 0 25px rgba(91,169,179,0.45);
-      background-color: transparent;
     }
   </style>
 </head>
@@ -75,9 +65,9 @@
   <h1 class="goal-title">Твоя цель</h1>
 
   <div class="goal-group">
-    <div class="goal-item" data-goal="lose"><b>Снижение веса</b></div>
-    <div class="goal-item" data-goal="maintain"><b>Поддержание веса</b></div>
-    <div class="goal-item" data-goal="gain"><b>Набор массы</b></div>
+    <div class="goal-item" data-goal="lose">Снижение веса</div>
+    <div class="goal-item" data-goal="maintain">Поддержание веса</div>
+    <div class="goal-item" data-goal="gain">Набор массы</div>
   </div>
 
   <button id="dataNext" class="btn-next" disabled>Продолжить</button>
@@ -85,53 +75,48 @@
 </div>
 
 <script>
-const ageInput = document.getElementById('age');
-const heightInput = document.getElementById('height');
-const weightInput = document.getElementById('weight');
-const goalItems = document.querySelectorAll('.goal-item');
-const nextBtn = document.getElementById('dataNext');
+document.addEventListener("DOMContentLoaded", () => {
+  const age = document.getElementById("age");
+  const height = document.getElementById("height");
+  const weight = document.getElementById("weight");
+  const goalItems = document.querySelectorAll(".goal-item");
+  const dataNext = document.getElementById("dataNext");
 
-let selectedGoal = null;
+  let selectedGoal = null;
 
-/* очистка выбора целей */
-function clearGoals() {
-  goalItems.forEach(item => item.classList.remove('selected'));
-  selectedGoal = null;
-}
+  function validate() {
+    const valid =
+      age.value > 0 &&
+      height.value > 0 &&
+      weight.value > 0 &&
+      selectedGoal !== null;
 
-/* проверка активации кнопки */
-function checkFormReady() {
-  const ageOk = ageInput.value > 0;
-  const heightOk = heightInput.value > 0;
-  const weightOk = weightInput.value > 0;
-  const goalOk = selectedGoal !== null;
+    dataNext.disabled = !valid;
+  }
 
-  nextBtn.disabled = !(ageOk && heightOk && weightOk && goalOk);
-}
-
-/* выбор цели */
-goalItems.forEach(item => {
-  item.addEventListener('click', () => {
-    clearGoals();
-    item.classList.add('selected');
-    selectedGoal = item.dataset.goal;
-    checkFormReady();
+  goalItems.forEach(item => {
+    item.addEventListener("click", () => {
+      goalItems.forEach(i => i.classList.remove("selected"));
+      item.classList.add("selected");
+      selectedGoal = item.dataset.goal;
+      validate();
+    });
   });
-});
 
-/* проверка при вводе данных */
-[ageInput, heightInput, weightInput].forEach(input => {
-  input.addEventListener('input', checkFormReady);
-});
+  [age, height, weight].forEach(input =>
+    input.addEventListener("input", validate)
+  );
 
-/* переход */
-nextBtn.addEventListener('click', () => {
-  localStorage.setItem('age', ageInput.value);
-  localStorage.setItem('height', heightInput.value);
-  localStorage.setItem('weight', weightInput.value);
-  localStorage.setItem('goal', selectedGoal);
+  dataNext.addEventListener("click", () => {
+    if (dataNext.disabled) return;
 
-  // window.location.href = 'next.html';
+    localStorage.setItem("age", age.value);
+    localStorage.setItem("height", height.value);
+    localStorage.setItem("weight", weight.value);
+    localStorage.setItem("goal", selectedGoal);
+
+    window.location.href = "result.html";
+  });
 });
 </script>
 
