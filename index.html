@@ -44,6 +44,7 @@
       display: none;
       text-align: left;
       margin-top: 16px;
+      margin-bottom: 8px; /* <- уменьшено пространство снизу */
     }
 
     #method ul {
@@ -87,10 +88,9 @@
   <!-- Кнопка под стиль style.css -->
   <button class="btn-next" onclick="window.location.href='gender.html'">Старт</button>
 
-  <!-- Ссылка на методику -->
+  <!-- Вкладка Методика расчета -->
   <p class="link" onclick="toggleMethod()">Методика расчета</p>
 
-  <!-- Методика расчета -->
   <div id="method">
     <h2>Расчет нормы калорий по формуле Миффлина – Сан Жеора</h2>
 
@@ -145,6 +145,7 @@
       <li>Жиры: 0.8–1.2 г/кг веса (используется 1.0)</li>
       <li>Углеводы: остаток калорий</li>
     </ul>
+
   </div>
 
 </div>
