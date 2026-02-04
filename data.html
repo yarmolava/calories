@@ -12,7 +12,7 @@
       width: 60%;
       max-width: 100%;
       padding: 20px;
-      margin-bottom: 6px;
+      margin-bottom: 12px; /* <- расстояние между инпутами */
       border-radius: 20px;
       border: 2px solid rgba(91, 169, 179, 0.2);
       background-color: transparent;
@@ -34,7 +34,7 @@
       display: flex;
       flex-direction: column;
       align-items: center; /* центрируем кнопки */
-      gap: 6px; /* <- вертикальный промежуток между кнопками, как у инпутов */
+      gap: 12px; /* <- вертикальный промежуток теперь точно такой же, как у инпутов */
     }
 
     /* ===== КНОПКИ ЦЕЛИ ===== */
@@ -52,7 +52,7 @@
       font-size: 16px;
       transition: border 0.2s, box-shadow 0.2s, background-color 0.2s;
       box-sizing: border-box;
-      margin-bottom: 0; /* убираем старый отступ */
+      margin-bottom: 0; /* старый отступ отключаем */
     }
 
     .goal-item.selected {
