@@ -21,16 +21,25 @@
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* остальное слева */
+  align-items: flex-start; /* остальной контент слева */
 }
 
-/* Заголовок — по центру и крупный */
+/* Главный заголовок — по центру и крупный */
 .page-result h1.title {
   width: 100%;
   text-align: center;
   font-weight: 700;
   font-size: 2em;
   margin-bottom: 24px;
+}
+
+/* Заголовок шагов — по центру и крупный */
+.page-result .steps-title {
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.6em;
+  margin-bottom: 16px;
 }
 
 /* Сводка с цифрами — слева */
@@ -128,11 +137,11 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 
     <div class="warning">
-      ⚠️ Это твоя стартовая точка (точность ±10%)
+      ! Это твоя стартовая точка (точность ±10%)
     </div>
 
     <div class="steps">
-      <b>ЧТО ДЕЛАТЬ ДАЛЬШЕ:</b><br>
+      <h2 class="steps-title">ЧТО ДЕЛАТЬ ДАЛЬШЕ:</h2>
       (1) Сохрани эти цифры<br>
       (2) Скачай приложение FatSecret<br>
       (3) Настрой приложение под свои цифры<br>
