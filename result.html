@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -33,6 +34,7 @@ h1 {
   font-weight: 700;
   line-height: 1.7;
   margin-bottom: 24px;
+  text-align: left; /* слева */
 }
 
 .steps {
@@ -40,14 +42,20 @@ h1 {
   line-height: 1.7;
 }
 
+.steps .guide {
+  text-align: justify; /* по двум краям */
+}
+
 .warning {
   margin: 24px 0;
   line-height: 1.6;
+  text-align: left; /* слева */
 }
 
 .contacts {
   margin-top: 32px;
-  text-align: center;
+  display: flex;
+  justify-content: space-between; /* Instagram слева, Telegram справа */
   font-weight: 500;
 }
 
@@ -111,13 +119,14 @@ document.addEventListener("DOMContentLoaded", () => {
       (3) Настрой приложение под свои цифры<br>
       (4) Начни считать калории
       <br><br>
-      Подробная инструкция, как настроить приложение, отслеживать прогресс и когда пересчитывать норму — в полном гайде по питанию.
+      <div class="guide">
+        Подробная инструкция, как настроить приложение, отслеживать прогресс и когда пересчитывать норму — в полном гайде по питанию.
+      </div>
     </div>
 
     <div class="contacts">
-      Instagram: @yarmolava  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: @yarmolava
+      <div>Instagram: @yarmolava</div>
+      <div>Telegram: @yarmolava</div>
     </div>
   `;
 });
@@ -125,3 +134,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+```
