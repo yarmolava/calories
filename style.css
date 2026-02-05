@@ -2,7 +2,7 @@
 
 /* ====== VARIABLES ====== */
 :root {
-  --button-color: rgba(91, 169, 179, 1); /* Цвет кнопок — более яркий */
+  --button-color: rgba(91, 169, 179, 1);
 }
 
 /* ====== BASE ====== */
@@ -13,7 +13,7 @@ body {
 }
 
 html {
-  overflow-y: scroll; /* чтобы страница не дергалась */
+  overflow-y: scroll;
 }
 
 .page {
@@ -268,4 +268,28 @@ input[type="number"] {
   input[type="number"] {
     padding: 16px;
   }
+}
+
+/* ====== RESULTS PAGE LOCAL RULES ===== */
+.page-result .container {
+  align-items: flex-start; /* весь контент слева */
+  text-align: left;
+}
+
+.page-result h1 {
+  text-align: center; /* заголовок по центру */
+}
+
+.page-result .summary,
+.page-result .warning,
+.page-result .steps {
+  width: 100%;
+  text-align: left;
+}
+
+.page-result .contacts {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
 }
