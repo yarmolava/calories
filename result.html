@@ -8,7 +8,6 @@
 
 <style>
 /* ===== ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ ТОЛЬКО ДЛЯ ЭТОЙ СТРАНИЦЫ ===== */
-
 .page-result .container,
 .page-result .summary,
 .page-result .warning,
@@ -23,7 +22,6 @@
 }
 
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
-
 body {
   margin: 0;
   font-family: 'Manrope', sans-serif;
@@ -55,6 +53,18 @@ body {
 .steps {
   margin: 24px 0;
   line-height: 1.7;
+}
+
+/* Принудительно убираем вертикальный пробел после ЧТО ДЕЛАТЬ ДАЛЬШЕ: */
+.steps b {
+  display: inline;
+  margin-bottom: 0;
+}
+
+/* Инструкция — justified */
+.steps p, 
+.steps {
+  text-align: justify;
 }
 
 .contacts {
@@ -123,7 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 
     <div class="steps">
-      <b>ЧТО ДЕЛАТЬ ДАЛЬШЕ:</b><br><br>
+      <b>ЧТО ДЕЛАТЬ ДАЛЬШЕ:</b>
       (1) Сохрани эти цифры<br>
       (2) Скачай приложение FatSecret<br>
       (3) Настрой приложение под свои цифры<br>
