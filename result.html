@@ -8,27 +8,8 @@
 
 <style>
 /* ===== ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ ТОЛЬКО ДЛЯ ЭТОЙ СТРАНИЦЫ ===== */
-.page-result .container,
-.page-result .summary,
-.page-result .warning,
-.page-result .steps,
-.page-result .contacts {
-  text-align: left !important;
-}
-
-/* Заголовок — единственный по центру */
-.page-result h1 {
-  text-align: center !important;
-}
-
-/* ===== БАЗОВЫЕ СТИЛИ ===== */
-body {
-  margin: 0;
-  font-family: 'Manrope', sans-serif;
-  background: radial-gradient(circle at center, #f6f8f9, #e6edf0);
-}
-
 .page-result .container {
+  text-align: left !important;
   max-width: 520px;
   margin: 40px auto;
   padding: 24px;
@@ -39,6 +20,11 @@ body {
   border-radius: 20px;
 }
 
+.page-result h1 {
+  text-align: center !important;
+  margin-bottom: 24px;
+}
+
 .summary {
   font-weight: 700;
   line-height: 1.7;
@@ -46,25 +32,23 @@ body {
 }
 
 .warning {
-  margin: 24px 0;
   line-height: 1.6;
+  margin-bottom: 24px;
 }
 
 .steps {
-  margin: 24px 0;
   line-height: 1.7;
+  text-align: justify; /* выравнивание по левому и правому краю */
 }
 
-/* Принудительно убираем вертикальный пробел после ЧТО ДЕЛАТЬ ДАЛЬШЕ: */
 .steps b {
-  display: inline;
-  margin-bottom: 0;
+  display: block; /* заголовок на отдельной строке */
+  margin-bottom: 8px; /* небольшой отступ до первого шага */
 }
 
-/* Инструкция — justified */
-.steps p, 
-.steps {
-  text-align: justify;
+.steps .step {
+  display: block; /* каждый шаг на отдельной строке */
+  margin-bottom: 6px;
 }
 
 .contacts {
@@ -134,11 +118,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     <div class="steps">
       <b>ЧТО ДЕЛАТЬ ДАЛЬШЕ:</b>
-      (1) Сохрани эти цифры<br>
-      (2) Скачай приложение FatSecret<br>
-      (3) Настрой приложение под свои цифры<br>
-      (4) Начни считать калории
-      <br><br>
+      <span class="step">(1) Сохрани эти цифры</span>
+      <span class="step">(2) Скачай приложение FatSecret</span>
+      <span class="step">(3) Настрой приложение под свои цифры</span>
+      <span class="step">(4) Начни считать калории</span>
+      <br>
       Подробная инструкция, как настроить приложение, отслеживать прогресс и когда пересчитывать норму — в полном гайде по питанию.
     </div>
 
