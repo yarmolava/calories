@@ -21,43 +21,51 @@
 
   display: flex;
   flex-direction: column;
-  /* align-items: center;  <-- убрали, чтобы заголовок был по центру, остальное слева */
+  align-items: flex-start; /* по умолчанию слева */
 }
 
-/* Заголовок по центру */
-.page-result h1 {
-  text-align: center !important;
+/* Заголовок — по центру */
+.page-result .title {
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
   margin-bottom: 24px;
 }
 
-/* Остальные блоки слева */
-.page-result .summary,
-.page-result .warning,
-.page-result .steps,
-.page-result .contacts {
-  text-align: left !important;
-}
-
-.summary {
+/* Сводка с цифрами — слева */
+.page-result .summary {
+  width: 100%;
+  text-align: left;
   font-weight: 700;
   line-height: 1.7;
   margin-bottom: 24px;
 }
 
-.warning {
-  margin: 24px 0;
+/* Важное предупреждение — слева */
+.page-result .warning {
+  width: 100%;
+  text-align: left;
   line-height: 1.6;
+  margin: 24px 0;
 }
 
-.steps {
-  margin: 24px 0;
+/* Шаги — слева, но инструкция внутри — justify */
+.page-result .steps {
+  width: 100%;
+  text-align: left;
   line-height: 1.7;
 }
 
-.contacts {
-  margin-top: 32px;
+.page-result .steps .instruction {
+  text-align: justify; /* выравнивание с двух сторон */
+}
+
+/* Контакты — слева */
+.page-result .contacts {
+  width: 100%;
   display: flex;
   justify-content: space-between;
+  text-align: left;
   font-weight: 500;
 }
 
@@ -106,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const carbs   = Math.round((calories - (protein * 4 + fat * 9)) / 4);
 
   result.innerHTML = `
-    <h1>Твоя персональная норма</h1>
+    <div class="title">Твоя персональная норма</div>
 
     <div class="summary">
       Калории: ${calories} ккал в день<br>
@@ -125,7 +133,9 @@ document.addEventListener("DOMContentLoaded", () => {
       (2) Скачай приложение FatSecret<br>
       (3) Настрой приложение под свои цифры<br>
       (4) Начни считать калории<br><br>
-      Подробная инструкция, как настроить приложение, отслеживать прогресс и когда пересчитывать норму — в полном гайде по питанию.
+      <div class="instruction">
+        Подробная инструкция, как настроить приложение, отслеживать прогресс и когда пересчитывать норму — в полном гайде по питанию.
+      </div>
     </div>
 
     <div class="contacts">
