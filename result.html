@@ -40,7 +40,7 @@
   text-align: left;
   font-weight: 700;
   line-height: 1.7;
-  margin-bottom: 12px; /* уменьшенный отступ для совпадения с шагами */
+  margin-bottom: 12px;
 }
 
 /* Важное предупреждение — слева */
@@ -48,7 +48,7 @@
   width: 100%;
   text-align: left;
   line-height: 1.6;
-  margin: 0 0 24px 0; /* убрали верхний отступ, оставили нижний как у шагов */
+  margin: 0 0 24px 0; /* совпадает с отступом между шагами и инструкцией */
 }
 
 /* Шаги — слева, инструкция внутри — justify */
@@ -64,25 +64,33 @@
   margin-top: 12px; /* немного пространства от предыдущих шагов */
 }
 
-/* Контакты — слева */
+/* Контакты — слева, ссылки активные */
 .page-result .contacts {
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  text-align: left;
+  flex-direction: column;
+  gap: 8px;
   font-weight: 500;
   margin-top: 24px; /* вертикальный отступ перед контактами */
+}
+
+.page-result .contacts p {
+  margin: 0;
+}
+
+.page-result .contacts a {
+  color: #5ba9b3;
+  text-decoration: none;
+}
+
+.page-result .contacts a:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 480px) {
   .page-result .container {
     margin-top: 24px;
     padding: 16px;
-  }
-
-  .contacts {
-    flex-direction: column;
-    gap: 8px;
   }
 }
 </style>
@@ -144,8 +152,8 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 
     <div class="contacts">
-      <div>Instagram: @yarmolava</div>
-      <div>Telegram: @yarmolava</div>
+      <p>Instagram: <a href="https://www.instagram.com/yarmolava" target="_blank">@yarmolava</a></p>
+      <p>Telegram: <a href="https://t.me/yarmolava" target="_blank">t.me/yarmolava</a></p>
     </div>
   `;
 });
