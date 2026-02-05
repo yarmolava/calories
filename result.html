@@ -29,15 +29,18 @@ h1 {
   margin-bottom: 24px;
 }
 
+/* ВСЁ ТЕЛО ТЕКСТА — ПО ЛЕВОМУ КРАЮ */
+.summary,
+.warning,
+.steps,
+.contacts {
+  text-align: left;
+}
+
 .summary {
   font-weight: 700;
   line-height: 1.7;
   margin-bottom: 24px;
-}
-
-.steps {
-  margin: 24px 0;
-  line-height: 1.7;
 }
 
 .warning {
@@ -45,16 +48,28 @@ h1 {
   line-height: 1.6;
 }
 
+.steps {
+  margin: 24px 0;
+  line-height: 1.7;
+}
+
+/* КОНТАКТЫ В ОДНУ СТРОКУ */
 .contacts {
   margin-top: 32px;
-  text-align: center;
   font-weight: 500;
+  display: flex;
+  justify-content: space-between;
 }
 
 @media (max-width: 480px) {
   .container {
     margin-top: 24px;
     padding: 16px;
+  }
+
+  .contacts {
+    flex-direction: column;
+    gap: 8px;
   }
 }
 </style>
@@ -115,9 +130,8 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 
     <div class="contacts">
-      Instagram: @yarmolava  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Telegram: @yarmolava
+      <div>Instagram: @yarmolava</div>
+      <div>Telegram: @yarmolava</div>
     </div>
   `;
 });
