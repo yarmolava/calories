@@ -7,13 +7,30 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+/* ===== ПРИНУДИТЕЛЬНОЕ ВЫРАВНИВАНИЕ ТОЛЬКО ДЛЯ ЭТОЙ СТРАНИЦЫ ===== */
+
+.page-result .container,
+.page-result .summary,
+.page-result .warning,
+.page-result .steps,
+.page-result .contacts {
+  text-align: left !important;
+}
+
+/* Заголовок — единственный по центру */
+.page-result h1 {
+  text-align: center !important;
+}
+
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+
 body {
   margin: 0;
   font-family: 'Manrope', sans-serif;
   background: radial-gradient(circle at center, #f6f8f9, #e6edf0);
 }
 
-.container {
+.page-result .container {
   max-width: 520px;
   margin: 40px auto;
   padding: 24px;
@@ -22,14 +39,6 @@ body {
   -webkit-backdrop-filter: blur(18px);
   border: 1px solid rgba(255,255,255,0.2);
   border-radius: 20px;
-
-  /* КЛЮЧЕВОЕ */
-  text-align: left;
-}
-
-h1 {
-  text-align: center; /* только оглавление по центру */
-  margin-bottom: 24px;
 }
 
 .summary {
@@ -50,13 +59,13 @@ h1 {
 
 .contacts {
   margin-top: 32px;
-  font-weight: 500;
   display: flex;
   justify-content: space-between;
+  font-weight: 500;
 }
 
 @media (max-width: 480px) {
-  .container {
+  .page-result .container {
     margin-top: 24px;
     padding: 16px;
   }
