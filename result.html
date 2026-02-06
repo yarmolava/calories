@@ -1,172 +1,114 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Результаты</title>
+  <meta charset="UTF-8">
+  <title>Твоя персональная норма</title>
 
-<style>
-/* ====== СТИЛИ ТОЛЬКО ДЛЯ СТРАНИЦЫ РЕЗУЛЬТАТ ====== */
+  <style>
+    body {
+      font-family: Inter, Arial, sans-serif;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
 
-/* === РЕГУЛИРУЕМЫЕ ОТСТУПЫ === */
-:root {
-  --space-title-to-summary: 12px;      /* Твоя персональная норма → Калории */
-  --space-before-steps: 40px;          /* Отступ ПЕРЕД "Что делать дальше?" */
-  --space-steps-title-to-list: 8px;    /* Что делать дальше? → (1) */
-}
+    .page {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
 
-.page-result .container {
-  max-width: 520px;
-  margin: 40px auto;
-  padding: 24px;
-  background: rgba(255,255,255,0.4);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 20px;
-  box-sizing: border-box;
+    h1 {
+      font-size: 32px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
 
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
+    .norm-title {
+      font-size: 22px;
+      font-weight: 600;
+      text-align: justify;
+      margin-bottom: 24px;
+    }
 
-/* Заголовок */
-.page-result h1.title {
-  width: 100%;
-  text-align: center;
-  font-weight: 700;
-  font-size: 2em;
-  margin-bottom: var(--space-title-to-summary);
-}
+    /* ⬇️ НОВЫЙ ЦЕНТРАЛЬНЫЙ БЛОК (вместо "Это твоя стартовая точка") */
+    .center-nutrition {
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 24px 0; /* регулируемый вертикальный отступ */
+    }
 
-/* === СВОДКА — ПО ЦЕНТРУ === */
-.page-result .summary {
-  width: 100%;
-  text-align: center;
-  font-weight: 700;
-  line-height: 1.7;
-  margin-bottom: 12px;
-}
+    .center-nutrition div {
+      margin: 0;
+    }
 
-/* Предупреждение */
-.page-result .warning {
-  width: 100%;
-  text-align: center;
-  line-height: 1.6;
-  margin: 0;
-}
+    .section {
+      text-align: justify;
+      margin-top: 40px;
+    }
 
-/* Блок шагов */
-.page-result .steps {
-  width: 100%;
-  text-align: left;
-  line-height: 1.7;
-  margin-top: var(--space-before-steps);
-  margin-bottom: 24px;
-}
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
 
-/* Заголовок шагов */
-.page-result .steps-title {
-  width: 100%;
-  text-align: center;
-  font-weight: 700;
-  font-size: 2em;
-  margin-bottom: var(--space-steps-title-to-list);
-}
+    .section p {
+      margin: 12px 0;
+    }
 
-/* Описание */
-.page-result .steps .instruction {
-  text-align: justify;
-  margin-top: 12px;
-}
+    .contacts {
+      margin-top: 32px;
+      font-size: 16px;
+      color: #000;
+    }
 
-/* Контакты */
-.page-result .contacts {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  font-weight: 500;
-  margin-top: 24px;
-  color: #000;
-}
-
-@media (max-width: 480px) {
-  .page-result .container {
-    margin-top: 24px;
-    padding: 16px;
-  }
-
-  .page-result .contacts {
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-</style>
+    .contacts div {
+      margin: 4px 0;
+    }
+  </style>
 </head>
 
-<body class="page page-result">
+<body>
+  <div class="page">
 
-<div class="container" id="result"></div>
+    <h1>Твоя персональная норма</h1>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const result = document.getElementById("result");
-
-  const weight   = +localStorage.getItem("weight");
-  const height   = +localStorage.getItem("height");
-  const age      = +localStorage.getItem("age");
-  const activity = +localStorage.getItem("activity");
-  const goal     = localStorage.getItem("goal");
-  const gender   = localStorage.getItem("gender");
-
-  if (!weight || !height || !age || !activity || !goal || !gender) return;
-
-  let bmr = gender === "male"
-    ? 10 * weight + 6.25 * height - 5 * age + 5
-    : 10 * weight + 6.25 * height - 5 * age - 161;
-
-  let calories = bmr * activity;
-  if (goal === "lose") calories *= 0.85;
-  if (goal === "gain") calories *= 1.12;
-  calories = Math.round(calories / 10) * 10;
-
-  const protein = Math.round(weight * 2);
-  const fat     = Math.round(calories * 0.25 / 9);
-  const carbs   = Math.round((calories - (protein * 4 + fat * 9)) / 4);
-
-  result.innerHTML = `
-    <h1 class="title">Твоя персональная норма</h1>
-
-    <div class="summary">
-      Калории: ${calories} ккал в день<br>
-      Белки: ${protein} г в день<br>
-      Жиры: ${fat} г в день<br>
-      Углеводы: ${carbs} г в день
+    <div class="norm-title">
+      Эти цифры — ориентир для старта. Они помогут тебе выстроить питание без жёстких ограничений и хаоса.
     </div>
 
-    <div class="warning">
-      Это твоя стартовая точка (точность ±10%)
+    <!-- ✅ ЗДЕСЬ БЫЛ "⚠️ Это твоя стартовая точка" -->
+    <!-- ✅ ТЕПЕРЬ БЖУ ПО ЦЕНТРУ -->
+    <div class="center-nutrition">
+      <div><strong>Калории:</strong> 1880 ккал в день</div>
+      <div><strong>Белки:</strong> 120 г в день</div>
+      <div><strong>Жиры:</strong> 52 г в день</div>
+      <div><strong>Углеводы:</strong> 233 г в день</div>
     </div>
 
-    <div class="steps">
-      <h2 class="steps-title">Что делать дальше?</h2>
-      (1) Сохрани эти цифры<br>
-      (2) Скачай приложение FatSecret<br>
-      (3) Настрой приложение под свои цифры<br>
-      (4) Начни считать калории
-      <div class="instruction">
+    <div class="section">
+      <div class="section-title">Что делать дальше?</div>
+
+      <p>(1) Сохрани эти цифры.</p>
+
+      <p>(2) Настрой приложение для подсчёта калорий.</p>
+
+      <p>(3) Отслеживай вес и замеры 1 раз в неделю.</p>
+
+      <p>(4) Начни считать калории.</p>
+
+      <p>
         Подробная инструкция, как настроить приложение, отслеживать прогресс и когда пересчитывать норму — в полном гайде по питанию.
-      </div>
+      </p>
     </div>
 
     <div class="contacts">
       <div>Instagram: @yarmolava</div>
       <div>Telegram: @yarmolava</div>
     </div>
-  `;
-});
-</script>
 
+  </div>
 </body>
 </html>
