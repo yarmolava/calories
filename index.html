@@ -59,27 +59,9 @@
       display: block;
     }
 
-    /* ====== NAVIGATION BUTTON ====== */
-    .nav-btn {
-      width: 250px;       /* фиксированная ширина, можно менять */
-      max-width: 90%;
-      padding: 14px;
-      border-radius: 20px;
-      font-size: 16px;
-      background-color: #5ba9b3;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      display: block;
-      text-align: center;
-      margin: 35px auto 0;
-      font-weight: 700;
+    .btn-next {
+      margin-top: 35px;
     }
-
-    .nav-btn:active {
-      transform: scale(0.98);
-    }
-
   </style>
 </head>
 
@@ -100,7 +82,7 @@
     <p>Telegram: <a href="https://t.me/yarmolava" target="_blank">t.me/yarmolava</a></p>
   </div>
 
-  <button class="nav-btn" onclick="window.location.href='gender.html'">Старт</button>
+  <button class="btn-next" onclick="window.location.href='gender.html'">Старт</button>
 
   <p class="link" onclick="toggleMethod()">Методика расчета</p>
 
@@ -171,3 +153,4 @@ function toggleMethod() {
 
 </body>
 </html>
+
