@@ -122,8 +122,8 @@ input {
 }
 
 /* ====== BUTTONS ====== */
+/* все кнопки по умолчанию гибкие */
 button {
-  width: 100%;
   padding: 15px;
   margin-top: 20px;
   background: var(--button-color);
@@ -132,6 +132,7 @@ button {
   border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
+  width: 100%;
 }
 
 button:active {
@@ -147,6 +148,26 @@ button:disabled {
   background: rgba(255,255,255,0.35);
   color: #5ba9b3;
   border: 1px solid #5ba9b3;
+}
+
+/* ====== NAVIGATION BUTTONS ====== */
+.nav-btn {
+  width: 280px;
+  max-width: 90%;
+  padding: 14px;
+  border-radius: 20px;
+  font-size: 16px;
+  background-color: var(--button-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin: 20px auto 0;
+}
+
+.nav-btn:active {
+  transform: scale(0.98);
 }
 
 /* ====== INPUTS ====== */
@@ -262,7 +283,6 @@ input[type="number"] {
 
   button {
     padding: 18px;
-    font-size: 18px;
   }
 
   input[type="number"] {
@@ -272,12 +292,12 @@ input[type="number"] {
 
 /* ====== RESULTS PAGE LOCAL RULES ===== */
 .page-result .container {
-  align-items: flex-start; /* весь контент слева */
+  align-items: flex-start;
   text-align: left;
 }
 
 .page-result h1 {
-  text-align: center; /* заголовок по центру */
+  text-align: center;
 }
 
 .page-result .summary,
