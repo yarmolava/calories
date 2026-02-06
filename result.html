@@ -11,9 +11,9 @@
 
 /* === РЕГУЛИРУЕМЫЕ ОТСТУПЫ === */
 :root {
-  --space-title-to-summary: 12px;      /* Твоя персональная норма → Калории */
-  --space-before-steps: 40px;          /* Отступ ПЕРЕД "Что делать дальше?" */
-  --space-steps-title-to-list: 8px;    /* Что делать дальше? → (1) */
+  --space-title-to-summary: 12px;
+  --space-before-steps: 40px;
+  --space-steps-title-to-list: 8px;
 }
 
 .page-result .container {
@@ -41,7 +41,6 @@
   font-size: 2em;
 }
 
-/* Отступ после главного заголовка */
 .page-result h1.title {
   margin-bottom: var(--space-title-to-summary);
 }
@@ -63,16 +62,21 @@
   margin: 0;
 }
 
+/* Кнопка */
+.page-result .btn-next {
+  align-self: center;
+  margin-top: 32px;
+}
+
 /* Блок шагов */
 .page-result .steps {
   width: 100%;
   text-align: left;
   line-height: 1.7;
-  margin-top: var(--space-before-steps); /* УВЕЛИЧЕННЫЙ отступ перед блоком */
+  margin-top: var(--space-before-steps);
   margin-bottom: 24px;
 }
 
-/* Отступ после "Что делать дальше?" */
 .page-result .steps-title {
   margin-bottom: var(--space-steps-title-to-list);
 }
@@ -159,6 +163,8 @@ document.addEventListener("DOMContentLoaded", () => {
       Это твоя стартовая точка (точность ±10%)
     </div>
 
+    <button class="btn-next" onclick="recalculate()">Пересчитать</button>
+
     <div class="steps">
       <h2 class="steps-title">Что делать дальше?</h2>
       (1) Сохрани эти цифры<br>
@@ -176,9 +182,12 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
   `;
 });
+
+function recalculate() {
+  localStorage.clear();
+  window.location.href = "index.html";
+}
 </script>
 
 </body>
 </html>
-
-
