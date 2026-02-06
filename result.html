@@ -62,12 +62,6 @@
   margin: 0;
 }
 
-/* Кнопка */
-.page-result .btn-next {
-  align-self: center;
-  margin-top: 32px;
-}
-
 /* Блок шагов */
 .page-result .steps {
   width: 100%;
@@ -84,6 +78,12 @@
 .page-result .steps .instruction {
   text-align: justify;
   margin-top: 12px;
+}
+
+/* Кнопка пересчёта */
+.page-result .btn-recalc {
+  align-self: center;
+  margin: 24px 0 0;
 }
 
 /* Контакты */
@@ -163,8 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
       Это твоя стартовая точка (точность ±10%)
     </div>
 
-    <button class="btn-next" onclick="recalculate()">Пересчитать</button>
-
     <div class="steps">
       <h2 class="steps-title">Что делать дальше?</h2>
       (1) Сохрани эти цифры<br>
@@ -175,6 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
         Подробная инструкция, как настроить приложение, отслеживать прогресс и когда пересчитывать норму — в полном гайде по питанию.
       </div>
     </div>
+
+    <button class="btn-next btn-recalc" onclick="recalculate()">Пересчитать</button>
 
     <div class="contacts">
       <div>Instagram: <a href="https://www.instagram.com/yarmolava" target="_blank">@yarmolava</a></div>
