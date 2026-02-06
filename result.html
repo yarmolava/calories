@@ -73,6 +73,7 @@
   margin-top: 12px;
 }
 
+/* Кнопка Пересчитать */
 .page-result .recalc-btn {
   margin-top: 24px;
   padding: 12px 24px;
@@ -89,12 +90,13 @@
   background-color: #4a8a99;
 }
 
+/* Контакты — уменьшаем отступ сверху, чтобы была ближе к кнопке */
 .page-result .contacts {
   width: 100%;
   display: flex;
   justify-content: space-between;
   font-weight: 500;
-  margin-top: 24px;
+  margin-top: 12px; /* меньше, чем раньше было 24px */
   color: #000;
 }
 
@@ -176,12 +178,12 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
 
+    <button class="recalc-btn" onclick="recalculate()">Пересчитать</button>
+
     <div class="contacts">
       <div>Instagram: <a href="https://www.instagram.com/yarmolava" target="_blank">@yarmolava</a></div>
       <div>Telegram: <a href="https://t.me/yarmolava" target="_blank">t.me/yarmolava</a></div>
     </div>
-
-    <button class="recalc-btn" onclick="recalculate()">Пересчитать</button>
   `;
 
   window.recalculate = function() {
