@@ -11,9 +11,9 @@
 
 /* === РЕГУЛИРУЕМЫЕ ОТСТУПЫ === */
 :root {
-  --space-title-to-summary: 12px;
-  --space-before-steps: 40px;
-  --space-steps-title-to-list: 8px;
+  --space-title-to-summary: 12px;      /* Твоя персональная норма → Калории */
+  --space-before-steps: 40px;          /* Отступ ПЕРЕД "Что делать дальше?" */
+  --space-steps-title-to-list: 8px;    /* Что делать дальше? → (1) */
 }
 
 .page-result .container {
@@ -41,6 +41,7 @@
   font-size: 2em;
 }
 
+/* Отступ после главного заголовка */
 .page-result h1.title {
   margin-bottom: var(--space-title-to-summary);
 }
@@ -67,10 +68,11 @@
   width: 100%;
   text-align: left;
   line-height: 1.7;
-  margin-top: var(--space-before-steps);
+  margin-top: var(--space-before-steps); /* УВЕЛИЧЕННЫЙ отступ перед блоком */
   margin-bottom: 24px;
 }
 
+/* Отступ после "Что делать дальше?" */
 .page-result .steps-title {
   margin-bottom: var(--space-steps-title-to-list);
 }
@@ -78,12 +80,6 @@
 .page-result .steps .instruction {
   text-align: justify;
   margin-top: 12px;
-}
-
-/* Кнопка пересчёта */
-.page-result .btn-recalc {
-  align-self: center;
-  margin: 24px 0 0;
 }
 
 /* Контакты */
@@ -174,20 +170,15 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
 
-    <button class="btn-next btn-recalc" onclick="recalculate()">Пересчитать</button>
-
     <div class="contacts">
       <div>Instagram: <a href="https://www.instagram.com/yarmolava" target="_blank">@yarmolava</a></div>
       <div>Telegram: <a href="https://t.me/yarmolava" target="_blank">t.me/yarmolava</a></div>
     </div>
   `;
 });
-
-function recalculate() {
-  localStorage.clear();
-  window.location.href = "index.html";
-}
 </script>
 
 </body>
 </html>
+
+
