@@ -7,13 +7,10 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-/* ====== СТИЛИ ТОЛЬКО ДЛЯ СТРАНИЦЫ РЕЗУЛЬТАТ ====== */
-
-/* === РЕГУЛИРУЕМЫЕ ОТСТУПЫ === */
 :root {
-  --space-title-to-summary: 12px;      /* Твоя персональная норма → Калории */
-  --space-before-steps: 40px;          /* Отступ ПЕРЕД "Что делать дальше?" */
-  --space-steps-title-to-list: 8px;    /* Что делать дальше? → (1) */
+  --space-title-to-summary: 12px;
+  --space-before-steps: 40px;
+  --space-steps-title-to-list: 8px;
 }
 
 .page-result .container {
@@ -32,7 +29,6 @@
   align-items: flex-start;
 }
 
-/* Заголовки */
 .page-result h1.title,
 .page-result .steps-title {
   width: 100%;
@@ -41,12 +37,10 @@
   font-size: 2em;
 }
 
-/* Отступ после главного заголовка */
 .page-result h1.title {
   margin-bottom: var(--space-title-to-summary);
 }
 
-/* Сводка */
 .page-result .summary {
   width: 100%;
   text-align: left;
@@ -55,7 +49,6 @@
   margin-bottom: 12px;
 }
 
-/* Предупреждение */
 .page-result .warning {
   width: 100%;
   text-align: left;
@@ -63,16 +56,14 @@
   margin: 0;
 }
 
-/* Блок шагов */
 .page-result .steps {
   width: 100%;
   text-align: left;
   line-height: 1.7;
-  margin-top: var(--space-before-steps); /* УВЕЛИЧЕННЫЙ отступ перед блоком */
+  margin-top: var(--space-before-steps);
   margin-bottom: 24px;
 }
 
-/* Отступ после "Что делать дальше?" */
 .page-result .steps-title {
   margin-bottom: var(--space-steps-title-to-list);
 }
@@ -82,7 +73,6 @@
   margin-top: 12px;
 }
 
-/* Контакты */
 .page-result .contacts {
   width: 100%;
   display: flex;
