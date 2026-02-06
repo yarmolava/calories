@@ -73,16 +73,20 @@
   margin-top: 12px;
 }
 
-/* Кнопка Пересчитать */
+/* Пересчитать — теперь используем nav-btn для унификации */
 .page-result .recalc-btn {
-  margin-top: 24px;
-  padding: 12px 24px;
-  border-radius: 10px;
-  border: none;
+  width: 280px;       /* фиксированная ширина */
+  max-width: 90%;     /* адаптивно на мобильных */
+  margin: 20px auto 0; 
+  padding: 14px;
+  border-radius: 20px;
+  font-size: 16px;
   background-color: #5ba9b3;
   color: #fff;
-  font-size: 16px;
+  border: none;
   cursor: pointer;
+  display: block;
+  text-align: center;
   font-weight: 700;
 }
 
@@ -90,13 +94,13 @@
   background-color: #4a8a99;
 }
 
-/* Контакты — уменьшаем отступ сверху, чтобы была ближе к кнопке */
+/* Контакты — уменьшаем отступ сверху */
 .page-result .contacts {
   width: 100%;
   display: flex;
   justify-content: space-between;
   font-weight: 500;
-  margin-top: 18px; /* меньше, чем раньше было 24px */
+  margin-top: 14px; /* чуть меньше, чтобы кнопка ближе */
   color: #000;
 }
 
