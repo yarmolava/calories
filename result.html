@@ -7,9 +7,6 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
-/* ====== СТИЛИ ТОЛЬКО ДЛЯ СТРАНИЦЫ РЕЗУЛЬТАТ ====== */
-
-/* === РЕГУЛИРУЕМЫЕ ОТСТУПЫ === */
 :root {
   --space-title-to-summary: 12px;      
   --space-before-steps: 40px;          
@@ -32,7 +29,6 @@
   align-items: flex-start;
 }
 
-/* Заголовки */
 .page-result h1.title,
 .page-result .steps-title {
   width: 100%;
@@ -41,12 +37,10 @@
   font-size: 2em;
 }
 
-/* Отступ после главного заголовка */
 .page-result h1.title {
   margin-bottom: var(--space-title-to-summary);
 }
 
-/* Сводка */
 .page-result .summary {
   width: 100%;
   text-align: left;
@@ -55,7 +49,6 @@
   margin-bottom: 12px;
 }
 
-/* Предупреждение */
 .page-result .warning {
   width: 100%;
   text-align: left;
@@ -63,7 +56,6 @@
   margin: 0;
 }
 
-/* Блок шагов */
 .page-result .steps {
   width: 100%;
   text-align: left;
@@ -72,7 +64,6 @@
   margin-bottom: 24px;
 }
 
-/* Отступ после "Что делать дальше?" */
 .page-result .steps-title {
   margin-bottom: var(--space-steps-title-to-list);
 }
@@ -82,10 +73,8 @@
   margin-top: 12px;
 }
 
-/* Кнопка Пересчитать */
 .page-result .recalc-btn {
   margin-top: 24px;
-  margin-bottom: 24px;
   padding: 12px 24px;
   border-radius: 10px;
   border: none;
@@ -100,7 +89,6 @@
   background-color: #4a8a99;
 }
 
-/* Контакты */
 .page-result .contacts {
   width: 100%;
   display: flex;
@@ -188,12 +176,12 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
 
-    <button class="recalc-btn" onclick="recalculate()">Пересчитать</button>
-
     <div class="contacts">
       <div>Instagram: <a href="https://www.instagram.com/yarmolava" target="_blank">@yarmolava</a></div>
       <div>Telegram: <a href="https://t.me/yarmolava" target="_blank">t.me/yarmolava</a></div>
     </div>
+
+    <button class="recalc-btn" onclick="recalculate()">Пересчитать</button>
   `;
 
   window.recalculate = function() {
