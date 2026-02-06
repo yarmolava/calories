@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Результаты</title>
-<link rel="stylesheet" href="style.css">
 
 <style>
 /* ====== СТИЛИ ТОЛЬКО ДЛЯ СТРАНИЦЫ РЕЗУЛЬТАТ ====== */
@@ -32,24 +31,19 @@
   align-items: flex-start;
 }
 
-/* Заголовки */
-.page-result h1.title,
-.page-result .steps-title {
+/* Заголовок */
+.page-result h1.title {
   width: 100%;
   text-align: center;
   font-weight: 700;
   font-size: 2em;
-}
-
-/* Отступ после главного заголовка */
-.page-result h1.title {
   margin-bottom: var(--space-title-to-summary);
 }
 
-/* Сводка */
+/* === СВОДКА — ПО ЦЕНТРУ === */
 .page-result .summary {
   width: 100%;
-  text-align: left;
+  text-align: center;
   font-weight: 700;
   line-height: 1.7;
   margin-bottom: 12px;
@@ -58,7 +52,7 @@
 /* Предупреждение */
 .page-result .warning {
   width: 100%;
-  text-align: left;
+  text-align: center;
   line-height: 1.6;
   margin: 0;
 }
@@ -68,15 +62,20 @@
   width: 100%;
   text-align: left;
   line-height: 1.7;
-  margin-top: var(--space-before-steps); /* УВЕЛИЧЕННЫЙ отступ перед блоком */
+  margin-top: var(--space-before-steps);
   margin-bottom: 24px;
 }
 
-/* Отступ после "Что делать дальше?" */
+/* Заголовок шагов */
 .page-result .steps-title {
+  width: 100%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 2em;
   margin-bottom: var(--space-steps-title-to-list);
 }
 
+/* Описание */
 .page-result .steps .instruction {
   text-align: justify;
   margin-top: 12px;
@@ -90,15 +89,6 @@
   font-weight: 500;
   margin-top: 24px;
   color: #000;
-}
-
-.page-result .contacts a {
-  color: #000;
-  text-decoration: none;
-}
-
-.page-result .contacts a:hover {
-  text-decoration: underline;
 }
 
 @media (max-width: 480px) {
@@ -171,8 +161,8 @@ document.addEventListener("DOMContentLoaded", () => {
     </div>
 
     <div class="contacts">
-      <div>Instagram: <a href="https://www.instagram.com/yarmolava" target="_blank">@yarmolava</a></div>
-      <div>Telegram: <a href="https://t.me/yarmolava" target="_blank">t.me/yarmolava</a></div>
+      <div>Instagram: @yarmolava</div>
+      <div>Telegram: @yarmolava</div>
     </div>
   `;
 });
