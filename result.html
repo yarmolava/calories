@@ -11,9 +11,9 @@
 
 /* === РЕГУЛИРУЕМЫЕ ОТСТУПЫ === */
 :root {
-  --space-title-to-summary: 12px;      /* Твоя персональная норма → Калории */
-  --space-before-steps: 40px;          /* Отступ ПЕРЕД "Что делать дальше?" */
-  --space-steps-title-to-list: 8px;    /* Что делать дальше? → (1) */
+  --space-title-to-summary: 12px;      
+  --space-before-steps: 40px;          
+  --space-steps-title-to-list: 8px;    
 }
 
 .page-result .container {
@@ -68,7 +68,7 @@
   width: 100%;
   text-align: left;
   line-height: 1.7;
-  margin-top: var(--space-before-steps); /* УВЕЛИЧЕННЫЙ отступ перед блоком */
+  margin-top: var(--space-before-steps);
   margin-bottom: 24px;
 }
 
@@ -80,6 +80,24 @@
 .page-result .steps .instruction {
   text-align: justify;
   margin-top: 12px;
+}
+
+/* Кнопка Пересчитать */
+.page-result .recalc-btn {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  background-color: #5ba9b3;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.page-result .recalc-btn:hover {
+  background-color: #4a8a99;
 }
 
 /* Контакты */
@@ -126,8 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const weight   = +localStorage.getItem("weight");
   const height   = +localStorage.getItem("height");
   const age      = +localStorage.getItem("age");
-  // исправлено: берем ключ, который реально сохраняется на странице активности
-  const activity = +localStorage.getItem("activityCoefficient");
+  const activity = +localStorage.getItem("activityCoefficient") || +localStorage.getItem("activity");
   const goal     = localStorage.getItem("goal");
   const gender   = localStorage.getItem("gender");
 
@@ -171,11 +188,18 @@ document.addEventListener("DOMContentLoaded", () => {
       </div>
     </div>
 
+    <button class="recalc-btn" onclick="recalculate()">Пересчитать</button>
+
     <div class="contacts">
       <div>Instagram: <a href="https://www.instagram.com/yarmolava" target="_blank">@yarmolava</a></div>
       <div>Telegram: <a href="https://t.me/yarmolava" target="_blank">t.me/yarmolava</a></div>
     </div>
   `;
+
+  window.recalculate = function() {
+    localStorage.clear();
+    window.location.href = "index.html";
+  };
 });
 </script>
 
