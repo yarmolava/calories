@@ -11,8 +11,9 @@
 
 /* === РЕГУЛИРУЕМЫЕ ОТСТУПЫ === */
 :root {
-  --space-title-to-summary: 12px;   /* Твоя персональная норма → Калории */
-  --space-steps-title-to-list: 8px; /* Что делать дальше? → (1) */
+  --space-title-to-summary: 12px;      /* Твоя персональная норма → Калории */
+  --space-before-steps: 40px;          /* Отступ ПЕРЕД "Что делать дальше?" */
+  --space-steps-title-to-list: 8px;    /* Что делать дальше? → (1) */
 }
 
 .page-result .container {
@@ -40,7 +41,7 @@
   font-size: 2em;
 }
 
-/* ТОЛЬКО уменьшенный отступ после главного заголовка */
+/* Отступ после главного заголовка */
 .page-result h1.title {
   margin-bottom: var(--space-title-to-summary);
 }
@@ -59,7 +60,7 @@
   width: 100%;
   text-align: left;
   line-height: 1.6;
-  margin: 0 0 24px 0;
+  margin: 0;
 }
 
 /* Блок шагов */
@@ -67,10 +68,11 @@
   width: 100%;
   text-align: left;
   line-height: 1.7;
+  margin-top: var(--space-before-steps); /* УВЕЛИЧЕННЫЙ отступ перед блоком */
   margin-bottom: 24px;
 }
 
-/* ТОЛЬКО уменьшенный отступ после "Что делать дальше?" */
+/* Отступ после "Что делать дальше?" */
 .page-result .steps-title {
   margin-bottom: var(--space-steps-title-to-list);
 }
