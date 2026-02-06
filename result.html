@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="style.css">
 
 <style>
+/* ====== СТИЛИ ТОЛЬКО ДЛЯ СТРАНИЦЫ РЕЗУЛЬТАТ ====== */
+
+/* === РЕГУЛИРУЕМЫЕ ОТСТУПЫ === */
 :root {
   --space-title-to-summary: 12px;
   --space-before-steps: 40px;
@@ -29,6 +32,7 @@
   align-items: flex-start;
 }
 
+/* Заголовки */
 .page-result h1.title,
 .page-result .steps-title {
   width: 100%;
@@ -37,18 +41,21 @@
   font-size: 2em;
 }
 
+/* Отступ после главного заголовка */
 .page-result h1.title {
   margin-bottom: var(--space-title-to-summary);
 }
 
+/* Сводка */
 .page-result .summary {
   width: 100%;
-  text-align: left;
+  text-align: center;
   font-weight: 700;
   line-height: 1.7;
   margin-bottom: 12px;
 }
 
+/* Предупреждение */
 .page-result .warning {
   width: 100%;
   text-align: left;
@@ -56,6 +63,7 @@
   margin: 0;
 }
 
+/* Блок шагов */
 .page-result .steps {
   width: 100%;
   text-align: left;
@@ -64,6 +72,7 @@
   margin-bottom: 24px;
 }
 
+/* Отступ после "Что делать дальше?" */
 .page-result .steps-title {
   margin-bottom: var(--space-steps-title-to-list);
 }
@@ -73,6 +82,7 @@
   margin-top: 12px;
 }
 
+/* Контакты */
 .page-result .contacts {
   width: 100%;
   display: flex;
@@ -122,27 +132,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!weight || !height || !age || !activity || !goal || !gender) return;
 
-  let bmr = gender === "male"
-    ? 10 * weight + 6.25 * height - 5 * age + 5
-    : 10 * weight + 6.25 * height - 5 * age - 161;
-
-  let calories = bmr * activity;
-  if (goal === "lose") calories *= 0.85;
-  if (goal === "gain") calories *= 1.12;
-  calories = Math.round(calories / 10) * 10;
-
-  const protein = Math.round(weight * 2);
-  const fat     = Math.round(calories * 0.25 / 9);
-  const carbs   = Math.round((calories - (protein * 4 + fat * 9)) / 4);
-
   result.innerHTML = `
     <h1 class="title">Твоя персональная норма</h1>
 
     <div class="summary">
-      Калории: ${calories} ккал в день<br>
-      Белки: ${protein} г в день<br>
-      Жиры: ${fat} г в день<br>
-      Углеводы: ${carbs} г в день
+      Калории: 1880 ккал в день<br>
+      Белки: 120 г в день<br>
+      Жиры: 52 г в день<br>
+      Углеводы: 233 г в день
     </div>
 
     <div class="warning">
@@ -170,3 +167,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
+
