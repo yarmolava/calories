@@ -8,6 +8,13 @@
 
 <style>
 /* ====== СТИЛИ ТОЛЬКО ДЛЯ СТРАНИЦЫ РЕЗУЛЬТАТ ====== */
+
+/* === РЕГУЛИРУЕМЫЕ ОТСТУПЫ === */
+:root {
+  --space-title-to-summary: 12px;   /* Твоя персональная норма → Калории */
+  --space-steps-title-to-list: 8px; /* Что делать дальше? → (1) */
+}
+
 .page-result .container {
   max-width: 520px;
   margin: 40px auto;
@@ -21,20 +28,24 @@
 
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* остальной контент слева */
+  align-items: flex-start;
 }
 
-/* Заголовки — по центру и одинаковый крупный стиль */
+/* Заголовки */
 .page-result h1.title,
 .page-result .steps-title {
   width: 100%;
   text-align: center;
   font-weight: 700;
   font-size: 2em;
-  margin-bottom: 24px;
 }
 
-/* Сводка с цифрами — слева */
+/* ТОЛЬКО уменьшенный отступ после главного заголовка */
+.page-result h1.title {
+  margin-bottom: var(--space-title-to-summary);
+}
+
+/* Сводка */
 .page-result .summary {
   width: 100%;
   text-align: left;
@@ -43,7 +54,7 @@
   margin-bottom: 12px;
 }
 
-/* Важное предупреждение — слева */
+/* Предупреждение */
 .page-result .warning {
   width: 100%;
   text-align: left;
@@ -51,7 +62,7 @@
   margin: 0 0 24px 0;
 }
 
-/* Шаги — слева, инструкция внутри — justify */
+/* Блок шагов */
 .page-result .steps {
   width: 100%;
   text-align: left;
@@ -59,12 +70,17 @@
   margin-bottom: 24px;
 }
 
+/* ТОЛЬКО уменьшенный отступ после "Что делать дальше?" */
+.page-result .steps-title {
+  margin-bottom: var(--space-steps-title-to-list);
+}
+
 .page-result .steps .instruction {
   text-align: justify;
   margin-top: 12px;
 }
 
-/* Контакты — горизонтально, цвет черный, ссылки кликабельные */
+/* Контакты */
 .page-result .contacts {
   width: 100%;
   display: flex;
