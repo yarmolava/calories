@@ -16,34 +16,31 @@ html {
   overflow-y: scroll;
 }
 
-/* ====== PAGE BASE ====== */
 .page {
   min-height: 100vh;
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-/* ====== PAGE BACKGROUNDS (IMAGES) ====== */
+/* ====== PAGE BACKGROUNDS ====== */
 .page-first {
-  background-image: url("images/1.jpg");
+  background: radial-gradient(circle at top left, #c2e9fb, #fbc2eb, #a1c4fd);
 }
 
 .page-gender {
-  background-image: url("images/2.jpg");
+  background: radial-gradient(circle at top right, #ffecd2, #fcb69f, #ff9a9e, #a1c4fd);
 }
 
 .page-activity {
-  background-image: url("images/3.jpg");
+  background: radial-gradient(circle at bottom left, #fbc2eb, #a6c1ee, #d4fc79);
 }
 
 .page-data {
-  background-image: url("images/4.jpg");
+  background: radial-gradient(circle at bottom right, #89f7fe, #66a6ff, #fddb92);
 }
 
 .page-result {
-  background-image: url("images/5.jpg");
+  background: radial-gradient(circle at center, #667eea, #764ba2, #89f7fe);
 }
 
 /* ====== LAYOUT ====== */
@@ -125,6 +122,7 @@ input {
 }
 
 /* ====== BUTTONS ====== */
+/* все кнопки по умолчанию гибкие */
 button {
   padding: 15px;
   margin-top: 20px;
@@ -184,7 +182,7 @@ input[type="number"] {
   box-sizing: border-box;
 }
 
-/* ====== DATA PAGE INPUT GROUP ====== */
+/* Для страницы данных: расположение полей одно под другим */
 .page-data .input-group {
   display: flex;
   flex-direction: column;
@@ -228,7 +226,7 @@ input[type="number"] {
   line-height: 1.6;
 }
 
-/* ====== MAIN PAGE TITLE ====== */
+/* ====== MAIN PAGE “Calculator by Yarmolava” ====== */
 .main-title {
   text-align: center;
   margin-top: 40px;
@@ -239,12 +237,12 @@ input[type="number"] {
   line-height: 1.1;
 }
 
-/* ====== HIDDEN ====== */
+/* ====== HIDDEN ELEMENTS ====== */
 .hidden {
   display: none;
 }
 
-/* ====== MOBILE ====== */
+/* ====== MOBILE SCALE ====== */
 @media (max-width: 480px) {
   html {
     font-size: 18px;
@@ -292,7 +290,7 @@ input[type="number"] {
   }
 }
 
-/* ====== RESULTS PAGE ====== */
+/* ====== RESULTS PAGE LOCAL RULES ===== */
 .page-result .container {
   align-items: flex-start;
   text-align: left;
@@ -315,3 +313,5 @@ input[type="number"] {
   justify-content: space-between;
   text-align: left;
 }
+
+
