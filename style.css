@@ -16,9 +16,12 @@ html {
   overflow-y: scroll;
 }
 
+/* ====== PAGE BASE ====== */
 .page {
   min-height: 100vh;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
@@ -41,14 +44,6 @@ html {
 
 .page-result {
   background-image: url("images/5.jpg");
-}
-
-/* общее поведение фона */
-.page {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 /* ====== LAYOUT ====== */
@@ -130,7 +125,6 @@ input {
 }
 
 /* ====== BUTTONS ====== */
-/* все кнопки по умолчанию гибкие */
 button {
   padding: 15px;
   margin-top: 20px;
@@ -190,7 +184,7 @@ input[type="number"] {
   box-sizing: border-box;
 }
 
-/* Для страницы данных: расположение полей одно под другим */
+/* ====== DATA PAGE INPUT GROUP ====== */
 .page-data .input-group {
   display: flex;
   flex-direction: column;
@@ -234,7 +228,7 @@ input[type="number"] {
   line-height: 1.6;
 }
 
-/* ====== MAIN PAGE “Calculator by Yarmolava” ====== */
+/* ====== MAIN PAGE TITLE ====== */
 .main-title {
   text-align: center;
   margin-top: 40px;
@@ -245,12 +239,12 @@ input[type="number"] {
   line-height: 1.1;
 }
 
-/* ====== HIDDEN ELEMENTS ====== */
+/* ====== HIDDEN ====== */
 .hidden {
   display: none;
 }
 
-/* ====== MOBILE SCALE ====== */
+/* ====== MOBILE ====== */
 @media (max-width: 480px) {
   html {
     font-size: 18px;
@@ -298,7 +292,7 @@ input[type="number"] {
   }
 }
 
-/* ====== RESULTS PAGE LOCAL RULES ===== */
+/* ====== RESULTS PAGE ====== */
 .page-result .container {
   align-items: flex-start;
   text-align: left;
