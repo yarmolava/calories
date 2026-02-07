@@ -22,25 +22,33 @@ html {
   background-attachment: fixed;
 }
 
-/* ====== PAGE BACKGROUNDS ====== */
+/* ====== PAGE BACKGROUNDS (IMAGES) ====== */
 .page-first {
-  background: radial-gradient(circle at top left, #c2e9fb, #fbc2eb, #a1c4fd);
+  background-image: url("images/1.jpg");
 }
 
 .page-gender {
-  background: radial-gradient(circle at top right, #ffecd2, #fcb69f, #ff9a9e, #a1c4fd);
+  background-image: url("images/2.jpg");
 }
 
 .page-activity {
-  background: radial-gradient(circle at bottom left, #fbc2eb, #a6c1ee, #d4fc79);
+  background-image: url("images/3.jpg");
 }
 
 .page-data {
-  background: radial-gradient(circle at bottom right, #89f7fe, #66a6ff, #fddb92);
+  background-image: url("images/4.jpg");
 }
 
 .page-result {
-  background: radial-gradient(circle at center, #667eea, #764ba2, #89f7fe);
+  background-image: url("images/5.jpg");
+}
+
+/* общее поведение фона */
+.page {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* ====== LAYOUT ====== */
