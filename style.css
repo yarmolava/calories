@@ -27,23 +27,23 @@ html {
 
 /* ====== PAGE BACKGROUNDS (IMAGES) ====== */
 .page-first {
-  background-image: url("images/1.jpg");
+  background-image: url("images/1.png");
 }
 
 .page-gender {
-  background-image: url("images/2.jpg");
+  background-image: url("images/2.png");
 }
 
 .page-activity {
-  background-image: url("images/3.jpg");
+  background-image: url("images/3.png");
 }
 
 .page-data {
-  background-image: url("images/4.jpg");
+  background-image: url("images/4.png");
 }
 
 .page-result {
-  background-image: url("images/5.jpg");
+  background-image: url("images/5.png");
 }
 
 /* ====== LAYOUT ====== */
