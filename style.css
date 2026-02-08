@@ -93,20 +93,6 @@ input {
   box-shadow: 0 0 25px rgba(91,169,179,0.45);
 }
 
-/* ====== ACTIVITY LIST ====== */
-.list .activity-item {
-  margin: 12px 0;
-  padding: 16px;
-  width: 100%;
-  line-height: 1.5;
-  cursor: pointer;
-}
-
-.list .activity-item strong {
-  font-weight: 700;
-  font-size: 16px;
-}
-
 /* ====== BUTTONS ====== */
 button {
   width: 100%;
@@ -129,53 +115,14 @@ button:disabled {
   cursor: default;
 }
 
-.secondary {
-  background: rgba(255,255,255,0.35);
-  color: #5ba9b3;
-  border: 1px solid #5ba9b3;
-}
-
-/* ====== INPUTS ====== */
-input[type="number"] {
-  width: 100%;
-  padding: 12px;
-  margin-top: 12px;
-  border-radius: 20px;
-  border: none;
-  outline: none;
-}
-
-/* ====== METHOD BLOCK ====== */
-#method {
-  display: none;
-  margin-top: 24px;
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.35);
-  border-radius: 20px;
-}
-
-#method h2,
-#method h3 {
-  text-align: center;
-  color: #ff7a7a;
-}
-
-#method p,
-#method li {
-  line-height: 1.6;
-}
-
-/* ====== HIDDEN ====== */
-.hidden {
-  display: none;
-}
-
-/* ====== MOBILE (МАСШТАБ ВСЕГО САЙТА) ====== */
+/* ====== MOBILE VERSION ====== */
 @media (max-width: 480px) {
-  body {
-    transform: scale(0.8);       /* масштаб сайта, регулируй по вкусу */
-    transform-origin: top center;
+  /* === для страницы gender === */
+  body.page-gender {
+    transform: scale(0.8);       /* уменьшаем масштаб */
+    transform-origin: top center; /* фиксируем центр */
     width: 125%;                 /* компенсируем уменьшение */
+    overflow-x: hidden;          /* запрещаем горизонтальный скролл */
   }
 
   .container {
@@ -203,5 +150,3 @@ input[type="number"] {
   display: flex;
   justify-content: space-between;
 }
-
-
