@@ -170,19 +170,22 @@ input[type="number"] {
   display: none;
 }
 
-/* ====== MOBILE (ТОЛЬКО БЕЗ ЛОМКИ) ====== */
+/* ====== MOBILE (МАСШТАБ ВСЕГО САЙТА) ====== */
 @media (max-width: 480px) {
+  body {
+    transform: scale(0.8);       /* масштаб сайта, регулируй по вкусу */
+    transform-origin: top center;
+    width: 125%;                 /* компенсируем уменьшение */
+  }
 
   .container {
     max-width: 100%;
-    margin-top: 24px;
     padding: 16px;
   }
 
   .card {
     width: calc(50% - 12px);
   }
-
 }
 
 /* ====== RESULT PAGE ====== */
