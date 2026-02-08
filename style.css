@@ -170,17 +170,26 @@ input[type="number"] {
   display: none;
 }
 
-/* ====== MOBILE (МАСШТАБ ВСЕГО САЙТА) ====== */
+/* ====== MOBILE ====== */
 @media (max-width: 480px) {
-  body {
-    transform: scale(0.8);       /* масштаб сайта, регулируй по вкусу */
-    transform-origin: top center;
-    width: 125%;                 /* компенсируем уменьшение */
-  }
 
   .container {
     max-width: 100%;
+    margin-top: 24px;
     padding: 16px;
+    background: none !important; /* отключаем стекло */
+    box-shadow: none !important;   /* убираем тени */
+    border: none !important;
+  }
+
+  .card,
+  .activity-item,
+  button,
+  input,
+  #method {
+    background: none !important; /* отключаем стекло на всех блоках */
+    box-shadow: none !important;
+    border: none !important;
   }
 
   .card {
@@ -203,3 +212,4 @@ input[type="number"] {
   display: flex;
   justify-content: space-between;
 }
+
