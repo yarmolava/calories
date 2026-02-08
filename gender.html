@@ -8,20 +8,27 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ====== PAGE WRAPPER (КАК НА 1 СТРАНИЦЕ) ====== */
+    /* ===== ФИКС СМЕЩЕНИЯ (КАК НА 1 СТРАНИЦЕ) ===== */
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    /* ===== WRAPPER ===== */
     .page-wrapper {
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: flex-start;
       min-height: 100vh;
     }
 
-    /* ====== КЛЮЧЕВАЯ ПРАВКА ====== */
+    /* ===== КОНТЕЙНЕР ===== */
     .container {
-      width: 100%; /* НЕ ДАЁМ СЖИМАТЬСЯ */
+      width: 100%;
     }
 
-    /* ====== BUTTON ====== */
+    /* ===== КНОПКА ===== */
     #nextBtn {
       margin-top: 35px;
     }
