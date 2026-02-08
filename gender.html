@@ -2,66 +2,77 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=520, initial-scale=0.85">
-  <title>Калькулятор нормы калорий</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <title>Калькулятор нормы калорий</title>
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ===== ФИКС СМЕЩЕНИЯ (КАК НА 1 СТРАНИЦЕ) ===== */
-    body {
-      display: flex;
-      justify-content: center;
-    }
-
-    /* ===== WRAPPER ===== */
-    .page-wrapper {
+    /* === КРИТИЧНО: убираем горизонтальный сдвиг === */
+    html, body {
       width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      box-sizing: border-box;
     }
 
-    /* ===== КОНТЕЙНЕР ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    /* === КОНТЕЙНЕР — как на 1 странице === */
     .container {
+      max-width: 420px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 24px 20px 32px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    /* === КАРТОЧКИ === */
+    .cards {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
       width: 100%;
     }
 
-    /* ===== КНОПКА ===== */
+    .card {
+      flex: 1;
+      max-width: 180px;
+      text-align: center;
+      padding: 20px 12px;
+      border-radius: 18px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* === КНОПКА === */
     #nextBtn {
-      margin-top: 35px;
+      margin-top: 32px;
+      width: 100%;
     }
   </style>
 </head>
 
 <body class="page page-gender">
 
-<div class="page-wrapper">
-
-  <div class="container">
-
+  <div class="container glass">
     <h1>Выбери свой пол</h1>
 
     <div class="cards">
-      <div class="card" data-gender="male">
-        👨<br>Мужской
-      </div>
-
-      <div class="card" data-gender="female">
-        👩<br>Женский
-      </div>
+      <div class="card" data-gender="male">👨<br>Мужской</div>
+      <div class="card" data-gender="female">👩<br>Женский</div>
     </div>
 
-    <button id="nextBtn" class="btn-next" disabled>
-      Продолжить
-    </button>
-
+    <button id="nextBtn" class="btn-next" disabled>Продолжить</button>
   </div>
 
-</div>
-
-<script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
 </html>
