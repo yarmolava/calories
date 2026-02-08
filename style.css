@@ -173,9 +173,9 @@ input[type="number"] {
 /* ====== MOBILE (МАСШТАБ ВСЕГО САЙТА) ====== */
 @media (max-width: 480px) {
   body {
-    transform: scale(0.8);
+    transform: scale(0.8);       /* одинаково для всех страниц */
     transform-origin: top center;
-    width: 125%;
+    width: 125%;                 /* одинаково для всех страниц */
   }
 
   .container {
