@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=520, initial-scale=0.85">
-  <title>Выбери свой пол - Calculator by Yarmolava</title>
+  <title>Calculator by Yarmolava</title>
+
   <link rel="icon" href="/favicon-y.png">
   <link rel="shortcut icon" href="/favicon-y.png">
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ====== PAGE WRAPPER (ЦЕНТРОВКА МОЛЬБ) ====== */
+    /* ====== PAGE WRAPPER (ЦЕНТРОВКА БЕЗ РАСТЯЖЕНИЯ) ====== */
     .page-wrapper {
       display: flex;
       justify-content: center;
@@ -17,9 +18,74 @@
       min-height: 100vh;
     }
 
+    /* ====== CARDS ====== */
+    .cards {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      padding: 20px;
+      width: 120px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,.1);
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 20px;
+      box-sizing: border-box;
+    }
+
+    .selected {
+      border: 2px solid rgba(91,169,179,0.9);
+      box-shadow: 0 0 25px rgba(91,169,179,0.45);
+    }
+
     /* ====== BUTTON ====== */
-    .btn-next {
+    #nextBtn {
       margin-top: 35px;
+      width: 100%;
+      padding: 15px;
+      background: rgba(91, 169, 179, 1);
+      color: white;
+      border: none;
+      border-radius: 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #nextBtn:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    /* ====== MOBILE SCALE ====== */
+    @media (max-width: 480px) {
+      body {
+        transform: scale(0.8); 
+        transform-origin: top center;
+        width: 125%;
+        display: flex;
+        justify-content: center;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 16px;
+      }
+
+      .cards {
+        gap: 12px;
+      }
+
+      .card {
+        width: calc(50% - 12px);
+      }
     }
   </style>
 </head>
@@ -37,13 +103,14 @@
       <div class="card" data-gender="female">👩<br>Женский</div>
     </div>
 
-    <button id="nextBtn" class="btn-next" disabled>Продолжить</button>
+    <button id="nextBtn" disabled>Продолжить</button>
 
   </div>
 
 </div>
 
 <script>
+  // Выбор пола и активация кнопки
   const cards = document.querySelectorAll('.card');
   const nextBtn = document.getElementById('nextBtn');
   let selectedGender = null;
@@ -58,7 +125,8 @@
   });
 
   nextBtn.addEventListener('click', () => {
-    if(selectedGender) {
+    if (selectedGender) {
+      localStorage.setItem('gender', selectedGender);
       window.location.href = 'activity.html';
     }
   });
@@ -66,3 +134,5 @@
 
 </body>
 </html>
+
+
