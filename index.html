@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Масштаб для мобильных устройств -->
+  <meta name="viewport" content="width=520, initial-scale=0.85">
   <title>Calculator by Yarmolava</title>
   <link rel="icon" href="/favicon-y.png">
   <link rel="shortcut icon" href="/favicon-y.png">
@@ -10,6 +11,7 @@
 
   <style>
     /* ====== MINIMAL ADJUSTMENTS ====== */
+
     .container.first-page p:first-of-type {
       text-align: justify;
     }
@@ -65,22 +67,10 @@
       margin-top: 35px;
     }
 
-    /* ====== MOBILE ADJUSTMENT (масштаб) ====== */
-    @media (max-width: 480px) {
-      body {
-        transform: scale(0.8);        /* регулируй масштаб под телефон */
-        transform-origin: top center;
-        width: 125%;                  /* компенсируем уменьшение */
-      }
-
-      .container {
-        max-width: 100%;
-        padding: 16px;
-      }
-
-      .card {
-        width: calc(50% - 12px);
-      }
+    /* Центрирование контейнера для масштаба */
+    body {
+      display: flex;
+      justify-content: center;
     }
   </style>
 </head>
@@ -112,7 +102,9 @@
       Формула Миффлина – Сан Жеора (1990 год) — наиболее точный метод расчета суточной потребности в калориях. Точность составляет ±10% от реальных измерений для здоровых людей.
     </p>
 
+    <br>
     <h3>Как происходит расчет</h3>
+
     <h3>Этап 1: Базовый метаболизм (BMR)</h3>
     <p class="justify">
       Количество калорий, которое организм тратит в покое на поддержание жизненно важных функций: дыхание, работу сердца, мозга, обновление клеток.
@@ -124,6 +116,7 @@
       <li>Для мужчин: BMR = (10 × вес в кг) + (6.25 × рост в см) − (5 × возраст) + 5</li>
     </ul>
 
+    <br>
     <h3>Этап 2: Общий расход энергии (TDEE)</h3>
     <p class="justify">
       Базовый метаболизм умножается на коэффициент активности для учета тренировок и движения в течение дня.
@@ -141,6 +134,7 @@
       Формула: TDEE = BMR × коэффициент активности.
     </p>
 
+    <br>
     <h3>Этап 3: Корректировка под цель</h3>
     <ul>
       <li>Снижение веса: TDEE − 15–20%</li>
@@ -148,6 +142,7 @@
       <li>Набор массы: TDEE + 10–15%</li>
     </ul>
 
+    <br>
     <h3>Этап 4: Расчет БЖУ</h3>
     <ul>
       <li>Белки: 1.6–2.2 г/кг веса (используется 2.0)</li>
