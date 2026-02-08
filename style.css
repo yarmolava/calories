@@ -63,8 +63,7 @@ p, label {
 .card,
 .activity-item,
 button,
-input,
-#method {
+input {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -171,35 +170,36 @@ input[type="number"] {
   display: none;
 }
 
-/* ====== MOBILE (БЕЗ СТЕКЛА) ====== */
+/* ====== MOBILE (МАСШТАБ ВСЕГО САЙТА) ====== */
 @media (max-width: 480px) {
-
-  html {
-    font-size: 18px;
+  body {
+    transform: scale(0.8);       /* масштаб сайта, регулируй по вкусу */
+    transform-origin: top center;
+    width: 125%;                 /* компенсируем уменьшение */
   }
 
   .container {
     max-width: 100%;
-    margin-top: 24px;
     padding: 16px;
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-  }
-
-  .card,
-  .activity-item,
-  button,
-  input,
-  #method {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: none !important;
-    backdrop-filter: none !important;
   }
 
   .card {
     width: calc(50% - 12px);
   }
+}
 
+/* ====== RESULT PAGE ====== */
+.page-result .container {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.page-result h1 {
+  text-align: center;
+}
+
+.page-result .contacts {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }
