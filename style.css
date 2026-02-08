@@ -173,9 +173,9 @@ input[type="number"] {
 /* ====== MOBILE (МАСШТАБ ВСЕГО САЙТА) ====== */
 @media (max-width: 480px) {
   body {
-    transform: scale(0.8);       /* одинаково для всех страниц */
+    transform: scale(0.8);       /* масштаб сайта, регулируй по вкусу */
     transform-origin: top center;
-    width: 125%;                 /* одинаково для всех страниц */
+    width: 125%;                 /* компенсируем уменьшение */
   }
 
   .container {
@@ -185,15 +185,6 @@ input[type="number"] {
 
   .card {
     width: calc(50% - 12px);
-  }
-}
-
-/* ====== MOBILE FIX: NO HORIZONTAL SCROLL ====== */
-@media (max-width: 480px) {
-  html,
-  body,
-  .page {
-    overflow-x: hidden;
   }
 }
 
@@ -212,3 +203,5 @@ input[type="number"] {
   display: flex;
   justify-content: space-between;
 }
+
+
