@@ -2,21 +2,39 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <!-- НОРМАЛЬНЫЙ viewport, как на 1 странице -->
+  <!-- Единый контроль масштаба -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Калькулятор нормы калорий</title>
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* ===== ЛОКАЛЬНЫЕ ПРАВКИ (НЕ ЛОМАЮТ ВЕБ) ===== */
+    /* ===== КНОПКА ПРОДОЛЖИТЬ ===== */
     #nextBtn {
       margin-top: 35px;
     }
 
-    /* страховка ТОЛЬКО для этой страницы */
+    .justify {
+      text-align: justify;
+    }
+
+    /* ====== МАСШТАБ И ЦЕНТРИРОВАНИЕ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ ====== */
     @media (max-width: 480px) {
       body {
-        overflow-x: hidden;
+        transform: scale(0.8);       /* уменьшение как на первой странице */
+        transform-origin: top center; /* фиксируем центр */
+        width: 125%;                  /* компенсируем уменьшение */
+        overflow-x: hidden;           /* убираем горизонтальный скролл */
+        display: flex;
+        justify-content: center;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 16px;
+      }
+
+      .card {
+        width: calc(50% - 12px);
       }
     }
   </style>
@@ -24,21 +42,20 @@
 
 <body class="page page-gender">
 
-  <div class="container">
+<div class="container">
 
-    <h1>Выбери свой пол</h1>
+  <h1>Выбери свой пол</h1>
 
-    <div class="cards">
-      <div class="card" data-gender="male">👨<br>Мужской</div>
-      <div class="card" data-gender="female">👩<br>Женский</div>
-    </div>
-
-    <button id="nextBtn" class="btn-next" disabled>
-      Продолжить
-    </button>
-
+  <div class="cards">
+    <div class="card" data-gender="male">👨<br>Мужской</div>
+    <div class="card" data-gender="female">👩<br>Женский</div>
   </div>
 
-  <script src="script.js"></script>
+  <button id="nextBtn" class="btn-next" disabled>Продолжить</button>
+
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
