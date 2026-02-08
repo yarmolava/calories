@@ -2,67 +2,30 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
+  <!-- НОРМАЛЬНЫЙ viewport, как на 1 странице -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <title>Калькулятор нормы калорий</title>
   <link rel="stylesheet" href="style.css">
 
   <style>
-    /* === КРИТИЧНО: убираем горизонтальный сдвиг === */
-    html, body {
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      overflow-x: hidden;
-      box-sizing: border-box;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
-    /* === КОНТЕЙНЕР — как на 1 странице === */
-    .container {
-      max-width: 420px;
-      width: 100%;
-      margin: 0 auto;
-      padding: 24px 20px 32px;
-    }
-
-    h1 {
-      text-align: center;
-      margin-bottom: 24px;
-    }
-
-    /* === КАРТОЧКИ === */
-    .cards {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      width: 100%;
-    }
-
-    .card {
-      flex: 1;
-      max-width: 180px;
-      text-align: center;
-      padding: 20px 12px;
-      border-radius: 18px;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    /* === КНОПКА === */
+    /* ===== ЛОКАЛЬНЫЕ ПРАВКИ (НЕ ЛОМАЮТ ВЕБ) ===== */
     #nextBtn {
-      margin-top: 32px;
-      width: 100%;
+      margin-top: 35px;
+    }
+
+    /* страховка ТОЛЬКО для этой страницы */
+    @media (max-width: 480px) {
+      body {
+        overflow-x: hidden;
+      }
     }
   </style>
 </head>
 
 <body class="page page-gender">
 
-  <div class="container glass">
+  <div class="container">
+
     <h1>Выбери свой пол</h1>
 
     <div class="cards">
@@ -70,7 +33,10 @@
       <div class="card" data-gender="female">👩<br>Женский</div>
     </div>
 
-    <button id="nextBtn" class="btn-next" disabled>Продолжить</button>
+    <button id="nextBtn" class="btn-next" disabled>
+      Продолжить
+    </button>
+
   </div>
 
   <script src="script.js"></script>
