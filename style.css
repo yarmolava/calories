@@ -63,7 +63,8 @@ p, label {
 .card,
 .activity-item,
 button,
-input {
+input,
+#method {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -173,23 +174,24 @@ input[type="number"] {
 /* ====== MOBILE ====== */
 @media (max-width: 480px) {
 
-  .container {
-    max-width: 100%;
-    margin-top: 24px;
-    padding: 16px;
-    background: none !important; /* отключаем стекло */
-    box-shadow: none !important;   /* убираем тени */
-    border: none !important;
-  }
-
+  /* Контейнер и все блоки - стекло отключаем */
+  .container,
   .card,
   .activity-item,
   button,
   input,
   #method {
-    background: none !important; /* отключаем стекло на всех блоках */
+    background: none !important;
     box-shadow: none !important;
     border: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  .container {
+    max-width: 100%;
+    margin-top: 24px;
+    padding: 16px;
   }
 
   .card {
@@ -212,4 +214,3 @@ input[type="number"] {
   display: flex;
   justify-content: space-between;
 }
-
