@@ -20,8 +20,8 @@
     /* ====== МАСШТАБ И ЦЕНТРИРОВАНИЕ ДЛЯ МОБИЛЬНОЙ ВЕРСИИ ====== */
     @media (max-width: 480px) {
       body {
-        transform: scale(0.8);       /* уменьшение как на первой странице */
-        transform-origin: top center; /* фиксируем центр */
+        transform: scale(0.8);       /* масштаб как на первой странице */
+        transform-origin: top center;
         width: 125%;                  /* компенсируем уменьшение */
         overflow-x: hidden;           /* убираем горизонтальный скролл */
         display: flex;
@@ -33,8 +33,16 @@
         padding: 16px;
       }
 
+      .cards {
+        gap: 12px;
+      }
+
       .card {
         width: calc(50% - 12px);
+      }
+
+      #nextBtn {
+        width: 100%;
       }
     }
   </style>
@@ -55,7 +63,28 @@
 
 </div>
 
-<script src="script.js"></script>
+<script>
+  // Логика выбора пола
+  const cards = document.querySelectorAll('.card');
+  const nextBtn = document.getElementById('nextBtn');
+  let selectedGender = null;
+
+  cards.forEach(card => {
+    card.addEventListener('click', () => {
+      cards.forEach(c => c.classList.remove('selected'));
+      card.classList.add('selected');
+      selectedGender = card.dataset.gender;
+      nextBtn.disabled = false;
+    });
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if (selectedGender) {
+      localStorage.setItem('gender', selectedGender); // сохраняем выбор
+      window.location.href = 'activity.html'; // переход к следующей странице
+    }
+  });
+</script>
 
 </body>
 </html>
