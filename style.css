@@ -6,14 +6,14 @@
 }
 
 /* ====== BASE ====== */
+html {
+  overflow-y: scroll;
+}
+
 body {
   font-family: 'Manrope', sans-serif;
   margin: 0;
   color: #111;
-}
-
-html {
-  overflow-y: scroll;
 }
 
 /* ====== PAGE BASE ====== */
@@ -25,26 +25,12 @@ html {
   background-attachment: fixed;
 }
 
-/* ====== PAGE BACKGROUNDS (IMAGES) ====== */
-.page-first {
-  background-image: url("images/1.png");
-}
-
-.page-gender {
-  background-image: url("images/2.png");
-}
-
-.page-activity {
-  background-image: url("images/3.png");
-}
-
-.page-data {
-  background-image: url("images/4.png");
-}
-
-.page-result {
-  background-image: url("images/5.png");
-}
+/* ====== PAGE BACKGROUNDS ====== */
+.page-first    { background-image: url("images/1.png"); }
+.page-gender   { background-image: url("images/2.png"); }
+.page-activity { background-image: url("images/3.png"); }
+.page-data     { background-image: url("images/4.png"); }
+.page-result   { background-image: url("images/5.png"); }
 
 /* ====== LAYOUT ====== */
 .container {
@@ -60,8 +46,7 @@ html {
 /* ====== TYPOGRAPHY ====== */
 h1, h2, h3 {
   font-weight: 700;
-  margin-top: 0;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
   text-align: center;
 }
 
@@ -73,7 +58,7 @@ p, label {
   text-align: center;
 }
 
-/* ====== GLASS UI BASE ====== */
+/* ====== GLASS UI ====== */
 .container,
 .card,
 .activity-item,
@@ -97,11 +82,10 @@ input {
 
 .card {
   padding: 20px;
-  border-radius: 20px;
-  cursor: pointer;
   width: 120px;
-  box-shadow: 0 4px 10px rgba(0,0,0,.1);
   text-align: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,.1);
 }
 
 .selected {
@@ -113,11 +97,9 @@ input {
 .list .activity-item {
   margin: 12px 0;
   padding: 16px;
-  border-radius: 20px;
-  cursor: pointer;
-  line-height: 1.5;
   width: 100%;
-  box-sizing: border-box;
+  line-height: 1.5;
+  cursor: pointer;
 }
 
 .list .activity-item strong {
@@ -127,6 +109,7 @@ input {
 
 /* ====== BUTTONS ====== */
 button {
+  width: 100%;
   padding: 15px;
   margin-top: 20px;
   background: var(--button-color);
@@ -135,7 +118,6 @@ button {
   border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
-  width: 100%;
 }
 
 button:active {
@@ -153,26 +135,6 @@ button:disabled {
   border: 1px solid #5ba9b3;
 }
 
-/* ====== NAVIGATION BUTTONS ====== */
-.nav-btn {
-  width: 200px;
-  max-width: 90%;
-  padding: 14px;
-  border-radius: 20px;
-  font-size: 16px;
-  background-color: var(--button-color);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  display: block;
-  margin: 20px auto 0;
-}
-
-.nav-btn:active {
-  transform: scale(0.98);
-}
-
 /* ====== INPUTS ====== */
 input[type="number"] {
   width: 100%;
@@ -181,30 +143,6 @@ input[type="number"] {
   border-radius: 20px;
   border: none;
   outline: none;
-  display: block;
-  box-sizing: border-box;
-}
-
-/* ====== DATA PAGE INPUT GROUP ====== */
-.page-data .input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  width: 100%;
-}
-
-/* ====== GOALS ====== */
-.goal-group label {
-  display: block;
-  margin: 10px 0;
-}
-
-/* ====== TEXT BLOCKS ====== */
-.hint {
-  margin-top: 16px;
-  font-size: 14px;
-  line-height: 1.5;
-  color: #444;
 }
 
 /* ====== METHOD BLOCK ====== */
@@ -214,8 +152,6 @@ input[type="number"] {
   padding: 24px;
   background: rgba(255, 255, 255, 0.35);
   border-radius: 20px;
-  text-align: left;
-  box-shadow: inset 0 0 10px rgba(255,255,255,0.2);
 }
 
 #method h2,
@@ -229,77 +165,27 @@ input[type="number"] {
   line-height: 1.6;
 }
 
-/* ====== MAIN PAGE TITLE ====== */
-.main-title {
-  text-align: center;
-  margin-top: 40px;
-}
-
-.main-title span {
-  display: inline;
-  line-height: 1.1;
-}
-
 /* ====== HIDDEN ====== */
 .hidden {
   display: none;
 }
 
-/* ====== MOBILE ====== */
+/* ====== MOBILE (ТОЛЬКО БЕЗ ЛОМКИ) ====== */
 @media (max-width: 480px) {
-  html {
-    font-size: 18px;
-  }
-
-  body {
-    zoom: 1;
-    transform-origin: top center;
-  }
 
   .container {
     max-width: 100%;
     margin-top: 24px;
-    padding: 20px;
-  }
-
-  h1 {
-    font-size: 32px;
-    line-height: 1.2;
-  }
-
-  h2 {
-    font-size: 26px;
-    line-height: 1.25;
-  }
-
-  h3 {
-    font-size: 22px;
-    line-height: 1.3;
-  }
-
-  p,
-  label,
-  input,
-  button {
-    font-size: 16px;
+    padding: 16px;
   }
 
   .card {
     width: calc(50% - 12px);
-    padding: 18px;
-    margin-bottom: 12px;
   }
 
-  button {
-    padding: 16px;
-  }
-
-  input[type="number"] {
-    padding: 14px;
-  }
 }
 
-/* ====== RESULTS PAGE ====== */
+/* ====== RESULT PAGE ====== */
 .page-result .container {
   align-items: flex-start;
   text-align: left;
@@ -309,16 +195,8 @@ input[type="number"] {
   text-align: center;
 }
 
-.page-result .summary,
-.page-result .warning,
-.page-result .steps {
-  width: 100%;
-  text-align: left;
-}
-
 .page-result .contacts {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  text-align: left;
 }
