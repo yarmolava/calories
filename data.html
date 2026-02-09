@@ -2,7 +2,8 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Единый мобильный масштаб -->
+  <meta name="viewport" content="width=520, initial-scale=0.83">
   <title>Данные</title>
   <link rel="stylesheet" href="style.css">
 
@@ -115,8 +116,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   [age, height, weight].forEach(input => {
-    input.addEventListener("input", validate);     // свободный ввод
-    input.addEventListener("blur", () => {         // ограничение ПОСЛЕ ввода
+    input.addEventListener("input", validate);
+    input.addEventListener("blur", () => {
       clampOnBlur(input);
       validate();
     });
