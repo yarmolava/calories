@@ -115,23 +115,35 @@ button:disabled {
   cursor: default;
 }
 
-/* ====== MOBILE VERSION ====== */
+/* ====== MOBILE VERSION (ЕДИНАЯ ДЛЯ ВСЕХ СТРАНИЦ) ====== */
 @media (max-width: 480px) {
-  /* === для страницы gender === */
-  body.page-gender {
-    transform: scale(0.8);       /* уменьшаем масштаб */
-    transform-origin: top center; /* фиксируем центр */
-    width: 125%;                 /* компенсируем уменьшение */
-    overflow-x: hidden;          /* запрещаем горизонтальный скролл */
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  /* FIX: mobile scroll + background */
+  .page {
+    background-attachment: scroll;
   }
 
   .container {
     max-width: 100%;
     padding: 16px;
+    margin-top: 24px;
+  }
+
+  .cards {
+    justify-content: center;
   }
 
   .card {
     width: calc(50% - 12px);
+  }
+
+  button {
+    width: 100%;
   }
 }
 
