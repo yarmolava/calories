@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=520, initial-scale=0.83">
   <title>Калькулятор нормы калорий</title>
   <link rel="stylesheet" href="style.css">
 
@@ -33,7 +33,24 @@
 
 </div>
 
-<script src="script.js"></script>
+<script>
+const nextBtn = document.getElementById("nextBtn");
+const items = document.querySelectorAll('.card');
+
+items.forEach(item => {
+  item.addEventListener('click', () => {
+    items.forEach(i => i.classList.remove('selected'));
+    item.classList.add('selected');
+
+    localStorage.setItem("gender", item.dataset.gender);
+    nextBtn.disabled = false;
+  });
+});
+
+nextBtn.addEventListener("click", () => {
+  window.location.href = "activity.html";
+});
+</script>
 
 </body>
 </html>
