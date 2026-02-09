@@ -131,7 +131,7 @@ button:disabled {
   .container {
     max-width: 100%;
     padding: 16px;
-    margin-top: 24px;
+    margin-top: 200px; /* смещение контейнера вниз для всех страниц */
   }
 
   .cards {
