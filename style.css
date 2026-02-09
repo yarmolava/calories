@@ -123,16 +123,15 @@ button:disabled {
     overflow-x: hidden;
   }
 
-  /* Смещаем весь контент вниз */
+  /* FIX: mobile scroll + background */
   .page {
     background-attachment: scroll;
-    padding-top: 200px; /* смещение контента на 200px вниз */
   }
 
   .container {
     max-width: 100%;
     padding: 16px;
-    margin-top: 0; /* margin убираем, теперь padding-top управляет */
+    margin-top: 224px; /* 40px + 200px смещение вниз для всех страниц */
   }
 
   .cards {
